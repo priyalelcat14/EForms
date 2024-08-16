@@ -1,0 +1,83 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="spefar.app.controller.Dialog2" xmlns:m="sap.m" xmlns:form="sap.ui.layout.form">
+    <m:Dialog horizontalScrolling="true" showHeader="true" state="None" stretch="false" title="Choose value for 'On Behalf of'" type="Standard" verticalScrolling="true">
+        <m:content>
+            <m:VBox alignItems="Stretch" direction="Column" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div" visible="true" displayInline="false">
+                <m:items>
+                    <m:HBox alignItems="Start" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div" visible="true" displayInline="false">
+                        <m:items>
+                            <form:Form width="100%" editable="true" visible="true">
+                                <form:title/>
+                                <form:formContainers>
+                                    <form:FormContainer visible="true">
+                                        <form:formElements>
+                                            <form:FormElement visible="true">
+                                                <form:label>
+                                                    <m:Label text="Name" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+                                                </form:label>
+                                                <form:fields>
+                                                    <m:Input id="searchid1_inp" type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="0"/>
+                                                </form:fields>
+                                            </form:FormElement>
+                                        </form:formElements>
+                                        <form:title/>
+                                    </form:FormContainer>
+                                </form:formContainers>
+                                <form:layout>
+                                    <form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="2" labelSpanL="3" columnsM="1" labelSpanM="2" labelSpanS="12"/>
+                                </form:layout>
+                            </form:Form>
+                            <m:VBox alignItems="Start" direction="Column" fitContainer="false" width="250px" height="119.0625px" justifyContent="Center" renderType="Div" visible="true" displayInline="false">
+                                <m:items>
+                                    <m:Button text="Search" type="Accept" icon="sap-icon://search" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="_onButtonPress1" />
+                                </m:items>
+                                <m:layoutData/>
+                            </m:VBox>
+                        </m:items>
+                        <m:layoutData/>
+                    </m:HBox>
+                    <m:Table id="onbehalfof" width="100%" noDataText="No data" mode="SingleSelectLeft" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true">
+                        <m:infoToolbar>
+                            <m:Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+                                <m:content>
+                                    <m:Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+                                </m:content>
+                            </m:Toolbar>
+                        </m:infoToolbar>
+                        <m:headerToolbar/>
+                        <m:columns>
+                            <m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                <m:header>
+                                    <m:Text text="USERID" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                </m:header>
+                                <m:footer/>
+                            </m:Column>
+                            <m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                <m:header>
+                                    <m:Text text="Full Name" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                </m:header>
+                                <m:footer/>
+                            </m:Column>
+                        </m:columns>
+                        <m:items>
+                            <m:ColumnListItem type="Active">
+                                <m:cells>
+                                    <m:ObjectIdentifier title="Ankit Verma" text="" titleActive="false" visible="true"/>
+                                    <m:Text text="Averma" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                </m:cells>
+                            </m:ColumnListItem>
+                        </m:items>
+                    </m:Table>
+                </m:items>
+                <m:layoutData/>
+            </m:VBox>
+        </m:content>
+        <m:beginButton/>
+        <m:buttons>
+            <m:Button text="Cancel" type="Reject" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="_onButtonPress2"/>
+            <m:Button text="OK" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="_onButtonPress3"/>
+        </m:buttons>
+        <m:customHeader/>
+        <m:endButton/>
+        <m:subHeader/>
+    </m:Dialog>
+</mvc:View>

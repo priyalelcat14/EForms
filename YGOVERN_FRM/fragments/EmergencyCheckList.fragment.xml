@@ -1,0 +1,200 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:form="sap.ui.layout.form" visible="{headerUserModel>/Exp}">
+	<VBox visible="{headerUserModel>/Exp}" class="sapUiLargeMarginBegin">
+		<Label text="" design="Bold" width="100%" textAlign="Begin" textDirection="Inherit"/>
+		<!-- REQ0470877:RMANDAL:GWDK901933:08/19/2019:MODIFY:START -->
+		<Link text="{i18n>link}" target="_blank"
+			href="https://sony.sharepoint.com/sites/SPE-mySPE/policies/legal/Anti-Bribery/Anti-Bribery%20Policy%20%204-1-14%20ENGLISH.pdf#search=Anti%2DBribery%20Policy"/>
+		<!--href="https://sharepoint.spe.sony.com/myspe/policies/legal/Anti-Bribery/Anti-Bribery%20Policy%20%204-1-14%20ENGLISH.pdf#search=anti%20bribery"-->
+		<!-- REQ0470877:RMANDAL:GWDK901933:08/19/2019:MODIFY:END -->
+		<Label text="" design="Bold" width="100%" textAlign="Begin" textDirection="Inherit"/>
+		<Text class="redColor sapUiMediumMarginBottom"
+			text="{i18n>emergency_tab_text} {i18n>emergency_tab_text1} {i18n>emergency_tab_text2} {i18n>emergency_tab_text3}"/>
+		<Bar design="Header">
+			<contentLeft>
+				<Label text="{i18n>EmgncyQues1}" design="Bold" width="100%" visible="{= ${modelData/riskData>Text} === 'Yes' ? 'true' : 'false' }"
+					required="true" textAlign="Begin" textDirection="Inherit"/>
+			</contentLeft>
+			<contentMiddle/>
+			<contentRight/>
+		</Bar>
+		<Bar design="Header">
+			<contentLeft>
+				<RadioButtonGroup id="idSelect2" columns="8" selectedIndex="{headerUserModel>/selectedIndex2}"
+					valueState="{headerUserModel>/ValueState_emg1}" width="auto" editable="true" enabled="true" textDirection="Inherit"
+					select="_onRadioButtonGroupSelect2">
+					<buttons>
+						<RadioButton text="Yes" editable="true" enabled="{headerUserModel>/isEnable}" visible="true" width="auto" valueState="None" selected="false"/>
+						<RadioButton text="No" editable="true" enabled="{headerUserModel>/isEnable}" visible="true" width="auto" valueState="None" selected="false"/>
+					</buttons>
+				</RadioButtonGroup>
+			</contentLeft>
+			<contentMiddle/>
+			<contentRight/>
+		</Bar>
+		<Bar design="Header">
+			<contentLeft>
+				<Label text="{i18n>EmgncyQues2}" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+			</contentLeft>
+			<contentMiddle/>
+			<contentRight/>
+		</Bar>
+		<Bar design="Header">
+			<contentLeft>
+				<RadioButtonGroup id="idSelect3" columns="8" selectedIndex="{headerUserModel>/selectedIndex3}"
+					valueState="{headerUserModel>/ValueState_emg2}" width="auto" editable="true" enabled="true" textDirection="Inherit"
+					select="_onRadioButtonGroupSelect3">
+					<buttons>
+						<RadioButton text="Yes" editable="true" enabled="{headerUserModel>/isEnable}" visible="true" width="auto" valueState="None" selected="false"/>
+						<RadioButton text="No" editable="true" enabled="{headerUserModel>/isEnable}" visible="true" width="auto" valueState="None" selected="false"/>
+					</buttons>
+				</RadioButtonGroup>
+			</contentLeft>
+			<contentMiddle/>
+			<contentRight/>
+		</Bar>
+		<Bar design="Header">
+			<contentLeft>
+				<Label text="{i18n>EmgncyQues3}" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+			</contentLeft>
+			<contentMiddle/>
+			<contentRight/>
+		</Bar>
+		<Bar design="Header">
+			<contentLeft>
+				<RadioButtonGroup id="idSelect4" columns="8" selectedIndex="{headerUserModel>/selectedIndex4}"
+					valueState="{headerUserModel>/ValueState_emg3}" width="auto" editable="true" enabled="true" textDirection="Inherit"
+					select="_onRadioButtonGroupSelect4">
+					<buttons>
+						<RadioButton text="Yes" editable="true" enabled="{headerUserModel>/isEnable}" visible="true" width="auto" valueState="None" selected="false"/>
+						<RadioButton text="No" editable="true" enabled="{headerUserModel>/isEnable}" visible="true" width="auto" valueState="None" selected="false"/>
+					</buttons>
+				</RadioButtonGroup>
+			</contentLeft>
+			<contentMiddle/>
+			<contentRight/>
+		</Bar>
+		<Bar design="Header">
+			<contentLeft>
+				<Label text="{i18n>EmgncyQues4}" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+			</contentLeft>
+			<contentMiddle/>
+			<contentRight/>
+		</Bar>
+		<Bar design="Header">
+			<contentLeft>
+				<RadioButtonGroup id="idSelect5" columns="8" selectedIndex="{headerUserModel>/selectedIndex5}"
+					valueState="{headerUserModel>/ValueState_emg4}" width="auto" editable="true" enabled="true" textDirection="Inherit"
+					select="_onRadioButtonGroupSelect5">
+					<buttons>
+						<RadioButton text="Yes" editable="true" enabled="{headerUserModel>/isEnable}" visible="true" width="auto" valueState="None" selected="false"/>
+						<RadioButton text="No" editable="true" enabled="{headerUserModel>/isEnable}" visible="true" width="auto" valueState="None" selected="false"/>
+					</buttons>
+				</RadioButtonGroup>
+			</contentLeft>
+			<contentMiddle/>
+			<contentRight/>
+		</Bar>
+		<Bar design="Header">
+			<contentLeft>
+				<Text wrapping="true" class="labelClass"
+					text="Routine government action does not include any discretionary decision by the government offical, such as to award new business or continue business with a particular party. (Anti-Bribery Policy, Appendix H and Page 4 AB Policy)"
+					width="100%" textAlign="Begin" textDirection="Inherit"/>
+			</contentLeft>
+			<contentMiddle/>
+			<contentRight/>
+		</Bar>
+		<Bar design="Header">
+			<contentLeft>
+				<Text wrapping="true" class="labelClass"
+					text="Routine government action means only an action which is ordinarily and commonly performed by a foreign office such as \n (FCPA, US Code Title 15. Commerce and Trade, Chapter 2B-Securities Exchange)"
+					width="100%" textAlign="Begin" textDirection="Inherit"/>
+			</contentLeft>
+			<contentMiddle/>
+			<contentRight/>
+		</Bar>
+		<Bar design="Header">
+			<contentLeft>
+				<Label text="a. Obtaining permits, licenses, or other official documents to qualify a person to do business in a foreign country,"
+					design="Standard" width="100%" textAlign="Begin" textDirection="Inherit"/>
+			</contentLeft>
+			<contentMiddle/>
+			<contentRight/>
+		</Bar>
+		<Bar design="Header">
+			<contentLeft>
+				<Label text="b. Processing non-discretionary government papers, such as routine visas and work orders," design="Standard" width="100%"
+					textAlign="Begin" textDirection="Inherit"/>
+			</contentLeft>
+			<contentMiddle/>
+			<contentRight/>
+		</Bar>
+		<Bar design="Header">
+			<contentLeft>
+				<Label wrapping="true"
+					text="c. Providing police protection, mail pick up and delivery, or scheduling an inspection associated with contract performance or an inspection related to transit of goods across country,"
+					design="Standard" width="100%" textAlign="Begin" textDirection="Inherit"/>
+			</contentLeft>
+			<contentMiddle/>
+			<contentRight/>
+		</Bar>
+		<Bar design="Header">
+			<contentLeft>
+				<Label wrapping="true"
+					text="d. Providing phone service, power and water supply, loading and unloading cargo, garbage collection, protecting perishable products or commodities from deterioration, or"
+					design="Standard" width="100%" textAlign="Begin" textDirection="Inherit"/>
+			</contentLeft>
+			<contentMiddle/>
+			<contentRight/>
+		</Bar>
+		<Bar design="Header">
+			<contentLeft>
+				<Label text="e. Actions of a similar nature" design="Standard" width="100%" textAlign="Begin" textDirection="Inherit"/>
+			</contentLeft>
+			<contentMiddle/>
+			<contentRight/>
+		</Bar>
+		<Bar design="Header">
+			<contentLeft>
+				<Text text="{i18n>EmgncyQues5}" class="labelClass" wrapping="true" width="100%" textAlign="Begin" textDirection="Inherit"/>
+			</contentLeft>
+			<contentMiddle/>
+			<contentRight/>
+		</Bar>
+		<Bar design="Header">
+			<contentLeft>
+				<RadioButtonGroup id="idSelect6" columns="8" selectedIndex="{headerUserModel>/selectedIndex6}"
+					valueState="{headerUserModel>/ValueState_emg5}" width="auto" editable="true" enabled="true" textDirection="Inherit"
+					select="_onRadioButtonGroupSelect6">
+					<buttons>
+						<RadioButton text="Yes" editable="true" enabled="{headerUserModel>/isEnable}" visible="true" width="auto" valueState="None" selected="false"/>
+						<RadioButton text="No" editable="true" enabled="{headerUserModel>/isEnable}" visible="true" width="auto" valueState="None" selected="false"/>
+					</buttons>
+				</RadioButtonGroup>
+			</contentLeft>
+			<contentMiddle/>
+			<contentRight/>
+		</Bar>
+		<Bar design="Header">
+			<contentLeft>
+				<Text text="{i18n>EmgncyQues6} {i18n>EmgncyQues6Extn}" class="labelClass" width="100%" wrapping="true" textAlign="Begin"
+					textDirection="Inherit"/>
+			</contentLeft>
+			<contentMiddle/>
+			<contentRight/>
+		</Bar>
+		<Bar design="Header">
+			<contentLeft>
+				<RadioButtonGroup id="idSelect7" columns="8" selectedIndex="{headerUserModel>/selectedIndex7}"
+					valueState="{headerUserModel>/ValueState_emg6}" width="auto" editable="true" enabled="true" textDirection="Inherit"
+					select="_onRadioButtonGroupSelect7">
+					<buttons>
+						<RadioButton text="Yes" editable="true" enabled="{headerUserModel>/isEnable}" visible="true" width="auto" valueState="None" selected="false"/>
+						<RadioButton text="No" editable="true" enabled="{headerUserModel>/isEnable}" visible="true" width="auto" valueState="None" selected="false"/>
+					</buttons>
+				</RadioButtonGroup>
+			</contentLeft>
+			<contentMiddle/>
+			<contentRight/>
+		</Bar>
+	</VBox>
+</core:FragmentDefinition>

@@ -1,0 +1,40 @@
+<core:FragmentDefinition
+  xmlns="sap.m"
+  xmlns:core="sap.ui.core">
+  <TableSelectDialog
+    noDataText="No Products Found"
+    title="Select Product"
+    search="handleSearch"
+    confirm="onHandleConfirm"
+    cancel="onHandleConfirm"
+    items="{
+      path : 'userSearchModel>/eUserSet',
+      sorter : {
+        path : 'Name',
+        descending : false
+      }
+    }">
+    <ColumnListItem>
+      <cells>
+
+        <Text text="{SupplierName}" />
+        <Text text="{userSearchModel>NAME}" />
+
+      </cells>
+    </ColumnListItem>
+    <columns>
+      <Column width="12em">
+        <header>
+          <Text text="User Id" />
+        </header>
+      </Column>
+      <Column
+         >
+        <header>
+          <Text text="User Name" />
+        </header>
+      </Column>
+
+    </columns>
+  </TableSelectDialog>
+</core:FragmentDefinition>

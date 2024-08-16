@@ -1,0 +1,263 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.governmentApp.controller.Expense" xmlns="sap.m"
+	xmlns:form="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<Page showHeader="true" id="pageTitleId_Exp" title="Government Expenditure Revenue Form" showFooter="true" showNavButton="true"
+		navButtonPress="handleNavBack">
+		<content>
+			<form:Form width="100%" editable="true" visible="true">
+				<form:title>
+					<core:Title text="Provide the requested information" level="Auto"/>
+				</form:title>
+				<form:formContainers width="50%">
+					<form:FormContainer visible="true">
+						<form:formElements>
+							<form:FormElement id="ExpWarnId" visible="false">
+								<form:label>
+									<Label text="" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+								</form:label>
+								<form:fields>
+									<Text class="redColor" text="{i18n>South_Korea_text}{i18n>South_Korea_text1}{i18n>South_Korea_text2}{i18n>South_Korea_text3}"/>
+								</form:fields>
+							</form:FormElement>
+							<form:FormElement visible="true">
+								<form:label>
+									<Label text="{i18n>ExpType}" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+								</form:label>
+								<form:fields>
+									<!-- REQ0470877:RMANDAL:GWDK901935:09/12/2019:MODIFY:START -->
+									<ComboBox id="ExpTypeId" value="{itemUserModel>/EXP_TYPE}" showValueHelp="true" valueHelpOnly="true"
+										valueState="{itemUserModel>/ExpTypeVStat}" change="handleExpenseSubCat" enabled="{headerUserModel>/isEnable}">
+										<!--<ComboBox id="ExpTypeId" value="{itemUserModel>/EXP_TYPE}" showValueHelp="true" valueHelpOnly="true"-->
+										<!--	valueState="{itemUserModel>/ExpTypeVStat}" change="onChangeComboBox" enabled="{headerUserModel>/isEnable}"-->
+										<!--	selectionChange="handleExpenseSubCat">-->
+										<!-- REQ0470877:RMANDAL:GWDK901935:09/12/2019:MODIFY:END -->
+										<core:Item key="Key1" text="{i18n>EXP_TYPE_1}"/>
+										<core:Item key="Key2" text="{i18n>EXP_TYPE_2}"/>
+										<core:Item key="Key3" text="{i18n>EXP_TYPE_3}"/>
+										<core:Item key="Key4" text="{i18n>EXP_TYPE_4}"/>
+										<core:Item key="Key5" text="{i18n>EXP_TYPE_5}"/>
+										<core:Item key="Key6" text="{i18n>EXP_TYPE_6}"/>
+									</ComboBox>
+								</form:fields>
+							</form:FormElement>
+							<form:FormElement id="ExpSubCatId" visible="false">
+								<form:label>
+									<Label text="{i18n>ExpSubCat}" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+								</form:label>
+								<form:fields>
+									<ComboBox id="ExpSubId" value="{itemUserModel>/EXP_SUBCAT}" showValueHelp="true" valueHelpOnly="true"
+										valueState="{itemUserModel>/ExpSubCatVStat}" enabled="{headerUserModel>/isEnable}">
+										<core:Item key="" text=""/>
+										<core:Item key="{key}" text="{i18n>EXP_SUBCAT_1}"/>
+										<core:Item key="{key}" text="{i18n>EXP_SUBCAT_2}"/>
+									</ComboBox>
+								</form:fields>
+							</form:FormElement>
+							<form:FormElement visible="true">
+								<form:label>
+									<Label text="{i18n>ExpDes}" required="true" design="Bold" width="100%" textAlign="Begin" textDirection="Inherit"/>
+								</form:label>
+								<form:fields>
+									<TextArea value="{itemUserModel>/EXP_DES}" maxLength="250" enabled="{headerUserModel>/isEnable}" valueState="{itemUserModel>/ExpDesVStat}"></TextArea>
+								</form:fields>
+							</form:FormElement>
+							<form:FormElement visible="true">
+								<form:label>
+									<Label text="{i18n>ExpPayMethod}" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+								</form:label>
+								<form:fields>
+									<!--add id "payment_method_type" in combo box -->
+									<ComboBox id="payment_method_type" value="{itemUserModel>/PAYMENT_METHOD}" showValueHelp="true" valueHelpOnly="true" valueState="{itemUserModel>/ExpPayMethodVStat}"
+										enabled="{headerUserModel>/isEnable}" change="onChangeComboBox" selectionChange="handlePaymentMethod">
+										<core:Item key="{key}" text="{i18n>PAYMENT_METHOD_1}"/>
+										<core:Item key="{key}" text="{i18n>PAYMENT_METHOD_2}"/>
+										<core:Item key="{key}" text="{i18n>PAYMENT_METHOD_3}"/>
+										<core:Item key="{key}" text="{i18n>PAYMENT_METHOD_4}"/>
+										<core:Item key="{key}" text="{i18n>PAYMENT_METHOD_5}"/>
+										<core:Item key="{key}" text="{i18n>PAYMENT_METHOD_6}"/>
+										<core:Item key="{key}" text="{i18n>PAYMENT_METHOD_7}"/>
+									</ComboBox>
+								</form:fields>
+							</form:FormElement>
+							<form:FormElement id="expHolId" visible="false">
+								<form:label>
+									<Label text="{i18n>text_holiday}" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+								</form:label>
+								<form:fields>
+									<RadioButtonGroup id="holId" columns="8" selectedIndex="{itemUserModel>/is_exp_index}" select="onExpRadio1"
+										valueState="{itemUserModel>/ExpIsHolVStat}" width="auto" editable="true" textDirection="Inherit">
+										<buttons>
+											<RadioButton text="Yes" editable="true" visible="true" width="auto" enabled="{headerUserModel>/isEnable}"
+												valueState="{itemUserModel>/ExpIsHolVStat}" selected="false"/>
+											<RadioButton text="No" editable="true" visible="true" width="auto" enabled="{headerUserModel>/isEnable}"
+												valueState="{itemUserModel>/ExpIsHolVStat}" selected="false"/>
+										</buttons>
+									</RadioButtonGroup>
+								</form:fields>
+							</form:FormElement>
+							<form:FormElement visible="true">
+								<form:label>
+									<Label text="{i18n>ExpIsTravel}" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+								</form:label>
+								<form:fields>
+									<RadioButtonGroup id="expId" columns="8" selectedIndex="{itemUserModel>/is_hol_index}" enabled="{headerUserModel>/isEnable}"
+										select="onTravSelect" valueState="{itemUserModel>/ExpIsTravelVStat}" width="auto" editable="true" textDirection="Inherit">
+										<buttons>
+											<RadioButton text="Yes" editable="true" enabled="{headerUserModel>/isEnable}" visible="true" width="auto"
+												valueState="{itemUserModel>/ExpIsTravelVStat}" selected="false"/>
+											<RadioButton text="No" editable="true" enabled="{headerUserModel>/isEnable}" visible="true" width="auto"
+												valueState="{itemUserModel>/ExpIsTravelVStat}" selected="false"/>
+										</buttons>
+									</RadioButtonGroup>
+								</form:fields>
+							</form:FormElement>
+							<form:FormElement id="travRelId" visible="false">
+								<form:label>
+									<Label text="{i18n>ExpTravelExpense}" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+								</form:label>
+								<form:fields>
+									<ComboBox value="{itemUserModel>/TRAVEL_EXPENSE}" showValueHelp="true" valueHelpOnly="true"
+										valueState="{itemUserModel>/ExpTravelExpenseVStat}" enabled="{headerUserModel>/isEnable}" change="handleTravelExpense">
+										<core:Item key="{key}" text="{i18n>TRAVEL_EXPENSE_1}"/>
+										<core:Item key="{key}" text="{i18n>TRAVEL_EXPENSE_2}"/>
+										<core:Item key="{key}" text="{i18n>TRAVEL_EXPENSE_3}"/>
+										<core:Item key="{key}" text="{i18n>TRAVEL_EXPENSE_4}"/>
+									</ComboBox>
+								</form:fields>
+							</form:FormElement>
+							<form:FormElement visible="false" id="OtherId">
+								<form:label>
+									<Label text="{i18n>ExpOther}." design="Bold" width="306.3599853515625px" required="true" textAlign="Begin" textDirection="Inherit"/>
+								</form:label>
+								<form:fields>
+									<Input value="{itemUserModel>/OTHERTRAVEL_EXP}" maxLength="200" valueState="{itemUserModel>/OthTravelVStat}"
+										enabled="{headerUserModel>/isEnable}"></Input>
+								</form:fields>
+							</form:FormElement>
+							<form:FormElement visible="false" id="AirfareId1">
+								<form:label>
+									<Label text="{i18n>ExpTravOrigin}" design="Bold" width="306.3599853515625px" required="true" textAlign="Begin" textDirection="Inherit"/>
+								</form:label>
+								<form:fields>
+									<Input value="{itemUserModel>/TravelOrgin_EXP}" maxLength="100" valueState="{itemUserModel>/TravelOriginVStat}"
+										enabled="{headerUserModel>/isEnable}"></Input>
+								</form:fields>
+							</form:FormElement>
+							<form:FormElement visible="false" id="AirfareId2">
+								<form:label>
+									<Label text="{i18n>ExpTravDest}" design="Bold" width="306.3599853515625px" required="true" textAlign="Begin" textDirection="Inherit"/>
+								</form:label>
+								<form:fields>
+									<Input value="{itemUserModel>/TravelDest_EXP}" maxLength="100" valueState="{itemUserModel>/TravelDestVStat}"
+										enabled="{headerUserModel>/isEnable}"></Input>
+								</form:fields>
+							</form:FormElement>
+							<form:FormElement visible="false" id="HotelId1">
+								<form:label>
+									<Label text="{i18n>ExpHotelName}" design="Bold" width="306.3599853515625px" required="true" textAlign="Begin" textDirection="Inherit"/>
+								</form:label>
+								<form:fields>
+									<Input value="{itemUserModel>/HotelName_EXP}" maxLength="100" valueState="{itemUserModel>/HotelNameVStat}"
+										enabled="{headerUserModel>/isEnable}"></Input>
+								</form:fields>
+							</form:FormElement>
+							<form:FormElement visible="false" id="HotelId2">
+								<form:label>
+									<Label text="{i18n>ExpHotelCity}" design="Bold" width="306.3599853515625px" required="true" textAlign="Begin" textDirection="Inherit"/>
+								</form:label>
+								<form:fields>
+									<Input value="{itemUserModel>/HotelCity_EXP}" maxLength="100" valueState="{itemUserModel>/HotelCityVStat}"
+										enabled="{headerUserModel>/isEnable}"></Input>
+								</form:fields>
+							</form:FormElement>
+							<form:FormElement visible="true">
+								<form:label>
+									<Label text="{i18n>ExpProposedDate}" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+								</form:label>
+								<form:fields>
+									<DatePicker valueHelpOnly="true" value="{itemUserModel>/DATE_OF_EXP}" enabled="{headerUserModel>/isEnable}"
+										valueState="{itemUserModel>/ExpDateVStat}"></DatePicker>
+								</form:fields>
+							</form:FormElement>
+							<form:FormElement visible="true">
+								<form:label>
+									<Label text="" textDirection="Inherit" required="true"/>
+								</form:label>
+								<form:fields>
+									<Text text="{i18n>ExpReqAmt}" class="labelClass"></Text>
+								</form:fields>
+							</form:FormElement>
+							<form:FormElement visible="true">
+								<form:label>
+									<Label text="" width="306.3599853515625px" textAlign="Begin" textDirection="Inherit"/>
+								</form:label>
+								<form:fields>
+									<HBox>
+										<Input id="amtId" maxLength="13" value="{path:'itemUserModel>/REQ_AMT_EXP', formatter:'.handleAmountFormatting'}"
+											liveChange="handleAmoutFormatterByTotal" valueState="{itemUserModel>/ReqAmtVStat}" enabled="{headerUserModel>/isEnable}"
+											placeholder="Amount Value"></Input>
+										<ComboBox id="CurrId" value="{itemUserModel>/LOCALCURRENCY}" items="{curr>/currcomb}" valueState="{itemUserModel>/ReqAmtVStat}"
+											loadItems="onLoadCurr" selectionChange="onCurrencySelection" enabled="{headerUserModel>/isEnable}">
+											<core:Item text="{curr>name}"/>
+										</ComboBox>
+									</HBox>
+								</form:fields>
+							</form:FormElement>
+							<form:FormElement id="AMOUNT_USD" visible="false">
+								<form:label>
+									<Label text="{i18n>AmountUSD}" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+								</form:label>
+								<form:fields>
+									<Text id="AMOUNT_DONATION_USD" text="{itemUserModel>/AMOUNT_DONATION_USD}" width="auto" maxLines="1" wrapping="false" textAlign="Begin"
+										textDirection="Inherit"/>
+								</form:fields>
+							</form:FormElement>
+							<form:FormElement visible="true">
+								<form:label>
+									<Label text="{i18n>ExpCCode}" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+								</form:label>
+								<form:fields>
+									<Input id="CompCodeId" value="{itemUserModel>/COMPANY_CODE}" showValueHelp="true" valueHelpOnly="true"
+										valueHelpRequest="_onCompanyCodeValueHelpRequest" valueState="{itemUserModel>/ExpComCodeVStat}" enabled="{headerUserModel>/isEnable}"/>
+								</form:fields>
+							</form:FormElement>
+							<form:FormElement visible="true">
+								<form:label>
+									<Label text="{i18n>ExpGLArea}" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+								</form:label>
+								<form:fields>
+									<ComboBox value="{itemUserModel>/GEN_LEDGER_AREA}" showValueHelp="true" valueHelpOnly="true" valueState="{itemUserModel>/ExpGLAreaVStat}"
+										enabled="{headerUserModel>/isEnable}" change="onChangeComboBox" selectionChange="handlePaymentMethod">
+										<core:Item key="{key}" text="{i18n>GEN_LEDGER_AREA_1}"/>
+										<core:Item key="{key}" text="{i18n>GEN_LEDGER_AREA_2}"/>
+										<core:Item key="{key}" text="{i18n>GEN_LEDGER_AREA_3}"/>
+									</ComboBox>
+								</form:fields>
+							</form:FormElement>
+							<form:FormElement visible="true">
+								<form:label>
+									<Label text="{i18n>ExpGL}" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+								</form:label>
+								<form:fields>
+									<Input value="{itemUserModel>/GEN_LEDGER}" showValueHelp="true" valueHelpOnly="true" valueHelpRequest="onGLValueHelp"
+										valueState="{itemUserModel>/ExpGLVStat}" enabled="{headerUserModel>/isEnable}"/>
+								</form:fields>
+							</form:FormElement>
+						</form:formElements>
+						<form:title/>
+					</form:FormContainer>
+				</form:formContainers>
+				<form:layout>
+					<form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="2" labelSpanL="3" columnsM="1" labelSpanM="2" labelSpanS="12"/>
+				</form:layout>
+			</form:Form>
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button text="OK" width="7rem" type="Accept" press="onPressOk"></Button>
+					<Button text="Cancel" width="7rem" type="Reject" press="onPressCancel"></Button>
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

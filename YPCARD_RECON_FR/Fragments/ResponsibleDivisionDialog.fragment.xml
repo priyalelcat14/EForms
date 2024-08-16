@@ -1,0 +1,36 @@
+<core:FragmentDefinition
+  xmlns="sap.m"
+  xmlns:core="sap.ui.core">
+  <TableSelectDialog
+  id="UserDialogId"
+    noDataText="No User Found"
+    title="Select User"
+    search="handleSearch"
+    confirm="onHandleConfirmDocTyp"
+    cancel="onHandleClose"
+    items="{
+      path : 'DocTypeModel>/eDocTypSet',
+      sorter : {
+        path : 'DOC_TYPE',
+        descending : false
+      }
+    }">
+    <ColumnListItem>
+      <cells>
+
+        <Text text="{DocTypeModel>DOC_TYPE}" />
+
+
+      </cells>
+    </ColumnListItem>
+    <columns>
+      <Column width="12em">
+        <header>
+          <Text text="CardHolder Name" />
+        </header>
+      </Column>
+
+
+    </columns>
+  </TableSelectDialog>
+</core:FragmentDefinition>

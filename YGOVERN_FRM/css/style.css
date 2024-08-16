@@ -1,0 +1,46 @@
+.redColor {
+    color: red !important;
+}
+
+.required:before {
+    content: "*";
+    color: #004990;
+    font-size: 1.25rem;
+    font-weight: bold;
+    line-height: 0;
+    position: relative;
+    top: 0.15rem;
+}
+
+.blueColor {
+    color: blue !important;
+}
+
+.boldFont {
+    font-weight: bold;
+}
+
+.underLine {
+    text-decoration: underline;
+}
+
+.labelClass {
+    font-weight: bold;
+    color: #666666;
+}
+
+.myWidth .sapMITBHorizontalWrapper {
+    max-width: 10rem;
+}
+
+.myWidth .sapMITBHorizontal.sapMITBFilter>.sapMITBHorizontalWrapper>.sapMITBText {
+    max-width: 10rem;
+}
+
+.sapMITBFilter .sapMITBText {
+    width: 5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+

@@ -1,0 +1,59 @@
+{
+    "resources": [
+        {
+            "name": "Component.js"
+        },
+        {
+            "name": "controller/App.controller.js"
+        },
+        {
+            "name": "controller/Dialog1.controller.js"
+        },
+        {
+            "name": "controller/GiftOrder.controller.js"
+        },
+        {
+            "name": "controller/Search.controller.js"
+        },
+        {
+            "name": "controller/utilities.js"
+        },
+        {
+            "name": "css/style.css"
+        },
+        {
+            "name": "i18n/i18n.properties",
+            "raw": "i18n/i18n.properties"
+        },
+        {
+            "name": "index.html"
+        },
+        {
+            "name": "manifest.json"
+        },
+        {
+            "name": "model/formatter.js"
+        },
+        {
+            "name": "model/models.js"
+        },
+        {
+            "name": "view/AccountingInfo.fragment.xml"
+        },
+        {
+            "name": "view/App.view.xml"
+        },
+        {
+            "name": "view/Dialog1.view.xml"
+        },
+        {
+            "name": "view/GiftInformation.fragment.xml"
+        },
+        {
+            "name": "view/GiftOrder.view.xml"
+        },
+        {
+            "name": "view/Search.view.xml"
+        }
+    ]
+}

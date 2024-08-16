@@ -1,0 +1,292 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:m="sap.m" xmlns:form="sap.ui.layout.form" xmlns:core="sap.ui.core"
+  controllerName="com.sap.build.standard.charitableDonationForm.controller.SearchPage" xmlns:html="http://www.w3.org/1999/xhtml">
+    <m:Page showHeader="true" title="{i18n>SearchCharitable}" showFooter="true" showNavButton="false">
+        <m:content>
+          <m:VBox alignItems="Stretch" direction="Column" fitContainer="false" width="auto" height="auto" justifyContent="Center" renderType="Div"
+            visible="true" displayInline="false">
+            <m:items>
+              <m:HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+                visible="true" displayInline="false">
+                <m:items>
+                  <form:Form width="100%" editable="true" visible="true">
+                    <form:title>
+                      <core:Title text="eForm Search Criteria" level="Auto"/>
+                    </form:title>
+                    <form:formContainers>
+                      <form:FormContainer visible="true">
+                        <form:formElements>
+                          <form:FormElement visible="true">
+                            <form:label>
+                              <m:Label text="Title" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+                            </form:label>
+                            <form:fields>
+                              <m:Input type="Text" id="TITLE" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="0"/>
+                            </form:fields>
+                          </form:FormElement>
+                          <form:FormElement visible="true">
+                            <form:label>
+                              <m:Label text="Id" tooltip="Charitable Expenditure Request Id" design="Standard" width="100%" required="false" textAlign="Begin"
+                                textDirection="Inherit"/>
+                            </form:label>
+                            <form:fields>
+                              <m:Input type="Text" id="EFORM_NUM" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="0"/>
+                            </form:fields>
+                          </form:FormElement>
+                          <form:FormElement visible="true">
+                            <form:label>
+                              <m:Label text="Approved By" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+                            </form:label>
+                            <form:fields>
+                              <m:Input type="Text" id="APPROVED_BY" showValueHelp="true" enabled="true" visible="true" width="auto" valueHelpOnly="true"
+                                valueHelpRequest="_onApprovedBy_ValueHelp" maxLength="0"/>
+                            </form:fields>
+                          </form:FormElement>
+                          <form:FormElement visible="true">
+                            <form:label>
+                              <m:Label text="Approver" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+                            </form:label>
+                            <form:fields>
+                              <m:Input type="Text" id="APPROVER" showValueHelp="true" enabled="true" visible="true" width="auto" valueHelpOnly="true"
+                                valueHelpRequest="_onApprover_ValueHelp" maxLength="0"/>
+                            </form:fields>
+                          </form:FormElement>
+                          <form:FormElement visible="true">
+                            <form:label>
+                              <m:Label text="Date Approved" tooltip="Date Approved" design="Standard" width="100%" required="false" textAlign="Begin"
+                                textDirection="Inherit"/>
+                            </form:label>
+                            <form:fields>
+                              <m:DatePicker enabled="true" id="APPROVED_DT" visible="true" width="auto" displayFormat="MMM dd, yyyy" placeholder="From MMM dd, yyyy"/>
+                              <m:DatePicker enabled="true" id="APPROVED_DT_TO" visible="true" width="auto" displayFormat="MMM dd, yyyy" placeholder="To MMM dd, yyyy"/>
+                            </form:fields>
+                          </form:FormElement>
+                          <form:FormElement visible="true">
+                            <form:label>
+                              <m:Label text="Date Created" tooltip="Date Created" design="Standard" width="100%" required="false" textAlign="Begin"
+                                textDirection="Inherit"/>
+                            </form:label>
+                            <form:fields>
+                              <m:DatePicker enabled="true" id="CREATED_DT" visible="true" width="auto" displayFormat="MMM dd, yyyy" placeholder="From MMM dd, yyyy"/>
+                              <m:DatePicker enabled="true" id="CREATED_DT_TO" visible="true" width="auto" displayFormat="MMM dd, yyyy" placeholder="To MMM dd, yyyy"/>
+                            </form:fields>
+                          </form:FormElement>
+                        </form:formElements>
+                        <form:title/>
+                      </form:FormContainer>
+                    </form:formContainers>
+                    <form:layout>
+                      <form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="2" labelSpanL="3" columnsM="1" labelSpanM="2" labelSpanS="12"/>
+                    </form:layout>
+                  </form:Form>
+                  <form:Form width="100%" editable="true" visible="true">
+                    <form:title>
+                      <core:Title text="" level="Auto"/>
+                    </form:title>
+                    <form:formContainers>
+                      <form:FormContainer visible="true">
+                        <form:formElements>
+                          <form:FormElement visible="true">
+                            <form:label>
+                              <m:Label text="Date Submited" tooltip="Date Submitted" design="Standard" width="100%" required="false" textAlign="Begin"
+                                textDirection="Inherit"/>
+                            </form:label>
+                            <form:fields>
+                              <m:DatePicker enabled="true" id="SUBMITED_DT" visible="true" width="auto" displayFormat="MMM dd, yyyy" placeholder="From MMM dd, yyyy"/>
+                              <m:DatePicker enabled="true" id="SUBMITED_DT_TO" visible="true" width="auto" displayFormat="MMM dd, yyyy" placeholder="To MMM dd, yyyy"/>
+                            </form:fields>
+                          </form:FormElement>
+
+                           <form:FormElement visible="true">
+                                                <form:label>
+                                                    <m:Label text="{i18n>Lob}" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+                                                </form:label>
+                                                <form:fields>
+                                                    <m:Input type="Text" id="LOB" showValueHelp="true" enabled="true" visible="true" width="auto" valueHelpOnly="true"  valueHelpRequest="_onLobValueHelpRequest" maxLength="0"/>
+                                                </form:fields>
+                                            </form:FormElement>
+
+                                             <form:FormElement visible="true">
+                                                <form:label>
+                                                    <m:Label text="{i18n>Sublob}" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+                                                </form:label>
+                                                <form:fields>
+                                                    <m:Input type="Text" id="SUBLOB" showValueHelp="true" enabled="true" visible="true" width="auto" valueHelpOnly="true"  valueHelpRequest="_onSubLobValueHelpRequest" maxLength="0"/>
+                                                </form:fields>
+                                            </form:FormElement>
+
+                           <form:FormElement visible="true">
+                            <form:label>
+                              <m:Label text="Preparer" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+                            </form:label>
+                            <form:fields>
+                              <m:Input type="Text" id="PREPARED_BY" showValueHelp="true" enabled="true" visible="true" width="auto" valueHelpOnly="false" valueHelpRequest="_onPreparer_ValueHelp" maxLength="0"/>
+                            </form:fields>
+                          </form:FormElement>
+
+
+
+
+                          <form:FormElement visible="true">
+                            <form:label>
+                              <m:Label text="On Behalf Of" tooltip="On Behalf Of" design="Standard" width="100%" required="false" textAlign="Begin"
+                                textDirection="Inherit"/>
+                            </form:label>
+                            <form:fields>
+                              <m:Input type="Text" id="REQUESTED_BY" showValueHelp="true" enabled="true" visible="true" width="auto" valueHelpOnly="true" maxLength="0"
+                                valueHelpRequest="_onBehalfOf_ValueHelp"/>
+                            </form:fields>
+                          </form:FormElement>
+                           <form:FormElement visible="true">
+                            <form:label>
+                              <m:Label text="Department Head" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+                            </form:label>
+                            <form:fields>
+                              <m:Input type="Text" id="NAME" showValueHelp="true" enabled="true" visible="true" width="auto" valueHelpOnly="true" maxLength="0" valueHelpRequest="_onDep_ValueHelp"/>
+                            </form:fields>
+                          </form:FormElement>
+
+                          <form:FormElement visible="true">
+                            <form:label>
+                              <m:Label text="Status" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+                            </form:label>
+                            <form:fields>
+                              <m:ComboBox editable="true" id="STATUS" enabled="true" visible="true" width="auto" valueState="None" maxWidth="100%">
+                                <m:items>
+                                  <core:Item text="Data Saved" key="PT" enabled="true"/>
+                                  <core:Item text="In Approval" key="FT" enabled="true"/>
+                                  <core:Item text="Approved" key="S" enabled="true"/>
+                                  <core:Item text="Withdrawn" key="V" enabled="true"/>
+                                  <core:Item text="Rejected" key="RJ" enabled="true"/>
+                                </m:items>
+                              </m:ComboBox>
+                            </form:fields>
+                          </form:FormElement>
+                        </form:formElements>
+                        <form:title/>
+                      </form:FormContainer>
+                    </form:formContainers>
+                    <form:layout>
+                      <form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="2" labelSpanL="3" columnsM="1" labelSpanM="2" labelSpanS="12"/>
+                    </form:layout>
+                  </form:Form>
+                </m:items>
+                <m:layoutData/>
+              </m:HBox>
+            <m:HBox alignItems="Center" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="End" renderType="Div"
+                visible="true" displayInline="false">
+                <m:items>
+                  <m:Label text="Request Amount:" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+                  <m:ToolbarSpacer width="5px"/>
+                  <m:Input value="0" id="AMOUNT1" liveChange="handleAmountLiveChange" showValueHelp="false" enabled="true" visible="true" width="auto"
+                    valueHelpOnly="false" maxLength="0"/>
+                  <m:ToolbarSpacer width="20px"/>
+                  <m:Input liveChange="handleAmountLiveChangeTo" id="AMOUNT2" showValueHelp="false" enabled="true" visible="true" width="auto"
+                    valueHelpOnly="false" maxLength="0"/>
+                  <m:ToolbarSpacer width="20px"/>
+                  <m:Text text="USD" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                  <m:ToolbarSpacer width="50px"/>
+                </m:items>
+                <m:layoutData/>
+              </m:HBox>
+
+              <m:Bar design="Auto">
+                <m:contentLeft/>
+                <m:contentMiddle/>
+                <m:contentRight>
+                  <m:Button text="Search" icon="sap-icon://search" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true"
+                    iconDensityAware="false" press="search_records"/>
+                  <m:Button text="Clear" icon="sap-icon://cancel" type="Reject" iconFirst="true" width="auto" enabled="true" visible="true"
+                    iconDensityAware="false" press="clear_fields"/>
+                  <m:Button text="Report" icon="sap-icon://excel-attachment" type="Accept" iconFirst="true" width="auto" enabled="true" visible="true"
+                    iconDensityAware="false" press="report_records"/>
+                </m:contentRight>
+              </m:Bar>
+            </m:items>
+            <m:layoutData/>
+          </m:VBox>
+          <m:Table id="eforms_tab" width="100%" noDataText="No data" mode="SingleSelectLeft" showSeparators="All" growing="true" growingThreshold="20"
+            growingScrollToLoad="true">
+            <m:infoToolbar>
+              <m:Toolbar width="auto" height="46px" design="Transparent" visible="true" enabled="true">
+                <m:content>
+                  <m:Title text="Results" titleStyle="Auto" width="auto" textAlign="Begin" visible="true"/>
+                  <m:ToolbarSpacer width=""/>
+                  <m:Button text="Copy eForm" id="COPY_EFORM" type="Accept" icon="sap-icon://copy" iconFirst="true" width="auto" enabled="true" visible="true"
+                    iconDensityAware="false" press="copy_eform"/>
+                </m:content>
+                <m:tooltip/>
+              </m:Toolbar>
+            </m:infoToolbar>
+            <m:headerToolbar/>
+            <m:columns>
+              <!--
+                    <m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                        <m:header>
+                            <m:Text text="Type" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                        </m:header>
+                        <m:footer/>
+                    </m:Column>
+                    -->
+              <m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                <m:header>
+                  <m:Text text="Id" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                </m:header>
+                <m:footer/>
+              </m:Column>
+              <m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                <m:header>
+                  <m:Text text="Title" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                </m:header>
+                <m:footer/>
+              </m:Column>
+              <m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                <m:header>
+                  <m:Text text="Status" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                </m:header>
+                <m:footer/>
+              </m:Column>
+              <m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                <m:header>
+                  <m:Text text="Date Created" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                </m:header>
+                <m:footer/>
+              </m:Column>
+              <m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                <m:header>
+                  <m:Text text="Total Amount" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                </m:header>
+                <m:footer/>
+              </m:Column>
+
+            </m:columns>
+            <m:items>
+              <m:ColumnListItem id="eforms_row" type="Active" selected="true">
+                <m:cells>
+                  <!--  <m:Text text="{EFORM_NUM}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                            -->
+                  <m:Text text="{EFORM_NUM}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                  <m:Text text="{TITLE}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                  <m:Text text="{STATUS}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                  <m:Text text="{CREATED_DT}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                  <m:Text text="{TOTAL_PAY_AMT}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+
+                </m:cells>
+              </m:ColumnListItem>
+            </m:items>
+          </m:Table>
+        </m:content>
+        <m:footer>
+          <m:Bar design="Auto">
+            <m:contentLeft/>
+            <m:contentMiddle/>
+            <m:contentRight>
+              <m:Button text="Create" type="Accept" icon="sap-icon://create-form" iconFirst="true" width="auto" enabled="true" visible="true"
+                iconDensityAware="false" press="onCreatePressFromSearch"/>
+            </m:contentRight>
+          </m:Bar>
+        </m:footer>
+        <m:headerContent/>
+        <m:subHeader/>
+        <m:customHeader/>
+      </m:Page>
+</mvc:View>

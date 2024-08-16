@@ -1,0 +1,127 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<VBox class="sapUiSmallMargin">
+		<f:SimpleForm editable="true" layout="ResponsiveGridLayout" title="{i18n>Pcard_Title_Text2}" labelSpanXL="3" labelSpanL="3" labelSpanM="3"
+			labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="2" columnsL="2" columnsM="2"
+			singleContainerFullSize="false" class="simpleFormStyleClass">
+			<f:content>
+				<core:Title level="H6" text="{i18n>PCard_SecondHeaderTitle}"/>
+				<Label text="{i18n>form_Preparer}"/>
+				<Text text="{headerUserModel>/PREPARER}"/>
+				<Label text="{i18n>form_CardHolderName}" required="true"/>
+				<Input value="{headerUserModel>/CARDHOLDERNAME}" valueHelpOnly="true" key="{headerUserModel>/CARDHOLDERNAME_KEY}" showValueHelp="true"
+					valueHelpRequest="onHandleUserValueHelp" valueState="{headerUserModel>/ValueState2}" enabled="{headerUserModel>/isEnable}"/>
+				<Label text="{i18n>form_CardHolderphone}" required="true"/>
+				<Input value="{headerUserModel>/PHONE_NUM}" type="tel" liveChange="onPhoneNumChange" maxLength="20"
+					valueState="{headerUserModel>/ValueState3}" enabled="{headerUserModel>/isEnable}"/>
+				<Label text="{i18n>form_CardHolderSupervisor}"/>
+				<Input value="{headerUserModel>/SUPERVISOR}" key="{headerUserModel>/SUPERVISOR_KEY}" enabled="{headerUserModel>/isEnable}"/>
+				<Label text="{i18n>form_AmexStatementDate}" required="true"/>
+				<DatePicker value="{headerUserModel>/DATE}" valueFormat="yyyy/MM/dd" displayFormat="MM/dd/yyyy" valueState="{headerUserModel>/ValueState5}"
+					change="handleChange" enabled="{headerUserModel>/isEnable}"/>
+				<Label text="{i18n>form_CardNumber}" required="true"/>
+				<Input value="{headerUserModel>/CARDNUMBER}" type="tel" liveChange="onCardNumChange" maxLength="5"
+					valueState="{headerUserModel>/ValueState4}" enabled="{headerUserModel>/isEnable}"/>
+				<core:Title text=""/>
+				<Label text="{i18n>form_LOB}" required="true"/>
+				<Input value="{headerUserModel>/LOB}" showValueHelp="true" valueHelpOnly="true" placeholder="Cardholder's LOB"
+					valueHelpRequest="handleLOBValueHelp" valueState="{headerUserModel>/ValueState8}" enabled="{headerUserModel>/isEnable}"/>
+				<Label text="{i18n>form_SLOB}" required="true"/>
+				<Input value="{headerUserModel>/SLOB}" showValueHelp="true" valueHelpOnly="true" valueHelpRequest="handleSLOBValueHelp"
+					valueState="{headerUserModel>/ValueState9}" enabled="{headerUserModel>/isEnable}"/>
+				<Label text="{i18n>form_BilledAmount_Doc}" required="true"/>
+				<Input value="{path:'headerUserModel>/AMOUNT'}" type="Text" enabled="{headerUserModel>/isEnable}" liveChange="handleAmoutFormatterByTotal"
+					valueState="{headerUserModel>/ValueState7}"/>
+				<ComboBox value="{headerUserModel>/Doc_curr}" items="{headerUserModel>/localcurrency}" change="_onChangeTotal"
+					editable="{headerUserModel>/isEnable}" enable="{headerUserModel>/isEnable}">
+					<core:Item text="{headerUserModel>NAME}"/>
+				</ComboBox>
+				<Label text="{i18n>form_BilledAmount_USD}" required="true"/>
+				<Text text="{path:'headerUserModel>/AMOUNT_USD'}" enabled="{headerUserModel>/isEnable}"/>
+			</f:content>
+		</f:SimpleForm>
+	</VBox>
+	<l:VerticalLayout width="100%">
+		<l:content>
+			<Panel>
+				<headerToolbar>
+					<Toolbar>
+						<Title level="H2" text="{i18n>Cardholder Checklist}"/>
+					</Toolbar>
+				</headerToolbar>
+				<VBox>
+					<Label text="{i18n>form_text1}" class="sapUiSmallMarginBottom redFontColor"/>
+					<Text text="{i18n>form_text7}{i18n>form_text8}" class="sapUiSmallMarginBottom"/>
+					<CheckBox selected="{headerUserModel>/selectedIndex5}" select="onChecked" valueState="{headerUserModel>/ValueState14}"
+						enabled="{headerUserModel>/isEnable_C}"/>
+					<Label text="{i18n>form_text5}" class="sapUiSmallMarginBottom" required="true"/>
+					<RadioButtonGroup columns="5" selectedIndex="{headerUserModel>/selectedIndex6}" select="onRodioBtnSelect5" class="sapUiSmallMarginBottom"
+						enabled="{headerUserModel>/isEnable_C}">
+						<buttons>
+							<RadioButton text="{i18n>radio_yes}" valueState="{headerUserModel>/ValueState15}"/>
+							<RadioButton text="{i18n>radio_no}" valueState="{headerUserModel>/ValueState15}"/>
+						</buttons>
+					</RadioButtonGroup>
+					<Label text="{i18n>form_Justification1}" visible="{headerUserModel>/jusficationVisibleField6}"/>
+					<TextArea rows="2" value="{headerUserModel>/JUS_ANY_UNUSUAL}" valueState="{headerUserModel>/ValueState20}"
+						enabled="{headerUserModel>/isEnable_C}" maxLength="200" width="80%" visible="{headerUserModel>/jusficationVisibleField6}"/>
+				</VBox>
+			</Panel>
+		</l:content>
+	</l:VerticalLayout>
+	<l:VerticalLayout width="100%" visible="{headerUserModel>/isVisibleOperationChecklist}">
+		<l:content>
+			<Panel>
+				<headerToolbar>
+					<Toolbar>
+						<Title level="H2" text="{i18n>Supervisor Checklist}"/>
+					</Toolbar>
+				</headerToolbar>
+				<VBox>
+					<Label text="{i18n>form_text1}" class="sapUiSmallMarginBottom redFontColor"/>
+					<Text text="{i18n>form_text7}{i18n>form_text8}" class="sapUiSmallMarginBottom"/>
+					<CheckBox selected="{headerUserModel>/selectedIndex5S}" select="onChecked_S" valueState="{headerUserModel>/ValueState14S}"
+						enabled="{headerUserModel>/isEnable_S}"/>
+					<Label text="{i18n>form_text5}" class="sapUiSmallMarginBottom" required="true"/>
+					<RadioButtonGroup columns="5" selectedIndex="{headerUserModel>/selectedIndex6S}" select="onRodioBtnSelect5S" class="sapUiSmallMarginBottom"
+						enabled="{headerUserModel>/isEnable_S}">
+						<buttons>
+							<RadioButton text="{i18n>radio_yes}" valueState="{headerUserModel>/ValueState15S}"/>
+							<RadioButton text="{i18n>radio_no}" valueState="{headerUserModel>/ValueState15S}"/>
+						</buttons>
+					</RadioButtonGroup>
+					<Label text="{i18n>form_Justification1}" visible="{headerUserModel>/jusficationVisibleField6S}"/>
+					<TextArea rows="2" value="{headerUserModel>/JUS_ANY_UNUSUAL_S}" valueState="{headerUserModel>/ValueState20S}"
+						enabled="{headerUserModel>/isEnable_S}" maxLength="200" width="80%" visible="{headerUserModel>/jusficationVisibleField6S}"/>
+				</VBox>
+			</Panel>
+		</l:content>
+	</l:VerticalLayout>
+	<l:VerticalLayout width="100%" visible="{headerUserModel>/isVisibleFinanceChecklist}">
+		<l:content>
+			<Panel>
+				<headerToolbar>
+					<Toolbar>
+						<Title level="H2" text="{i18n>Finance Checklist}"/>
+					</Toolbar>
+				</headerToolbar>
+				<VBox>
+					<Label text="{i18n>form_text1}" class="sapUiSmallMarginBottom redFontColor"/>
+					<Text text="{i18n>form_text7}{i18n>form_text8}" class="sapUiSmallMarginBottom"/>
+					<CheckBox selected="{headerUserModel>/selectedIndex5F}" select="onChecked_F" valueState="{headerUserModel>/ValueState14F}"
+						enabled="{headerUserModel>/isEnable_F}"/>
+					<Label text="{i18n>form_text5}" class="sapUiSmallMarginBottom" required="true"/>
+					<RadioButtonGroup columns="5" selectedIndex="{headerUserModel>/selectedIndex6F}" select="onRodioBtnSelect5F" class="sapUiSmallMarginBottom"
+						enabled="{headerUserModel>/isEnable_F}">
+						<buttons>
+							<RadioButton text="{i18n>radio_yes}" valueState="{headerUserModel>/ValueState15F}"/>
+							<RadioButton text="{i18n>radio_no}" valueState="{headerUserModel>/ValueState15F}"/>
+						</buttons>
+					</RadioButtonGroup>
+					<Label text="{i18n>form_Justification1}" visible="{headerUserModel>/jusficationVisibleField6F}"/>
+					<TextArea rows="2" value="{headerUserModel>/JUS_ANY_UNUSUAL_F}" valueState="{headerUserModel>/ValueState20F}"
+						enabled="{headerUserModel>/isEnable_F}" maxLength="200" width="80%" visible="{headerUserModel>/jusficationVisibleField6F}"/>
+				</VBox>
+			</Panel>
+		</l:content>
+	</l:VerticalLayout>
+</core:FragmentDefinition>

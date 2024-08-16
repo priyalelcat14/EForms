@@ -1,0 +1,100 @@
+<mvc:View controllerName="sony.pcard.reconciliation.appYPCardReconciliation.controller.PCardReconciliation" xmlns:core="sap.ui.core"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m" xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form">
+	<App>
+		<pages>
+			<Page>
+				<customHeader>
+					<Toolbar>
+						<Button type="Back" press="onNavBack" visible="false"/>
+						<core:Icon src="sap-icon://home" id="HOME" size="30px" height="46px" width="46px" color="blue" visible="false" press="_onNavigateHome"/>
+						<ToolbarSpacer/>
+						<Title text="{i18n>title}" level="H2" id="pageTitleId"/>
+						<ToolbarSpacer/>
+						<core:Icon id="b_delete" src="sap-icon://delete" size="30px" height="46px" width="46px" color="red" press="onPressDelete"
+							ariaLabelledBy="editButtonLabel"/>
+						<core:Icon id="b_edit" src="sap-icon://edit" size="30px" height="46px" width="46px" color="orange" press="onPressEdit"
+							ariaLabelledBy="editButtonLabel"/>
+					</Toolbar>
+				</customHeader>
+				<content>
+					<IconTabBar id="idIconTabBar" select="handleIconTabBarSelect" stretchContentHeight="true" expandable="false" expanded="true"
+						selectedKey="pCardForm">
+						<items>
+							<IconTabFilter icon="sap-icon://document" iconColor="Neutral" text="{i18n>PCard_Form}" key="pCardForm">
+								<ScrollContainer height="100%" width="100%" horizontal="false" vertical="true" class="sapUiResponsiveContentPadding">
+									<VBox class="sapUiSmallMargin">
+										<f:SimpleForm id="SimpleFormChange354" editable="true" layout="ResponsiveGridLayout" title="{i18n>Pcard_Title_Text}" labelSpanXL="3"
+											labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0"
+											columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false">
+											<f:content>
+												<core:Title level="H6" text="{i18n>PCard_SecondHeaderTitle}"/>
+												<Label text="{i18n>title_text}" required="true"/>
+												<Input value="{headerUserModel>/TITLE}" maxLength="128" valueState="{headerUserModel>/ValueState1}" enabled="{headerUserModel>/isEnable}"/>
+												<Label text="{i18n>Decscription}" required="true"/>
+												<TextArea value="{headerUserModel>/Des}" valueState="{headerUserModel>/ValueState101}" enabled="{headerUserModel>/isEnable}"/>
+											</f:content>
+										</f:SimpleForm>
+									</VBox>
+									<core:Fragment type="XML" fragmentName="sony.pcard.reconciliation.appYPCardReconciliation.Fragments.ReconciliationForm"/>
+								</ScrollContainer>
+							</IconTabFilter>
+							<IconTabFilter icon="sap-icon://attachment" iconColor="Positive" text="{i18n>PCard_Attachments}" key="pCardAttachments">
+								<ScrollContainer height="100%" width="100%" horizontal="false" vertical="true" class="sapUiResponsiveContentPadding">
+									<core:Fragment type="XML" fragmentName="sony.pcard.reconciliation.appYPCardReconciliation.Fragments.Comments_Attachment"/>
+								</ScrollContainer>
+							</IconTabFilter>
+							<IconTabFilter icon="sap-icon://payment-approval" iconColor="Negative" text="{i18n>PCard_ApprovalFlow}" key="pCardApprovalFlow">
+								<ScrollContainer height="100%" width="100%" horizontal="false" vertical="true" class="sapUiResponsiveContentPadding">
+									<core:Fragment type="XML" fragmentName="sony.pcard.reconciliation.appYPCardReconciliation.Fragments.Approver"/>
+								</ScrollContainer>
+							</IconTabFilter>
+							<IconTabFilter icon="sap-icon://document-text" iconColor="Default" text="{i18n>PCard_Summary}" key="pCardSummary">
+								<ScrollContainer height="100%" width="100%" horizontal="false" vertical="true" class="sapUiResponsiveContentPadding">
+									<Panel>
+										<headerToolbar>
+											<Toolbar>
+												<Title level="H2" text="{i18n>Pcard_Title_Text5}"/>
+											</Toolbar>
+										</headerToolbar>
+									</Panel>
+									<f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12"
+										adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1"
+										singleContainerFullSize="false">
+										<f:content>
+											<core:Title level="H6" text="{i18n>PCard_SecondHeaderTitle}"/>
+											<Label text="{i18n>title_text}" required="true"/>
+											<Input value="{headerUserModel>/TITLE}" valueState="{headerUserModel>/ValueState1}" enabled="false"/>
+											<Label text="{i18n>Decscription}" required="true"/>
+											<TextArea value="{headerUserModel>/Des}" rows="2" enabled="false"/>
+										</f:content>
+									</f:SimpleForm>
+									<core:Fragment type="XML" fragmentName="sony.pcard.reconciliation.appYPCardReconciliation.Fragments.ReconciliationForm"/>
+									<core:Fragment type="XML" fragmentName="sony.pcard.reconciliation.appYPCardReconciliation.Fragments.Comments_Attachment"/>
+									<core:Fragment type="XML" fragmentName="sony.pcard.reconciliation.appYPCardReconciliation.Fragments.Approver"/>
+								</ScrollContainer>
+							</IconTabFilter>
+						</items>
+					</IconTabBar>
+				</content>
+				<footer>
+					<Toolbar>
+						<ToolbarSpacer/>
+						<Button id="b_approve" text="{i18n>Approve}" type="Accept" icon="sap-icon://accept" iconFirst="true" width="auto" enabled="true"
+							visible="false" iconDensityAware="false" press="approve_eform"/>
+						<Button id="b_reject" text="{i18n>Reject}" type="Reject" icon="sap-icon://decline" iconFirst="true" width="auto" enabled="true"
+							visible="false" iconDensityAware="false" press="reject_eform"/>
+						<Button text="{i18n>PCard_Save}" width="7rem" type="Accept" press="onPressSave" class="AcceptStyleClass"
+							enabled="{headerUserModel>/isEnableSave}" visible="{headerUserModel>/isEnableSave}"/>
+						<Button text="{i18n>PCard_Submit}" width="7rem" type="Emphasized" press="onPressSubmit" enabled="{headerUserModel>/isEnableSubmit}"
+							visible="{headerUserModel>/isVisibleSubmit}"/>
+						<Button text="{i18n>PCard_Withdraw}" width="7rem" type="Reject" press="onPressWithdraw" class="RejectStyleClass"
+							enabled="{headerUserModel>/isEnableWithdraw}" visible="{headerUserModel>/isVisibleWithdraw}"/>
+						<Button text="{i18n>PCard_Print}" width="7rem" type="Accept" press="onPrintPress" class="AcceptStyleClass"
+							enabled="{headerUserModel>/isEnableReject}"/>
+					</Toolbar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

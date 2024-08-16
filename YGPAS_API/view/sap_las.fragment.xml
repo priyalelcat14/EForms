@@ -1,0 +1,74 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:m="sap.m" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form" xmlns:l="sap.ui.layout"
+	xmlns:u="sap.ui.unified">
+	<Table width="100%" id="tblRecipient" noDataText="No data" showSeparators="All" growing="true" growingThreshold="20"
+		growingScrollToLoad="true" mode="SingleSelectLeft" rememberSelections="false" visible="false" items="{ path: 'outboundSapToLasModel>/', factory: '.outboundSapToLasFactory' }" >
+		<!--<infoToolbar>-->
+		<!--	<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">-->
+		<!--		<content>-->
+		<!--			<Label text="GL Prod" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>-->
+		<!--		</content>-->
+		<!--	</Toolbar>-->
+		<!--</infoToolbar>-->
+		<!--<headerToolbar>-->
+		<!--	<Toolbar width="auto" height="46px" design="Transparent" visible="true" enabled="true">-->
+		<!--		<ToolbarSpacer/>-->
+		<!--	</Toolbar>-->
+		<!--</headerToolbar>-->
+		<headerToolbar>
+			<Toolbar width="auto" height="46px" design="Transparent" visible="true" enabled="true">
+				<content>
+					<Title text="SAP to LAS" level="H3"/>
+					<ToolbarSpacer width="1em"/>
+					<Label text="Status" width="auto" wrapping="false" textAlign="Begin" textDirection="Inherit" required="true"/>
+					<ComboBox id="lstatus" editable="true" visible="true" selectedKey="{headerUserModel>/STATUS_O}" width="auto" valueState="None" maxWidth="100%" enabled="{headerUserModel>/is_enabled}">
+						<items>
+							<core:Item text="Active" key="A" />
+							<core:Item text="Inactive" key="I"/>
+						</items>
+					</ComboBox>
+					<ToolbarSpacer width=""/>
+					<Button text="" type="Reject" icon="sap-icon://delete" iconFirst="true" width="auto" enabled="{headerUserModel>/is_enabled}" visible="true" iconDensityAware="false"
+						press="onDeleteOutboundSapToLas"/>
+				</content>
+			</Toolbar>
+		</headerToolbar>
+		<columns>
+			<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+				<header>
+					<Text class="required" text="GL Prod" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+				</header>
+				<footer/>
+			</Column>
+			<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+				<header>
+					<Label class="required" text="SAP project" width="auto"  wrapping="false" textAlign="Begin" textDirection="Inherit" required="true"/>
+				</header>
+				<footer/>
+			</Column>
+			<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+				<header>
+					<Text class="required" text="MPM" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+				</header>
+				<footer/>
+			</Column>
+			<!--<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">-->
+			<!--	<header>-->
+			<!--		<Text class="required" text="Active" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>-->
+			<!--	</header>-->
+			<!--	<footer/>-->
+			<!--</Column>-->
+			<!--<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">-->
+			<!--	<header>-->
+			<!--		<Text class="required" text="Inactive" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>-->
+			<!--	</header>-->
+			<!--	<footer/>-->
+			<!--</Column>-->
+		</columns>
+		<!--<items>-->
+		<!--<ColumnListItem>-->
+		<!--<cells>-->
+		<!--</cells>-->
+		<!--</ColumnListItem>-->
+		<!--</items>-->
+	</Table>
+</core:FragmentDefinition>

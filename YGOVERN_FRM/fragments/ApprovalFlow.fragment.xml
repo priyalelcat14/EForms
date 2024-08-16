@@ -1,0 +1,105 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<Panel>
+		<headerToolbar>
+			<Toolbar height="3rem"></Toolbar>
+		</headerToolbar>
+	</Panel>
+	<!--//REQ0470877:RMANDAL:GWDK901935:11/04/2019:Adding factory function to approval flow table:START-->
+	<Table id="tblApproverFlow" width="100%" noDataText="{i18n>Nodata}" mode="SingleSelectLeft" showSeparators="All" growing="true"
+		growingThreshold="20" growingScrollToLoad="true" items="{ path: 'oApproverModel>/', factory: '.approverFlowFactory' }">
+		<!--//REQ0470877:RMANDAL:GWDK901935:11/04/2019:Adding factory function to approval flow table:END-->
+		<infoToolbar>
+			<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+				<content>
+					<Label text="{i18n>Label}" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+				</content>
+			</Toolbar>
+		</infoToolbar>
+		<headerToolbar>
+			<Toolbar width="auto" height="46px" design="Transparent" visible="true" enabled="true">
+				<content>
+					<Title text="{i18n>Approvers}" titleStyle="Auto" width="auto" textAlign="Begin" visible="true"/>
+					<ToolbarSpacer width=""/>
+					<Text text="Type" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+					<ComboBox value="{i18n>Approver}" editable="true" enabled="true" visible="true" width="auto" valueState="None" maxWidth="100%">
+						<items>
+							<core:Item text="{i18n>Watcher}" enabled="true"/>
+							<core:Item text="{i18n>Approver}" enabled="true"/>
+						</items>
+					</ComboBox>
+					<Text text="{i18n>Position}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+					<ComboBox editable="true" value="Before" enabled="true" visible="true" width="auto" valueState="None" maxWidth="100%">
+						<items>
+							<core:Item text="{i18n>Before}" enabled="true"/>
+							<core:Item text="{i18n>After}" enabled="true"/>
+						</items>
+					</ComboBox>
+					<Button text="" type="Emphasized" icon="sap-icon://add" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"
+						press="onAddApprovers"/>
+					<Button text="" type="Reject" icon="sap-icon://delete" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"
+						press="deleteAapprover"/>
+				</content>
+				<tooltip/>
+			</Toolbar>
+		</headerToolbar>
+		<columns>
+			<Column width="10rem" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+				<Text text="{i18n>ApprovedRejected}" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+			</Column>
+			<Column width="13rem" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+				<Text text="{i18n>Approver}" width="13rem" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+			</Column>
+			<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+				<Text text="{i18n>Reviewer_Type}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+			</Column>
+			<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+				<Text text="{i18n>Approved_By}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+			</Column>
+			<Column width="6rem" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+				<Text text="{i18n>Approval_Date}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+			</Column>
+			<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+				<Text text="{i18n>Approval_Time(PST)}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+			</Column>
+			<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+				<Text text="{i18n>Manual_Addition}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+			</Column>
+			<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+				<Text text="{i18n>AddedBy}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+			</Column>
+			<Column width="6rem" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+				<Text text="{i18n>Added_On}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+			</Column>
+		</columns>
+		<items>
+			<!--//REQ0470877:RMANDAL:GWDK901935:11/04/2019:Display Employees of groups:START-->
+			<!--<ColumnListItem type="Active">-->
+			<!--<cells>-->
+			<!--	<CheckBox text="" selected="{oApproverModel>APPROVED}" enabled="{oApproverModel>isAppEnabled}" visible="true" width="auto"/>-->
+			<!--<Input value="{oApproverModel>APPR}" showValueHelp="true" enabled="{oApproverModel>isAppEnabled}" visible="true"-->
+			<!--	width="auto" valueHelpOnly="true" maxLength="0" valueHelpRequest="onHandleApproverValueHelp"/>-->
+			<!--	<Input value="{oApproverModel>APPR}" showValueHelp="true" enabled="{oApproverModel>isAppEnabled}" visible="{oApproverModel>isAppEnabled}"-->
+			<!--		width="auto" valueHelpOnly="true" maxLength="0" valueHelpRequest="onHandleApproverValueHelp"/>-->
+			<!--	<Link text="{oApproverModel>APPR}" enabled="{oApproverModel>GRP}" press="_displayEmployees" wrapping="true"-->
+			<!--		visible="{= !${oApproverModel>isAppEnabled}}"/>-->
+			<!--	<Text text="{oApproverModel>REVIEWER_TYPE}" width="auto" maxLines="1" wrapping="false"/>-->
+			<!--	<Text text="{oApproverModel>APPROVED_BY}" width="auto" maxLines="2" wrapping="true"/>-->
+			<!--	<Text text="{oApproverModel>APPROVAL_DT}" width="auto" maxLines="1" wrapping="false"/>-->
+			<!--	<Text text="{oApproverModel>APPROVAL_TM}" width="auto" maxLines="1" wrapping="false"/>-->
+			<!--	<CheckBox text="" selected="{oApproverModel>MANUAL}" editable="true" enabled="{oApproverModel>isAppEnabled}" visible="true" width="auto"/>-->
+			<!--	<Text text="{oApproverModel>ADDED_BY}" width="auto" maxLines="2" wrapping="true"/>-->
+			<!--	<Text text="{oApproverModel>CREATION_DT}" width="auto" maxLines="1" wrapping="false"/>-->
+			<!--</cells>-->
+			<!--</ColumnListItem>-->
+			<!--//REQ0470877:RMANDAL:GWDK901935:11/04/2019:Display Employees of groups:END-->
+		</items>
+	</Table>
+	<Bar design="Auto">
+		<contentLeft/>
+		<contentMiddle/>
+		<contentRight>
+			<Button text="{i18n>Refresh}" type="Accept" icon="sap-icon://refresh" iconFirst="true" width="auto" enabled="true" visible="true"
+				iconDensityAware="false" press="onRefresh"/>
+		</contentRight>
+	</Bar>
+</core:FragmentDefinition>

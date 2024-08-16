@@ -1,0 +1,27 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<!--REQ0730972:DPATEL11:FPDK900050:22/12/2021:Enhance Fiori Eforms to showLOB/SubLOB Name with Description:START -->
+	<SelectDialog id="LoBDialogId" noDataText="No LOB Found" title="Select Product" search="handleSearch" confirm="onHandleConfirmLOB"
+		cancel="onHandleClose" showClearButton="true" items="{ path: 'uniqueLobModel>/uniqueLobSet', sorter: { path: 'LOB', descending: false } }">
+		<StandardListItem 
+		title="{uniqueLobModel>LOB}" 
+		description="{uniqueLobModel>SLOB_DESCRIPTION}" 
+		type="Active"/>
+	</SelectDialog>
+	<!--<TableSelectDialog id="LoBDialogId" noDataText="No LOB Found" title="Select Product" search="handleSearch" confirm="onHandleConfirmLOB"-->
+	<!--	cancel="onHandleClose"-->
+	<!--	items="{ path : 'uniqueLobModel>/uniqueLobSet', sorter : { path : 'LOB', descending : false }, templateShareable:false }">-->
+	<!--	<ColumnListItem>-->
+	<!--		<cells>-->
+	<!--			<Text text="{uniqueLobModel>LOB}"/>-->
+	<!--		</cells>-->
+	<!--	</ColumnListItem>-->
+	<!--	<columns>-->
+	<!--		<Column width="12em">-->
+	<!--			<header>-->
+	<!--				<Text text="LOB"/>-->
+	<!--			</header>-->
+	<!--		</Column>-->
+	<!--	</columns>-->
+	<!--</TableSelectDialog>-->
+	<!--REQ0730972:DPATEL11:FPDK900050:22/12/2021:Enhance Fiori Eforms to showLOB/SubLOB Name with Description:END -->
+</core:FragmentDefinition>

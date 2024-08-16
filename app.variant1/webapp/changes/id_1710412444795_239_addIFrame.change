@@ -1,0 +1,45 @@
+{
+	"fileName": "id_1710412444795_239_addIFrame",
+	"fileType": "change",
+	"changeType": "addIFrame",
+	"moduleName": "",
+	"reference": "customer.app.variant1",
+	"packageName": "$TMP",
+	"content": {
+		"baseId": "mdm.md.customer.manage::sap.suite.ui.generic.template.ObjectPage.view.Details::C_BusinessPartnerSalesArea--id-1710412444787-238",
+		"targetAggregation": "sections",
+		"index": 0,
+		"url": "{ZZ1_ZZJAETTU_ALUSTA_csa}",
+		"width": "100%",
+		"height": "100%",
+		"useLegacyNavigation": false,
+		"selector": {
+			"id": "mdm.md.customer.manage::sap.suite.ui.generic.template.ObjectPage.view.Details::C_BusinessPartnerSalesArea--id-1710412444787-238",
+			"idIsLocal": false
+		}
+	},
+	"selector": {
+		"id": "mdm.md.customer.manage::sap.suite.ui.generic.template.ObjectPage.view.Details::C_BusinessPartnerSalesArea--objectPage",
+		"idIsLocal": false
+	},
+	"layer": "CUSTOMER_BASE",
+	"texts": {},
+	"namespace": "apps/mdm.md.customer.manage/changes/",
+	"projectId": "customer.app.variant1",
+	"creation": "2024-03-14T10:34:05.435Z",
+	"originalLanguage": "EN",
+	"support": {
+		"generator": "sap.ui.rta.command",
+		"service": "",
+		"user": "",
+		"sapui5Version": "1.108.26",
+		"sourceChangeFileName": "",
+		"compositeCommand": "",
+		"command": "addIFrame"
+	},
+	"oDataInformation": {},
+	"dependentSelector": {},
+	"jsOnly": false,
+	"variantReference": "",
+	"appDescriptorChange": false
+}

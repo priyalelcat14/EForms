@@ -1,0 +1,129 @@
+{
+	"_version": "1.1.0",
+	"sap.app": {
+		"_version": "1.2.0",
+		"id": "spefar.app",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"dataSources": {},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"ach": "ach",
+		"resources": "resources.json",
+		"sourceTemplate": {
+			"id": "ui5template.basicSAPUI5ApplicationProject",
+			"version": "1.32.0"
+		}
+	},
+	"sap.ui": {
+		"_version": "1.2.0",
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_bluecrystal"
+		]
+	},
+	"sap.ui5": {
+		"_version": "1.1.0",
+		"rootView": {
+			"viewName": "spefar.app.view.FarRequest",
+			"type": "XML"
+		},
+		"dependencies": {
+			"minUI5Version": "1.20.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.ui.layout": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {},
+		"resources": {
+			"css": []
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "spefar.app.view",
+				"controlId": "App",
+				"clearTarget": false,
+				"controlAggregation": "pages",
+				"bypassed": {
+					"target": [
+						"SearchFAR"
+					]
+				}
+			},
+			"targets": {
+				"SearchFAR": {
+					"controlAggregation": "pages",
+					"viewName": "SearchFAR",
+					"viewId": "SearchFAR",
+					"viewLevel": 1,
+					"transition": "slide"
+				},
+				"FarRequest": {
+					"controlAggregation": "pages",
+					"viewName": "FarRequest",
+					"viewId": "FarRequest",
+					"viewLevel": 1,
+					"transition": "slide"
+				}
+			},
+			"routes": [
+				{
+					"pattern": "SearchFAR/:context:",
+					"name": "SearchFAR",
+					"target": [
+						"SearchFAR"
+					]
+				},
+				{
+					"pattern": "",
+					"name": "default",
+					"target": [
+						"SearchFAR"
+					]
+				},
+				{
+					"pattern": "FarRequest/:context:",
+					"name": "Test1",
+					"target": [
+						"FarRequest"
+					]
+				},
+				{
+					"pattern": "FarRequest/{value}",
+					"name": "FarRequest",
+					"target": [
+						"FarRequest"
+					]
+				}
+			]
+		}
+	},
+	"sap.platform.abap": {
+		"uri": "/sap/bc/ui5_ui5/sap/yfar_frm",
+		"_version": "1.1.0"
+	}
+}

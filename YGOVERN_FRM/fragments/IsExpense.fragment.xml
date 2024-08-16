@@ -1,0 +1,44 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:form="sap.ui.layout.form">
+	<Panel>
+		<headerToolbar>
+			<Toolbar height="3rem">
+				<Title level="H6" text="{i18n>exp_header}"/>
+			</Toolbar>
+		</headerToolbar>
+		<form:Form width="100%" editable="true" visible="{headerUserModel>/NoExp}">
+			<form:title>
+				<core:Title text="COMPLETE FORM - GOVERNMENT EXPENDITURES REQUEST FORM" level="Auto"/>
+			</form:title>
+			<form:formContainers>
+				<form:FormContainer visible="true">
+					<form:formElements>
+						<form:FormElement visible="true">
+							<form:label>
+								<Label text="" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+							</form:label>
+							<form:fields>
+								<!-- REQ0470877:RMANDAL:GWDK901935:10/03/2019:MODIFY:START -->
+								<Link text="{i18n>link}" target="_blank"
+									href="https://sony.sharepoint.com/sites/SPE-mySPE/policies/legal/Anti-Bribery/Anti-Bribery%20Policy%20%204-1-14%20ENGLISH.pdf#search=Anti%2DBribery%20Policy"/>
+								<!--href="https://sharepoint.spe.sony.com/myspe/policies/legal/Anti-Bribery/Anti-Bribery%20Policy%20%204-1-14%20ENGLISH.pdf#search=anti%20bribery"/>-->
+								<!-- REQ0470877:RMANDAL:GWDK901935:10/03/2019:MODIFY:END -->
+							</form:fields>
+						</form:FormElement>
+						<form:FormElement visible="true">
+							<form:label>
+								<Label text="" design="Bold" width="100%" textAlign="Begin" textDirection="Inherit"/>
+							</form:label>
+							<form:fields>
+								<Text text="{i18n>No_Expense}"/>
+							</form:fields>
+						</form:FormElement>
+					</form:formElements>
+					<form:title/>
+				</form:FormContainer>
+			</form:formContainers>
+			<form:layout>
+				<form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="2" labelSpanL="3" columnsM="1" labelSpanM="2" labelSpanS="12"/>
+			</form:layout>
+		</form:Form>
+	</Panel>
+</core:FragmentDefinition>

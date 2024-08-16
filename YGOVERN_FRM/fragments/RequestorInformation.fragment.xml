@@ -1,0 +1,156 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:form="sap.ui.layout.form">
+	<form:Form width="100%" editable="true" visible="true">
+		<form:title>
+			<core:Title text="Provide the requested information" level="Auto"/>
+		</form:title>
+		<form:formContainers>
+			<form:FormContainer visible="true">
+				<form:formElements>
+					<form:FormElement id="WarnId1" visible="false">
+						<form:label>
+							<Label text="" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<Text class="redColor" text="{i18n>South_Korea_text}{i18n>South_Korea_text1}{i18n>South_Korea_text2}{i18n>South_Korea_text3}"/>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement visible="true">
+						<form:label>
+							<Label text="" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<HBox>
+								<Text class="redColor" text="{i18n>RequesterHeading}"/>
+								<Text class="redColor underLine sapUiSmallMarginBegin" text=" {i18n>ContactSPEEmail}"/>
+							</HBox>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement visible="true">
+						<form:label>
+							<Label text="" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<!-- REQ0470877:RMANDAL:GWDK901933:08/19/2019:MODIFY:START -->
+							<Link text="{i18n>link}" target="_blank"
+								href="https://sony.sharepoint.com/sites/SPE-mySPE/policies/legal/Anti-Bribery/Anti-Bribery%20Policy%20%204-1-14%20ENGLISH.pdf#search=Anti%2DBribery%20Policy"/>
+							<!--href="https://sharepoint.spe.sony.com/myspe/policies/legal/Anti-Bribery/Anti-Bribery%20Policy%20%204-1-14%20ENGLISH.pdf#search=anti%20bribery"/>-->
+							<!-- REQ0470877:RMANDAL:GWDK901933:08/19/2019:MODIFY:END -->
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement visible="false">
+						<form:label>
+							<Label text="" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<Text class="redColor" text="{i18n>RequesterHelperMsg}"/>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement visible="true">
+						<form:label>
+							<Label text="{i18n>Form_Title}" tooltip="{i18n>Form_Title}" design="Bold" width="100%" required="true" textAlign="Begin"
+								textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<Input type="Text" value="{headerUserModel>/TITLE}" enabled="{headerUserModel>/isEnable}" valueState="{headerUserModel>/ValueState1}"
+								showValueHelp="false" visible="true" valueHelpOnly="false" maxLength="100" placeholder="{i18n>RequesterHelperMsg}"/>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement visible="true">
+						<form:label>
+							<Label text="{i18n>Decs}" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<TextArea value="{headerUserModel>/Des}" enabled="{headerUserModel>/isEnable}" valueState="{headerUserModel>/ValueState_DES}" rows="2"
+								visible="true" maxLength="250" placeholder="The text entered here will be used in the email message which is sent to the Approvers"/>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement visible="false" id="idPreparerBox">
+						<form:label>
+							<Label text="{i18n>Preparer}" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<Text text="{headerUserModel>/PREPARER}"/>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement visible="true">
+						<form:label>
+							<Label text="{i18n>OnBehalfOf}" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<Input type="Text" value="{headerUserModel>/ONBEHALFOF}" enabled="{headerUserModel>/isEnable}" showValueHelp="true" visible="true"
+								width="auto" valueHelpOnly="true" maxLength="0" valueHelpRequest="onHandleUserValueHelp"/>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement visible="true">
+						<form:label>
+							<Label text="{i18n>RequestorTitle}" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<Input type="Text" value="{headerUserModel>/REQ_TITLE}" enabled="{headerUserModel>/isEnable}" valueState="{headerUserModel>/ValueState3}"
+								showValueHelp="false" visible="true" width="auto" valueHelpOnly="false" maxLength="20" valueHelpRequest="_onInputValueHelpRequest"/>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement visible="true">
+						<form:label>
+							<Label text="{i18n>RequesterEmail}" required="true" design="Bold" width="100%" textAlign="Begin" textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<Input type="Text" value="{headerUserModel>/REQ_EMAIL}" enabled="{headerUserModel>/isEnable}" valueState="{headerUserModel>/ValueState4}"
+								showValueHelp="false" visible="true" width="auto" valueHelpOnly="false" maxLength="50"/>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement visible="true">
+						<form:label>
+							<Label text="{i18n>Requester_Office_Phone_Number}" design="Bold" wrapping="true" width="100%" required="true" textAlign="Begin"
+								textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<Input type="Text" value="{headerUserModel>/PHONE_NUM}" liveChange="onPhoneNumChange" enabled="{headerUserModel>/isEnable}"
+								valueState="{headerUserModel>/ValueState5}" showValueHelp="false" visible="true" width="auto" valueHelpOnly="false" maxLength="25"/>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement visible="true">
+						<form:label>
+							<Label text="{i18n>Requestor_Office_Location}" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<Input type="Text" value="{headerUserModel>/LOCATION}" enabled="{headerUserModel>/isEnable}" valueState="{headerUserModel>/ValueState2}"
+								showValueHelp="false" visible="true" width="auto" valueHelpOnly="false" maxLength="74"/>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement visible="true">
+						<form:label>
+							<Label text="{i18n>Country}" required="true" design="Bold" width="100%" textAlign="Begin" textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<Input type="Text" value="{headerUserModel>/RES_COUNTRY}" enabled="{headerUserModel>/isEnable}" valueState="{headerUserModel>/ValueState11}"
+								showValueHelp="true" valueHelpRequest="_onCountryValueHelpRequest" visible="true" width="auto" valueHelpOnly="true" maxLength="0"/>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement visible="true">
+						<form:label>
+							<Label text="{i18n>LOB}" design="Bold" width="100%" textAlign="Begin" textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<Input editable="true" valueHelpOnly="true" enabled="{headerUserModel>/isEnable}" value="{headerUserModel>/LOB}"
+								valueState="{headerUserModel>/ValueState12}" visible="true" width="auto" showValueHelp="true" valueHelpRequest="_onLobValueHelpRequest"></Input>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement visible="true">
+						<form:label>
+							<Label text="{i18n>SLOB}" design="Bold" width="100%" textAlign="Begin" textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<Input editable="true" valueHelpOnly="true" enabled="{headerUserModel>/isEnable}" value="{headerUserModel>/SLOB}"
+								valueState="{headerUserModel>/ValueState13}" visible="true" width="auto" showValueHelp="true" valueHelpRequest="_onSubLobValueHelpRequest"></Input>
+						</form:fields>
+					</form:FormElement>
+				</form:formElements>
+				<form:title/>
+			</form:FormContainer>
+		</form:formContainers>
+		<form:layout>
+			<form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="2" labelSpanL="3" columnsM="1" labelSpanM="2" labelSpanS="12"/>
+		</form:layout>
+	</form:Form>
+</core:FragmentDefinition>

@@ -1,0 +1,1311 @@
+<mvc:View xmlns:u="sap.ui.unified" xmlns:mvc="sap.ui.core.mvc" xmlns:m="sap.m" xmlns:form="sap.ui.layout.form" xmlns:core="sap.ui.core"
+	controllerName="spefar.app.controller.FarRequest">
+	<m:Page id="PAGE_TITLE" showHeader="true" title="Fixed Asset Request" showFooter="true" showNavButton="true"
+		navButtonPress="_onPageNavButtonPress">
+		<m:content>
+			<m:IconTabBar expandable="false" expanded="true" applyContentPadding="false" backgroundDesign="Solid" upperCase="false" visible="true"
+				selectedKey="Ok">
+				<m:items>
+					<m:IconTabFilter icon="sap-icon://document" iconColor="Neutral" text="Title" count="" design="Vertical" showAll="false"
+						textDirection="Inherit" enabled="true" visible="true" iconDensityAware="false">
+						<m:content>
+							<form:Form id="title_form" width="100%" editable="true" visible="true">
+								<form:title>
+									<core:Title text="Provide the requested information" level="Auto"/>
+								</form:title>
+								<form:formContainers>
+									<form:FormContainer id="title_form_container" visible="true">
+										<form:formElements>
+											<form:FormElement visible="true">
+												<form:label>
+													<m:Label text="FAR Form No." design="Bold" width="100%" required="true" Align="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<m:Text id="title_eform_no" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" text="{/form_no}"/>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement visible="true">
+												<form:label>
+													<m:Label text="Project Title" design="Bold" width="100%" required="true" Align="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<m:Input id="title_title_inp" value="{/project_title}" type="Text" showValueHelp="false" enabled="{/requestmode}" visible="true"
+														width="auto" valueHelpOnly="false" maxLength="0"/>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement visible="true">
+												<form:label>
+													<m:Label text="Description" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<m:TextArea id="title_desc_inp" value="{/project_desc}" enabled="{/requestmode}" rows="5" cols="20" maxLength="250" wrapping="None"
+														visible="true"/>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement visible="true">
+												<form:label>
+													<m:Label text="Preparer" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<m:Input id="title_prep_inp" value="{/preparer}" type="Text" showValueHelp="false" enabled="false" visible="true" width="auto"
+														valueHelpOnly="false" maxLength="0"/>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement visible="true">
+												<form:label>
+													<m:Label text="On Behalf of" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<!--REQ0737819:DPATEL11:FPDK900086:Batch-2:FAR lob/sublob changes : START -->
+													<!--<m:Input id="onbehalfof_inp" value="{/onbehalfof}" type="Text" showValueHelp="true" enabled="{/requestmode}" visible="true" width="auto"-->
+													<!--	valueHelpOnly="false" maxLength="0" valueHelpRequest="_onInputValueHelpRequest"/>-->
+													<m:Input id="onbehalfof_inp" value="{/onbehalfof}" type="Text" showValueHelp="true" enabled="{/requestmode}" visible="true" width="auto"
+														valueHelpOnly="false" maxLength="0" valueHelpRequest="_onbehalfofValueHelpRequest"/>
+													<!--REQ0737819:DPATEL11:FPDK900086:Batch-2:FAR lob/sublob changes : END -->
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement visible="true">
+												<form:label>
+													<m:Label text="Requester Phone" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<m:Input id="title_reqphone_inp" value="{/reqphone}" type="Text" showValueHelp="false" enabled="false" visible="true" width="auto"
+														valueHelpOnly="false" maxLength="0"/>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement visible="true">
+												<form:label>
+													<m:Label text="Requester Email" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<m:Input id="title_reqemail_inp" value="{/reqemail}" type="Text" showValueHelp="false" enabled="false" visible="true" width="auto"
+														valueHelpOnly="false" maxLength="0"/>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement visible="true">
+												<form:label>
+													<m:Label text="COFA - LOB" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<!--REQ0737819:DPATEL11:FPDK900086:Batch-2:FAR lob/sublob changes : START -->
+													<!--<m:Input id="title_cofalob_inp" value="{/cofa_lob}" type="Text" showValueHelp="true" enabled="{/requestmode}" visible="true" width="auto"-->
+													<!--	valueHelpOnly="false" maxLength="0" valueHelpRequest="_onInputValueHelpRequest4"/>-->
+													<m:Input id="title_cofalob_inp" value="{/cofa_lob}" type="Text" showValueHelp="true" enabled="{/requestmode}" visible="true" width="auto"
+														valueHelpOnly="false" maxLength="0" valueHelpRequest="_onlobValueHelpRequest"/>
+													<!--REQ0737819:DPATEL11:FPDK900086:Batch-2:FAR lob/sublob changes : END -->
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement visible="true">
+												<form:label>
+													<m:Label text="COFA SUB - LOB" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<!--REQ0737819:DPATEL11:FPDK900086:Batch-2:FAR lob/sublob changes : START -->
+													<!--<m:Input id="title_cofasublob_inp" value="{/cofa_sublob}" type="Text" showValueHelp="true" enabled="{/requestmode}" visible="true"-->
+													<!--	width="auto" valueHelpOnly="false" maxLength="0" valueHelpRequest="_onInputValueHelpRequest5"/>-->
+													<m:Input id="title_cofasublob_inp" value="{/cofa_sublob}" type="Text" showValueHelp="true" enabled="{/requestmode}" visible="true"
+														width="auto" valueHelpOnly="false" maxLength="0" valueHelpRequest="_onSubLobValueHelpRequest"/>
+													<!--REQ0737819:DPATEL11:FPDK900086:Batch-2:FAR lob/sublob changes : END -->
+												</form:fields>
+											</form:FormElement>
+										</form:formElements>
+										<form:title/>
+									</form:FormContainer>
+								</form:formContainers>
+								<form:layout>
+									<form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="2" labelSpanL="3" columnsM="1" labelSpanM="2" labelSpanS="12"/>
+								</form:layout>
+							</form:Form>
+							<m:Bar design="Auto">
+								<m:contentLeft/>
+								<m:contentMiddle/>
+								<m:contentRight/>
+							</m:Bar>
+						</m:content>
+					</m:IconTabFilter>
+					<m:IconTabSeparator icon="" iconDensityAware="false"/>
+					<m:IconTabFilter icon="sap-icon://message-information" iconColor="Critical" text="Main Information" count="" design="Vertical"
+						showAll="false" textDirection="Inherit" enabled="true" visible="true" iconDensityAware="false" tooltip="Main Information">
+						<m:content>
+							<form:Form width="100%" editable="true" visible="true">
+								<form:title>
+									<core:Title text="Provide the requested information" level="Auto"/>
+								</form:title>
+								<form:formContainers>
+									<form:FormContainer visible="true">
+										<form:formElements>
+											<form:FormElement visible="true">
+												<form:label>
+													<m:Label text="Request Type" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<m:ComboBox id="maintab_requestType" value="{/request_type}" enabled="{/requestmode}" visible="true" width="auto" valueState="None"
+														maxWidth="100%" selectionChange="changeOfRequestType">
+														<m:items>
+															<core:Item text="Create" enabled="true"/>
+															<core:Item text="Change" enabled="true"/>
+														</m:items>
+													</m:ComboBox>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement id="maintab_fe_far" visible="false">
+												<form:label>
+													<m:Label text="FAR Reference" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<m:Input id="maintab_farref_inp" value="{/far_ref}" type="Text" showValueHelp="true" enabled="{/requestmode}" visible="true" width="auto"
+														valueHelpOnly="false" maxLength="0" valueHelpRequest="_onInputValueHelpRequest10"/>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement id="maintab_fe_cc" visible="false">
+												<form:label>
+													<m:Label text="Cost Center (Requesting Department)" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<m:Input id="costcenter_inp" value="{/cost_center}" type="Text" showValueHelp="true" enabled="{/requestmode}" visible="true" width="auto"
+														valueHelpOnly="false" maxLength="0" valueHelpRequest="_onInputValueHelpRequest1"/>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement id="maintab_fe_ccode" visible="false">
+												<form:label>
+													<m:Label text="Company Code" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<m:Input id="companycode_inp" value="{/comp_code}" type="Text" showValueHelp="true" enabled="{/requestmode}" visible="true" width="auto"
+														valueHelpOnly="false" maxLength="0" valueHelpRequest="_onInputValueHelpRequest2"/>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement id="maintab_fe_wbs" visible="false">
+												<form:label>
+													<m:Label text="WBS" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<m:Input type="Text" id="wbs_inp" value="{/wbs}" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false"
+														maxLength="0"/>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement id="maintab_fe_el" visible="false">
+												<form:label>
+													<m:Label text="Expected Asset Location" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<m:Input id="expectedloc_inp" placeholder="City/Building" type="Text" value="{/exp_loc}" showValueHelp="false" enabled="{/requestmode}"
+														visible="true" width="auto" valueHelpOnly="false" maxLength="0"/>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement id="maintab_fe_ps" visible="false">
+												<form:label>
+													<m:Label text="Project Supervisor" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<m:Input id="projsuper_inp" value="{/proj_super}" type="Text" showValueHelp="true" enabled="{/requestmode}" visible="true" width="auto"
+														valueHelpOnly="false" maxLength="0" valueHelpRequest="_onInputValueHelpRequest6"/>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement id="maintab_fe_tel" visible="false">
+												<form:label>
+													<m:Label text="Telephone" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<m:Input id="telephone" type="Text" value="{/tel}" showValueHelp="false" enabled="{/requestmode}" visible="true" width="auto"
+														valueHelpOnly="false" maxLength="0"/>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement id="maintab_fe_sc" visible="false">
+												<form:label>
+													<m:Label text="Scheduled Completion" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<m:DatePicker enabled="{/requestmode}" id="sch_compdate_inp" value="{/sch_comp}" visible="true" width="auto" displayFormat="MMM/dd/yyyy"/>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement id="maintab_fe_ds" visible="false">
+												<form:label>
+													<m:Label text="Date Submitted" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<m:DatePicker enabled="false" id="maintab_fe_ds_inp" value="{/date_sub}" visible="true" width="auto" displayFormat="MMM/dd/yyyy"/>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement id="maintab_fe_ofb" visible="false">
+												<form:label>
+													<m:Label text="Original FAR Budget" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<m:Input type="Text" id="maintab_fe_ofb_inp" liveChange="handleAmoutFormatterByTotal"
+														value="{path:'/original_far',formatter:'.handleAmountFormatting'}" showValueHelp="false" enabled="false" visible="true" width="auto"
+														valueHelpOnly="false" maxLength="0"/>
+												</form:fields>
+											</form:FormElement>
+											<!--REQ0567864:NSONI3:GWDK902066:05/11/2020:Add new change request field for budget:START-->
+											<form:FormElement id="maintab_fe_reqChange" visible="false">
+												<form:label>
+													<m:Label text="Requested Change" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<m:Input type="Text" id="maintab_fe_reqChange_inp" liveChange="handleAmoutFormatterByTotal"
+														value="{path:'/requested_far', formatter:'.handleAmountFormatting'}" showValueHelp="false" enabled="{/requestmode}" visible="true"
+														width="auto" valueHelpOnly="false" maxLength="0"/>
+												</form:fields>
+											</form:FormElement>
+											<!--REQ0567864:NSONI3:GWDK902066:05/11/2020:Add new change request field for budget:END-->
+											<form:FormElement id="maintab_fe_rfb" visible="false">
+												<form:label>
+													<m:Label text="Revised FAR Budget" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<m:Input type="Text" id="maintab_fe_rfb_inp" liveChange="handleAmoutFormatterByTotal"
+														value="{path:'/revised_far' , formatter:'.handleAmountFormatting'}" showValueHelp="false" enabled="false" visible="true" width="auto"
+														valueHelpOnly="false" maxLength="0"/>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement id="maintab_fe_tc" visible="false">
+												<form:label>
+													<m:Label wrapping="true" text="This change will constitute an increase in how many work days to complete the project?" design="Bold"
+														width="100%" required="false" textAlign="Begin" textDirection="Inherit"
+														tooltip="This change will constitute an increase in how many work days to complete the project?"/>
+												</form:label>
+												<form:fields>
+													<m:Input type="Text" id="maintab_fe_tc_inp" value="{/this_change}" showValueHelp="false" enabled="{/requestmode}" visible="true"
+														width="auto" valueHelpOnly="false" maxLength="0"/>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement id="maintab_fe_doc" visible="false">
+												<form:label>
+													<m:Label text="Description of change" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<m:TextArea id="maintab_fe_doc_inp" value="{/desc_change}" rows="5" enabled="{/requestmode}" placeholder="" cols="20" maxLength="250"
+														wrapping="None" visible="true"/>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement id="maintab_fe_dabj" visible="false">
+												<form:label>
+													<m:Label text="Detail Description and Business Justification" tooltip="Detail Description and Business Justification" design="Bold"
+														width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<!--REQ0567864:NSONI3:GWDK902063:04/27/2020:Update length to 950 for business justification field:START-->
+													<m:TextArea id="maintab_fe_dabj_inp" rows="5"
+														placeholder="Please explain the business purpose for this capital allocation along with a business and / or financial justification. Attach any relevant documentation (e.g., financial analysis, project cost detail, vendor bids etc.) supporting this capital request on the Summary Page"
+														value="{/desc_bus_change}" cols="20" maxLength="950" wrapping="None" enabled="{/requestmode}" visible="true"/>
+													<!--REQ0567864:NSONI3:GWDK902063:04/27/2020:Update length to 950 for business justification field:END-->
+												</form:fields>
+											</form:FormElement>
+										</form:formElements>
+										<form:title/>
+									</form:FormContainer>
+								</form:formContainers>
+								<form:layout>
+									<form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="2" labelSpanL="3" columnsM="1" labelSpanM="2" labelSpanS="12"/>
+								</form:layout>
+							</form:Form>
+							<m:VBox id="maintab_attach_box" visible="false">
+								<m:items>
+									<m:HBox>
+										<m:items>
+											<m:ToolbarSpacer width="20px"/>
+											<m:Title text="Attach File" titleStyle="h1" width="auto" textAlign="Begin" visible="true"/>
+										</m:items>
+										<m:layoutData/>
+									</m:HBox>
+									<m:HBox>
+										<m:items>
+											<m:ToolbarSpacer width="20px"/>
+											<u:FileUploader id="fileUploader" name="myFileUpload" uploadUrl="/sap/opu/odata/sap/YFPSFIFARDD0206_EFORM_SRV/eFormAttachments/"
+												width="400px" sendXHR="true" useMultipart="false" uploadOnChange="false" change="handleValueChange"
+												tooltip="Upload your file to the local server" uploadComplete="handleUploadComplete"/>
+											<m:ToolbarSpacer width="20px"/>
+											<m:Button text="Upload File" enabled="true" type="Accept" icon="sap-icon://upload" iconFirst="true" width="auto" visible="true"
+												iconDensityAware="false" id="up_attach" press="handleUploadPress"/>
+										</m:items>
+										<m:layoutData/>
+									</m:HBox>
+									<m:Table width="auto" id="attachments" noDataText="No data" mode="SingleSelect" showSeparators="All" growing="true" growingThreshold="20"
+										growingScrollToLoad="true">
+										<m:infoToolbar>
+											<m:Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="{/requestmode}">
+												<m:content>
+													<m:Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+												</m:content>
+											</m:Toolbar>
+										</m:infoToolbar>
+										<m:headerToolbar>
+											<m:Toolbar width="auto" height="46px" design="Transparent" visible="true" enabled="true">
+												<m:content>
+													<m:Title text="Attachments" titleStyle="Auto" width="auto" textAlign="Begin" visible="true"/>
+													<m:ToolbarSpacer width=""/>
+													<m:Button text="" type="Reject" icon="sap-icon://delete" iconFirst="true" width="auto" enabled="true" visible="true"
+														iconDensityAware="false" press="attachment_delete"/>
+												</m:content>
+												<m:tooltip/>
+											</m:Toolbar>
+										</m:headerToolbar>
+										<m:columns>
+											<m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+												<m:header>
+													<m:Text text="File Name" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												</m:header>
+												<m:footer/>
+											</m:Column>
+											<m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+												<m:header>
+													<m:Text text="Creation Date" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												</m:header>
+												<m:footer/>
+											</m:Column>
+											<m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+												<m:header>
+													<m:Text text="Creation Time (PST)" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												</m:header>
+												<m:footer/>
+											</m:Column>
+											<m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+												<m:header>
+													<m:Text text="File Size" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												</m:header>
+												<m:footer/>
+											</m:Column>
+											<m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+												<m:header>
+													<m:Text text="Creator" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												</m:header>
+												<m:footer/>
+											</m:Column>
+										</m:columns>
+									</m:Table>
+								</m:items>
+								<m:layoutData/>
+							</m:VBox>
+							<m:Bar design="Auto">
+								<m:contentLeft/>
+								<m:contentMiddle/>
+								<m:contentRight/>
+							</m:Bar>
+						</m:content>
+					</m:IconTabFilter>
+					<m:IconTabSeparator icon="" iconDensityAware="false"/>
+					<m:IconTabFilter icon="sap-icon://detail-view" iconColor="Positive" text="Project Detail" count="" design="Vertical" showAll="false"
+						textDirection="Inherit" enabled="true" visible="true" iconDensityAware="false">
+						<m:content>
+							<form:Form id="projdet_form1" width="100%" editable="true" visible="true">
+								<form:title/>
+								<form:formContainers>
+									<form:FormContainer visible="true">
+										<form:formElements>
+											<form:FormElement visible="true">
+												<form:label>
+													<m:Label text="Document Currency" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<m:ComboBox id="localcurrency_inp" value="{/loc_currency}" items="{ path: '/localcurrency' }" editable="true" enabled="{/requestmode}"
+														visible="true" width="50%" valueState="None" maxWidth="100%" selectionChange="_onCurrencyChange">
+														<m:items>
+															<core:Item text="{name}" enabled="true"/>
+														</m:items>
+													</m:ComboBox>
+												</form:fields>
+											</form:FormElement>
+										</form:formElements>
+										<form:title/>
+									</form:FormContainer>
+								</form:formContainers>
+								<form:layout>
+									<form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="2" labelSpanL="3" columnsM="1" labelSpanM="2" labelSpanS="12"/>
+								</form:layout>
+							</form:Form>
+							<m:VBox id="projdet_vbox1" alignItems="Stretch" direction="Column" fitContainer="true" width="auto" height="auto" justifyContent="Start"
+								renderType="Div" visible="true" displayInline="false">
+								<m:items>
+									<m:HBox alignItems="Center" direction="Row" fitContainer="true" width="auto" height="auto" justifyContent="Start" renderType="Div"
+										visible="true" displayInline="false">
+										<m:items>
+											<m:ToolbarSpacer width="20px"/>
+											<m:Label text="" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+											<m:RadioButtonGroup
+												id="sap_Responsive_Page_0-content-sap_m_IconTabBar-1500880096540-items-sap_m_IconTabFilter-5-content-sap_m_VBox-1504525446491-items-sap_m_HBox-1504525472373-items-sap_m_RadioButtonGroup-2"
+												columns="8" selectedIndex="{/rwb_component}" valueState="None" width="auto" editable="true" enabled="true" textDirection="Inherit"
+												select="_onRadioButtonGroupSelect">
+												<m:buttons>
+													<m:RadioButton id="con_byc" selected="false" text="By Component" editable="true" enabled="{/requestmode}" visible="true" width="auto"
+														valueState="None"/>
+													<m:RadioButton id="con_byt" selected="false" text="By Total" editable="true" enabled="{/requestmode}" visible="true" width="auto"
+														valueState="None"/>
+												</m:buttons>
+											</m:RadioButtonGroup>
+										</m:items>
+										<m:layoutData/>
+									</m:HBox>
+									<m:Table id="component_table" items="{/component_far}" width="100%" visible="false" noDataText="No data" mode="MultiSelect"
+										showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true">
+										<m:infoToolbar>
+											<m:Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+												<m:content>
+													<m:Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+												</m:content>
+											</m:Toolbar>
+										</m:infoToolbar>
+										<m:headerToolbar>
+											<m:Toolbar width="auto" height="46px" design="Transparent" visible="true" enabled="true">
+												<m:content>
+													<m:ToolbarSpacer width=""/>
+													<m:Button text="" type="Default" icon="sap-icon://copy" iconFirst="true" width="auto" enabled="{/requestmode}" visible="false"
+														iconDensityAware="false"/>
+													<m:Button text="" type="Transparent" icon="sap-icon://delete" iconFirst="true" width="auto" enabled="{/requestmode}" visible="true"
+														iconDensityAware="false" press="delete_component_table"/>
+													<m:Button text="" type="Transparent" icon="sap-icon://add" iconFirst="true" width="auto" enabled="{/requestmode}" visible="true"
+														iconDensityAware="false" press="add_component_table"/>
+												</m:content>
+												<m:tooltip/>
+											</m:Toolbar>
+										</m:headerToolbar>
+										<m:columns>
+											<m:Column width="10%" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+												<m:header>
+													<m:Text text="Line Item" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												</m:header>
+												<m:footer/>
+											</m:Column>
+											<m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+												<m:header>
+													<m:Text text="Description" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												</m:header>
+												<m:footer/>
+											</m:Column>
+											<m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+												<m:header>
+													<m:Text text="Amount (Document Currency )" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												</m:header>
+												<m:footer/>
+											</m:Column>
+										</m:columns>
+										<m:items>
+											<m:ColumnListItem type="Active">
+												<m:cells>
+													<m:Text text="{id}" width="25%" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+													<m:Input type="Text" showValueHelp="false" value="{description}" enabled="{/comp_table_mode}" visible="true" width="100%"
+														valueHelpOnly="false" maxLength="0"/>
+													<m:Input showValueHelp="false" value="{path:'amount',formatter:'.handleAmountFormatting'}" enabled="{/comp_table_mode}"
+														submit="handleAmoutFormatterByTotal" visible="true" width="auto" valueHelpOnly="false" maxLength="0"/>
+												</m:cells>
+											</m:ColumnListItem>
+										</m:items>
+									</m:Table>
+									<m:HBox id="total_con_amt_box" alignItems="Stretch" direction="Row" fitContainer="true" width="auto" height="50px" justifyContent="Start"
+										renderType="Div" visible="false" displayInline="false">
+										<m:items>
+											<m:ToolbarSpacer width="20px"/>
+											<m:Label text="Total Component Amount:" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+											<m:ToolbarSpacer width="10px"/>
+											<m:Text id="total_component_amt" text="" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+										</m:items>
+										<m:layoutData/>
+									</m:HBox>
+								</m:items>
+								<m:layoutData/>
+							</m:VBox>
+							<m:VBox id="projdet_vbox6" alignItems="Stretch" direction="Column" fitContainer="false" width="auto" height="auto" justifyContent="Start"
+								renderType="Div" visible="true" displayInline="false">
+								<m:items>
+									<m:HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+										visible="true" displayInline="false">
+										<m:items>
+											<m:ToolbarSpacer width="20px"/>
+											<m:Button id="update_total_btn" text="Update Totals" type="Accept" icon="sap-icon://refresh" iconFirst="true" width="auto"
+												enabled="{/requestmode}" visible="false" iconDensityAware="false" press="updateallTotals"/>
+										</m:items>
+										<m:layoutData/>
+									</m:HBox>
+									<form:Form width="100%" editable="true" visible="true">
+										<form:title>
+											<core:Title text="Updated Costs" level="Auto"/>
+										</form:title>
+										<form:formContainers>
+											<form:FormContainer visible="true">
+												<form:formElements>
+													<form:FormElement visible="true">
+														<form:label>
+															<m:Label text="Total (Document Currency)" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+														</form:label>
+														<form:fields>
+															<m:Input id="local_total_final" liveChange="handleAmoutFormatterByTotal" showValueHelp="false" value="{/loc_tot_final}" enabled="true"
+																visible="true" width="50%" valueHelpOnly="false" maxLength="0"/>
+														</form:fields>
+													</form:FormElement>
+													<!--REQ0591945:NSONI3:GWDK902117:08/25/2020:Add new exchange rate field:START-->
+													<form:FormElement visible="true">
+														<form:label>
+															<m:Label text="Exchange Rate" tooltip="Conversion Rate from Local Currency to USD" design="Bold" width="100%" required="false"
+																textAlign="Begin" textDirection="Inherit"/>
+														</form:label>
+														<form:fields>
+															<m:Input id="EXCHANGE_RATE" visible="true" width="50%" value="{path:'/EXCHANGE_RATE'}" enabled="true"/>
+														</form:fields>
+													</form:FormElement>
+													<!--REQ0591945:NSONI3:GWDK902117:08/25/2020:Add new exchange rate field:END-->
+													<form:FormElement visible="true">
+														<form:label>
+															<m:Label text="Total(USD)" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+														</form:label>
+														<form:fields>
+															<!--REQ0591945:NSONI3:GWDK902117:08/25/2020:Add new exchange rate field:START-->
+															<m:Input id="usd_total_final" liveChange="handleAmoutFormatterByTotal" showValueHelp="false" value="{/usd_tot_final}" enabled="true"
+																visible="true" width="50%" valueHelpOnly="false" maxLength="0"/>
+															<!--<m:Text id="usd_total_final" text="{/usd_tot_final}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>-->
+															<!--REQ0591945:NSONI3:GWDK902117:08/25/2020:Add new exchange rate field:END-->
+														</form:fields>
+													</form:FormElement>
+												</form:formElements>
+												<form:title/>
+											</form:FormContainer>
+										</form:formContainers>
+										<form:layout>
+											<form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="2" labelSpanL="3" columnsM="1" labelSpanM="2" labelSpanS="12"/>
+										</form:layout>
+									</form:Form>
+								</m:items>
+								<m:layoutData/>
+							</m:VBox>
+							<m:Bar design="Auto">
+								<m:contentLeft>
+									<m:Label id="projdet_lowbar_text" text="No Information is needed" design="Bold" width="100%" required="false" visible="false"
+										textAlign="Begin" textDirection="Inherit"/>
+								</m:contentLeft>
+								<m:contentMiddle/>
+								<m:contentRight/>
+							</m:Bar>
+						</m:content>
+					</m:IconTabFilter>
+					<m:IconTabSeparator icon="" iconDensityAware="false"/>
+					<m:IconTabFilter icon="sap-icon://payment-approval" iconColor="Negative" text="Approval Flow" count="" design="Vertical" showAll="false"
+						textDirection="Inherit" enabled="true" visible="true" iconDensityAware="false">
+						<m:content>
+							<!--REQ0602256:NSONI3:GWDK902117:01/18/2020:add factory in items and comments cells in view:START-->
+							<m:Table id="approvers_table" items="{ path: '/approvers', factory: '.approverFlowFactory' }" width="100%" noDataText="No data"
+								mode="SingleSelectLeft" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true">
+								<m:infoToolbar>
+									<m:Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+										<m:content>
+											<m:Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+										</m:content>
+									</m:Toolbar>
+								</m:infoToolbar>
+								<m:headerToolbar>
+									<m:Toolbar width="auto" height="46px" design="Transparent" visible="true" enabled="true">
+										<m:content>
+											<m:Title text="Approvers" titleStyle="Auto" width="auto" textAlign="Begin" visible="true"/>
+											<m:ToolbarSpacer width=""/>
+											<m:Text text="Type" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											<m:ComboBox id="REVIEWER_TYPE" value="Approver" editable="true" enabled="true" visible="true" width="auto" valueState="None" maxWidth="100%">
+												<m:items>
+													<core:Item text="Watcher" enabled="true"/>
+													<core:Item text="Approver" enabled="true"/>
+												</m:items>
+											</m:ComboBox>
+											<m:Text text="Position" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											<m:ComboBox id="ENTRY_SEQUENCE" value="After" editable="true" enabled="true" visible="true" width="auto" valueState="None" maxWidth="100%">
+												<m:items>
+													<core:Item text="Before" enabled="true"/>
+													<core:Item text="After" enabled="true"/>
+												</m:items>
+											</m:ComboBox>
+											<m:Button id="ADD_APP" text="" type="Emphasized" icon="sap-icon://add" iconFirst="true" width="auto" enabled="true" visible="true"
+												iconDensityAware="false" press="add_approver"/>
+											<m:Button id="DEL_APP" text="" type="Reject" icon="sap-icon://delete" iconFirst="true" width="auto" enabled="true" visible="true"
+												iconDensityAware="false" press="delete_approver"/>
+										</m:content>
+										<m:tooltip/>
+									</m:Toolbar>
+								</m:headerToolbar>
+								<m:columns>
+									<m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+										<m:header>
+											<m:Text text="Approved" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+										</m:header>
+										<m:footer/>
+									</m:Column>
+									<m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+										<m:header>
+											<m:Text text="Approver" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+										</m:header>
+										<m:footer/>
+									</m:Column>
+									<m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+										<m:header>
+											<m:Text text="Reviewer Type" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+										</m:header>
+										<m:footer/>
+									</m:Column>
+									<m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+										<m:header>
+											<m:Text text="Approved By" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+										</m:header>
+										<m:footer/>
+									</m:Column>
+									<m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+										<m:header>
+											<m:Text text="Approval Date" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+										</m:header>
+										<m:footer/>
+									</m:Column>
+									<m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+										<m:header>
+											<m:Text text="Approval Time (PST)" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+										</m:header>
+										<m:footer/>
+									</m:Column>
+									<m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+										<m:header>
+											<m:Text text="Manual Addition" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+										</m:header>
+										<m:footer/>
+									</m:Column>
+									<m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+										<m:header>
+											<m:Text text="Added By" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+										</m:header>
+										<m:footer/>
+									</m:Column>
+									<m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+										<m:header>
+											<m:Text text="Added On" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+										</m:header>
+										<m:footer/>
+									</m:Column>
+								</m:columns>
+								<m:items>
+									<!--<m:ColumnListItem type="Active">
+										<m:cells>
+											<m:CheckBox text="" selected="{path:'approved',formatter:'spefar.app.model.formatter.stringToBoolean'}" editable="true" enabled="{can_edit}"
+												visible="true" width="auto" textDirection="Inherit"/>
+											<m:Input value="{approver}" type="Text" showValueHelp="true" enabled="{can_edit}" visible="true" width="auto" valueHelpOnly="false"
+												maxLength="0" valueHelpRequest="_onInputValueHelpRequest10"/>
+											<m:Text text="{reviewer_type}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											<m:Text text="{approved_by}" width="auto" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+											<m:Text text="{approval_date}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											<m:Text text="{approval_time}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											<m:CheckBox text="" selected="{path:'manual_addition',formatter:'spefar.app.model.formatter.stringToBoolean'}" editable="true"
+												enabled="{can_edit}" visible="true" width="auto" textDirection="Inherit"/>
+											<m:Text text="{added_by}" width="auto" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+											<m:Text text="{added_on}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+										</m:cells>
+									</m:ColumnListItem>-->
+								</m:items>
+							</m:Table>
+							<!--REQ0602256:NSONI3:GWDK902117:01/18/2020:add factory in items and comments cells in view:END-->
+							<m:Bar design="Auto">
+								<m:contentLeft/>
+								<m:contentMiddle/>
+								<m:contentRight>
+									<m:Button id="refresh_attachments" text="Refresh" type="Accept" icon="sap-icon://refresh" iconFirst="true" width="auto" enabled="true"
+										visible="true" iconDensityAware="false" press="_onButtonPressRefresh"/>
+								</m:contentRight>
+							</m:Bar>
+						</m:content>
+					</m:IconTabFilter>
+					<m:IconTabSeparator icon="" iconDensityAware="false"/>
+					<m:IconTabFilter icon="sap-icon://document-text" iconColor="Default" text="Summary" count="" design="Vertical" showAll="false"
+						textDirection="Inherit" enabled="true" visible="true" iconDensityAware="false">
+						<m:content>
+							<form:Form width="100%" editable="true" visible="true">
+								<form:title>
+									<core:Title text="Title Information" level="Auto"/>
+								</form:title>
+								<form:formContainers>
+									<form:FormContainer visible="true">
+										<form:formElements>
+											<form:FormElement visible="true">
+												<form:label>
+													<m:Label text="Project Title" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<m:Text text="{/project_title}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement visible="true">
+												<form:label>
+													<m:Label text="Description" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<m:Text text="{/project_desc}" width="auto" maxLines="7" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement visible="true">
+												<form:label>
+													<m:Label text="Preparer" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<m:Text text="{/preparer}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement visible="true">
+												<form:label>
+													<m:Label text="On Behalf of" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<m:Text text="{/onbehalfof}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement visible="true">
+												<form:label>
+													<m:Label text="Requester Phone" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<m:Text text="{/reqphone}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement visible="true">
+												<form:label>
+													<m:Label text="Requester Email" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<m:Text text="{/reqemail}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement visible="true">
+												<form:label>
+													<m:Label text="COFA - LOB" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<m:Text text="{/cofa_lob}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement visible="true">
+												<form:label>
+													<m:Label text="COFA SUB - LOB" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<m:Text text="{/cofa_sublob}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:fields>
+											</form:FormElement>
+										</form:formElements>
+										<form:title/>
+									</form:FormContainer>
+								</form:formContainers>
+								<form:layout>
+									<form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="2" labelSpanL="3" columnsM="1" labelSpanM="2" labelSpanS="12"/>
+								</form:layout>
+							</form:Form>
+							<form:Form width="100%" editable="true" visible="true">
+								<form:title>
+									<core:Title text="Main Information" level="Auto"/>
+								</form:title>
+								<form:formContainers>
+									<form:FormContainer visible="true">
+										<form:formElements>
+											<form:FormElement visible="true">
+												<form:label>
+													<m:Label text="Request Type" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<m:Text text="{/request_type}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement id="sum_farref" visible="false">
+												<form:label>
+													<m:Label text="FAR Reference" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<m:Text text="{/far_ref}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement id="sum_costcenter" visible="false">
+												<form:label>
+													<m:Label text="Cost Center (Requesting Department)" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<m:Text text="{/cost_center}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement id="sum_compcode" visible="false">
+												<form:label>
+													<m:Label text="Company Code" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<m:Text text="{/comp_code}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement id="sum_wbs" visible="false">
+												<form:label>
+													<m:Label text="WBS" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<m:Text text="{/wbs}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement id="sum_exploc" visible="false">
+												<form:label>
+													<m:Label text="Expected Asset Location" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<m:Text text="{/exp_loc}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement id="sum_projsuper" visible="false">
+												<form:label>
+													<m:Label text="Project Supervisor" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<m:Text text="{/proj_super}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement id="sum_tel" visible="false">
+												<form:label>
+													<m:Label text="Telephone" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<m:Text text="{/tel}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement id="sum_schcomp" visible="false">
+												<form:label>
+													<m:Label text="Scheduled Completion" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<m:Text text="{/sch_comp}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement id="sum_datesub" visible="false">
+												<form:label>
+													<m:Label text="Date Submitted" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<m:Text text="{/date_sub}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement id="sum_originalfar" visible="false">
+												<form:label>
+													<m:Label text="Original FAR Budget" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<m:Text text="{path:'/original_far',formatter:'.handleAmountFormatting'}" width="auto" maxLines="1" wrapping="false" textAlign="Begin"
+														textDirection="Inherit"/>
+												</form:fields>
+											</form:FormElement>
+											<!--REQ0567864:NSONI3:GWDK902066:05/11/2020:Add new change request field for budget:START-->
+											<form:FormElement id="sum_reqchangefar" visible="false">
+												<form:label>
+													<m:Label text="Requested Change" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<m:Text text="{path:'/requested_far',formatter:'.handleAmountFormatting'}" width="auto" maxLines="1" wrapping="false" textAlign="Begin"
+														textDirection="Inherit"/>
+												</form:fields>
+											</form:FormElement>
+											<!--REQ0567864:NSONI3:GWDK902066:05/11/2020:Add new change request field for budget:END-->
+											<form:FormElement id="sum_revisedfar" visible="false">
+												<form:label>
+													<m:Label text="Revised FAR Budget" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<m:Text text="{/revised_far}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement id="sum_thischange" visible="false">
+												<form:label>
+													<m:Label text="This change will constitute an increase in how many work days to complete the project?" design="Bold" width="100%"
+														required="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<m:Text text="{/this_change}" width="auto" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement id="sum_descchange" visible="false">
+												<form:label>
+													<m:Label text="Description of change" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<m:Text text="{/desc_change}" width="auto" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement id="sum_descbuschange" visible="false">
+												<form:label>
+													<m:Label text="Detail Description and Business Justification" tooltip="Detail Description and Business Justification" design="Bold"
+														width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<m:Text text="{/desc_bus_change}" width="auto" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+												</form:fields>
+											</form:FormElement>
+										</form:formElements>
+										<form:title/>
+									</form:FormContainer>
+								</form:formContainers>
+								<form:layout>
+									<form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="2" labelSpanL="3" columnsM="1" labelSpanM="2" labelSpanS="12"/>
+								</form:layout>
+							</form:Form>
+							<form:Form width="100%" id="sum_project_details" editable="true" visible="true">
+								<form:title>
+									<core:Title text="Project Details" level="Auto"/>
+								</form:title>
+								<form:formContainers>
+									<form:FormContainer visible="true">
+										<form:formElements>
+											<form:FormElement visible="true">
+												<form:label>
+													<m:Label text="Local Currency" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<m:Text id="summary_loccurrency" text="{/loc_currency}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:fields>
+											</form:FormElement>
+										</form:formElements>
+										<form:title/>
+									</form:FormContainer>
+								</form:formContainers>
+								<form:layout>
+									<form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="2" labelSpanL="3" columnsM="1" labelSpanM="2" labelSpanS="12"/>
+								</form:layout>
+							</form:Form>
+							<m:VBox id="vbox_projectdetails" alignItems="Stretch" direction="Column" fitContainer="true" width="auto" height="auto"
+								justifyContent="Start" renderType="Div" visible="true" displayInline="false">
+								<m:items>
+									<m:HBox alignItems="Center" direction="Row" fitContainer="true" width="auto" height="auto" justifyContent="Start" renderType="Div"
+										visible="true" displayInline="false">
+										<m:items>
+											<m:ToolbarSpacer width="20px"/>
+											<m:Label text="" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+											<m:RadioButtonGroup
+												id="sap_Responsive_Page_0-content-sap_m_IconTabBar-1500880096540-items-sap_m_IconTabFilter-1504533892033-content-sap_m_VBox-1504534068990-items-sap_m_HBox-1-items-sap_m_RadioButtonGroup-2"
+												columns="8" selectedIndex="{/rwb_component}" valueState="None" width="auto" editable="true" enabled="true" textDirection="Inherit"
+												select="_onRadioButtonGroupSelect5">
+												<m:buttons>
+													<m:RadioButton id="sum_con_byc" selected="false" text="By Component" editable="true" enabled="false" visible="true" width="auto"
+														valueState="None"/>
+													<m:RadioButton id="sum_con_byt" selected="false" text="By Total" editable="true" enabled="false" visible="true" width="auto"
+														valueState="None"/>
+												</m:buttons>
+											</m:RadioButtonGroup>
+										</m:items>
+										<m:layoutData/>
+									</m:HBox>
+									<m:Table id="sum_component_table" items="{/component_far}" width="100%" visible="false" noDataText="No data" mode="None"
+										showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true">
+										<m:infoToolbar>
+											<m:Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+												<m:content>
+													<m:Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+												</m:content>
+											</m:Toolbar>
+										</m:infoToolbar>
+										<m:headerToolbar/>
+										<m:columns>
+											<m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+												<m:header>
+													<m:Text text="Id" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												</m:header>
+												<m:footer/>
+											</m:Column>
+											<m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+												<m:header>
+													<m:Text text="Description" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												</m:header>
+												<m:footer/>
+											</m:Column>
+											<m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+												<m:header>
+													<m:Text text="Amount" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												</m:header>
+												<m:footer/>
+											</m:Column>
+										</m:columns>
+										<m:items>
+											<m:ColumnListItem type="Active">
+												<m:cells>
+													<m:Text text="{id}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+													<m:Text text="{description}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+													<m:Text text="{path:'amount',formatter:'.handleAmountFormatting'}" width="auto" maxLines="1" wrapping="false" textAlign="Begin"
+														textDirection="Inherit"/>
+												</m:cells>
+											</m:ColumnListItem>
+										</m:items>
+									</m:Table>
+									<m:HBox id="sum_total_con_amt_box" alignItems="Stretch" direction="Row" fitContainer="true" width="auto" height="50px"
+										justifyContent="Start" renderType="Div" visible="false" displayInline="false">
+										<m:items>
+											<m:ToolbarSpacer width="20px"/>
+											<m:Label text="Total Component Amount:" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+											<m:ToolbarSpacer width="10px"/>
+											<m:Text id="sum_tot_comp_amt" text="Amount" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+										</m:items>
+										<m:layoutData/>
+									</m:HBox>
+								</m:items>
+								<m:layoutData/>
+							</m:VBox>
+							<m:VBox alignItems="Stretch" direction="Column" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+								visible="true" displayInline="false">
+								<m:items>
+									<form:Form id="sum_totals" width="100%" editable="true" visible="true">
+										<form:title/>
+										<form:formContainers>
+											<form:FormContainer visible="true">
+												<form:formElements>
+													<form:FormElement visible="true">
+														<form:label>
+															<m:Label text="Total" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+														</form:label>
+														<form:fields>
+															<m:Text id="sum_local_total_final" text="{/loc_tot_final}" width="auto" maxLines="1" wrapping="false" textAlign="Begin"
+																textDirection="Inherit"/>
+														</form:fields>
+													</form:FormElement>
+													<!--REQ0591945:NSONI3:GWDK902117:08/28/2020:Add new exchange rate field:START-->
+													<form:FormElement visible="true">
+														<form:label>
+															<m:Label text="Exchange Rate" tooltip="Conversion Rate from Local Currency to USD" design="Bold" width="100%" required="false"
+																textAlign="Begin" textDirection="Inherit"/>
+														</form:label>
+														<form:fields>
+															<m:Text id="EXCHANGE_RATE_SUMMARY" visible="true" width="auto" text="{path:'/EXCHANGE_RATE'}" maxLines="1" wrapping="false"
+																textAlign="Begin" textDirection="Inherit"/>
+														</form:fields>
+													</form:FormElement>
+													<!--REQ0591945:NSONI3:GWDK902117:08/28/2020:Add new exchange rate field:END-->
+													<form:FormElement visible="true">
+														<form:label>
+															<m:Label text="Total(USD)" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+														</form:label>
+														<form:fields>
+															<m:Text id="sum_usd_total_final" text="{/usd_tot_final}" width="auto" maxLines="1" wrapping="false" textAlign="Begin"
+																textDirection="Inherit"/>
+														</form:fields>
+													</form:FormElement>
+												</form:formElements>
+												<form:title/>
+											</form:FormContainer>
+										</form:formContainers>
+										<form:layout>
+											<form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="2" labelSpanL="3" columnsM="1" labelSpanM="2" labelSpanS="12"/>
+										</form:layout>
+									</form:Form>
+								</m:items>
+								<m:layoutData/>
+							</m:VBox>
+							<m:Table id="summary_approvers_table" items="{ path: '/approvers'}" width="100%" noDataText="No data" mode="SingleSelectLeft"
+								showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true">
+								<m:infoToolbar>
+									<m:Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+										<m:content>
+											<m:Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+										</m:content>
+									</m:Toolbar>
+								</m:infoToolbar>
+								<m:headerToolbar>
+									<m:Toolbar width="auto" height="46px" design="Transparent" visible="true" enabled="true">
+										<m:content>
+											<m:Title text="Approvers" titleStyle="Auto" width="auto" textAlign="Begin" visible="true"/>
+										</m:content>
+										<m:tooltip/>
+									</m:Toolbar>
+								</m:headerToolbar>
+								<m:columns>
+									<m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+										<m:header>
+											<m:Text text="Approved" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+										</m:header>
+										<m:footer/>
+									</m:Column>
+									<m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+										<m:header>
+											<m:Text text="Approver" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+										</m:header>
+										<m:footer/>
+									</m:Column>
+									<m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+										<m:header>
+											<m:Text text="Reviewer Type" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+										</m:header>
+										<m:footer/>
+									</m:Column>
+									<m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+										<m:header>
+											<m:Text text="Approved By" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+										</m:header>
+										<m:footer/>
+									</m:Column>
+									<m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+										<m:header>
+											<m:Text text="Approval Date" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+										</m:header>
+										<m:footer/>
+									</m:Column>
+									<m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+										<m:header>
+											<m:Text text="Approval Time (PST)" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+										</m:header>
+										<m:footer/>
+									</m:Column>
+									<m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+										<m:header>
+											<m:Text text="Manual Addition" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+										</m:header>
+										<m:footer/>
+									</m:Column>
+									<m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+										<m:header>
+											<m:Text text="Added By" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+										</m:header>
+										<m:footer/>
+									</m:Column>
+									<m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+										<m:header>
+											<m:Text text="Added On" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+										</m:header>
+										<m:footer/>
+									</m:Column>
+								</m:columns>
+								<m:items>
+									<m:ColumnListItem type="Active">
+										<m:cells>
+											<m:CheckBox text="" selected="{path:'approved',formatter:'spefar.app.model.formatter.stringToBoolean'}" editable="true" enabled="false"
+												visible="true" width="auto" textDirection="Inherit"/>
+											<m:Text text="{approver}" width="auto" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+											<m:Text text="{reviewer_type}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											<m:Text text="{approved_by}" width="auto" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+											<m:Text text="{approval_date}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											<m:Text text="{approval_time}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											<m:CheckBox text="" selected="{path:'manual_addition',formatter:'spefar.app.model.formatter.stringToBoolean'}" editable="true"
+												enabled="false" visible="true" width="auto" textDirection="Inherit"/>
+											<m:Text text="{added_by}" width="auto" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+											<m:Text text="{added_on}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+										</m:cells>
+									</m:ColumnListItem>
+								</m:items>
+							</m:Table>
+							<m:VBox alignItems="Stretch" direction="Column" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+								visible="true" displayInline="false">
+								<m:items>
+									<m:ToolbarSpacer width="10px"/>
+									<m:Title text="" titleStyle="H4" width="auto" textAlign="Begin" visible="true"/>
+									<m:HBox alignItems="Center" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+										visible="true" displayInline="false">
+										<m:items>
+											<m:ToolbarSpacer width="15px"/>
+											<m:Title text="Comments" titleStyle="H4" width="auto" textAlign="Begin" visible="true"/>
+										</m:items>
+										<m:layoutData/>
+									</m:HBox>
+									<m:HBox alignItems="Center" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+										visible="true" displayInline="false">
+										<m:items>
+											<m:ToolbarSpacer width="20px"/>
+											<m:TextArea id="comments_inp" rows="2" placeholder="Enter Comments" cols="120" maxLength="0" wrapping="None" visible="true"/>
+											<m:ToolbarSpacer width="10px"/>
+											<m:Button text="Save" type="Emphasized" icon="sap-icon://save" iconFirst="true" width="auto" enabled="true" visible="true"
+												iconDensityAware="false" press="savecomments"/>
+											<m:ToolbarSpacer width="10px"/>
+											<m:Button text="Clear" type="Reject" icon="sap-icon://refresh" iconFirst="true" width="auto" enabled="true" visible="true"
+												iconDensityAware="false" press="clearcomments"/>
+										</m:items>
+										<m:layoutData/>
+									</m:HBox>
+									<m:Table id="comments_table" width="100%" noDataText="No data" mode="SingleSelect" showSeparators="All" growing="true" growingThreshold="20"
+										growingScrollToLoad="true">
+										<m:infoToolbar>
+											<m:Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+												<m:content>
+													<m:Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+												</m:content>
+											</m:Toolbar>
+										</m:infoToolbar>
+										<m:headerToolbar>
+											<m:Toolbar width="auto" height="46px" design="Transparent" visible="true" enabled="true">
+												<m:content>
+													<m:Title text="" titleStyle="Auto" width="auto" textAlign="Begin" visible="true"/>
+													<m:ToolbarSpacer width=""/>
+													<m:Button text="Update" type="Emphasized" icon="sap-icon://save" iconFirst="true" width="auto" enabled="true" visible="true"
+														iconDensityAware="false" press="updatecomment"/>
+													<m:Button text="Delete" type="Reject" icon="sap-icon://delete" iconFirst="true" width="auto" enabled="true" visible="true"
+														iconDensityAware="false" press="deletecomment"/>
+												</m:content>
+												<m:tooltip/>
+											</m:Toolbar>
+										</m:headerToolbar>
+										<m:columns>
+											<m:Column width="10%" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+												<m:header>
+													<m:Text text="Id" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												</m:header>
+												<m:footer/>
+											</m:Column>
+											<m:Column width="50%" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+												<m:header>
+													<m:Text text="Comments" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												</m:header>
+												<m:footer/>
+											</m:Column>
+											<m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+												<m:header>
+													<m:Text text="Added By" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												</m:header>
+												<m:footer/>
+											</m:Column>
+											<m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+												<m:header>
+													<m:Text text="Added On" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												</m:header>
+												<m:footer/>
+											</m:Column>
+										</m:columns>
+										<m:items>
+											<m:ColumnListItem type="Active">
+												<m:cells>
+													<m:Text text="" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+													<m:TextArea rows="2" cols="70" maxLength="0" wrapping="None" visible="true"/>
+													<m:Text text="" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+													<m:Text text="" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												</m:cells>
+											</m:ColumnListItem>
+										</m:items>
+									</m:Table>
+								</m:items>
+								<m:layoutData/>
+							</m:VBox>
+						</m:content>
+					</m:IconTabFilter>
+				</m:items>
+				<m:content/>
+			</m:IconTabBar>
+		</m:content>
+		<m:footer>
+			<m:Bar design="Auto">
+				<m:contentLeft/>
+				<m:contentMiddle/>
+				<m:contentRight>
+					<m:Button id="b_approve" text="Approve" type="Accept" icon="sap-icon://accept" iconFirst="true" width="auto" enabled="true" visible="false"
+						iconDensityAware="false" press="approve_eform"/>
+					<m:Button id="b_reject" text="Reject" type="Reject" icon="sap-icon://decline" iconFirst="true" width="auto" enabled="true" visible="false"
+						iconDensityAware="false" press="reject_eform"/>
+					<m:Button id="saveBtn" text="Save" type="Accept" icon="sap-icon://save" iconFirst="true" width="auto" enabled="true" visible="true"
+						iconDensityAware="false" press="_onButtonPress"/>
+					<m:Button id="submitBtn" text="Submit" type="Emphasized" icon="sap-icon://enter-more" iconFirst="true" width="auto" enabled="true"
+						visible="true" iconDensityAware="false" press="_onButtonPressSubmit"/>
+					<m:Button id="withdrawBtn" text="Withdraw" type="Reject" icon="sap-icon://inspect-down" iconFirst="true" width="auto" enabled="false"
+						visible="true" iconDensityAware="false" press="_onButtonPressWithdraw"/>
+					<m:Button text="Print" icon="sap-icon://print" type="Accept" iconFirst="true" width="auto" enabled="true" visible="true"
+						iconDensityAware="false" press="onPrintPress"/>
+				</m:contentRight>
+			</m:Bar>
+		</m:footer>
+		<m:headerContent></m:headerContent>
+		<m:subHeader/>
+		<m:customHeader>
+			<m:Bar design="Auto">
+				<m:contentLeft>
+					<core:Icon src="sap-icon://nav-back" id="back" size="30px" height="46px" width="46px" color="black" visible="false"
+						press="_onPageNavButtonPress"/>
+					<core:Icon src="sap-icon://home" id="HOME" size="30px" height="46px" width="46px" color="blue" visible="false" press="_onNavigateHome"/>
+				</m:contentLeft>
+				<m:contentMiddle>
+					<m:Label id="page" design="Bold" text="FAR"/>
+				</m:contentMiddle>
+				<m:contentRight>
+					<core:Icon src="sap-icon://delete" id="DELETE" size="30px" height="46px" width="46px" color="red" visible="true" press="_ondeletepress"/>
+					<core:Icon src="sap-icon://edit" id="EDIT" size="30px" height="46px" width="46px" color="orange" visible="true" press="_onIconPress"/>
+				</m:contentRight>
+			</m:Bar>
+		</m:customHeader>
+	</m:Page>
+</mvc:View>

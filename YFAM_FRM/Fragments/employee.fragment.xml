@@ -1,0 +1,7 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Popover showHeader="false">
+		<List id="list" items="{/results}">
+			<StandardListItem title="Name: {NAME_TEXT}" description="User Id: {NAME}"/>
+		</List>
+	</Popover>
+</core:FragmentDefinition>

@@ -1,0 +1,213 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:form="sap.ui.layout.form">
+	<form:Form width="100%" editable="true" visible="true">
+		<form:title></form:title>
+		<form:formContainers>
+			<form:FormContainer visible="true">
+				<form:formElements>
+					<form:FormElement visible="true">
+						<form:label>
+							<Label text="" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<!-- REQ0470877:RMANDAL:GWDK901933:08/19/2019:MODIFY:START -->
+							<Link text="{i18n>link}" target="_blank"
+								href="https://sony.sharepoint.com/sites/SPE-mySPE/policies/legal/Anti-Bribery/Anti-Bribery%20Policy%20%204-1-14%20ENGLISH.pdf#search=Anti%2DBribery%20Policy"/>
+							<!--href="https://sharepoint.spe.sony.com/myspe/policies/legal/Anti-Bribery/Anti-Bribery%20Policy%20%204-1-14%20ENGLISH.pdf#search=anti%20bribery"/>-->
+							<!-- REQ0470877:RMANDAL:GWDK901933:08/19/2019:MODIFY:END -->
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement visible="true">
+						<form:label>
+							<Label text="" design="Bold" width="100%" textAlign="Begin" textDirection="Inherit"/>
+						</form:label>
+						<form:fields/>
+					</form:FormElement>
+					<form:FormElement visible="true">
+						<form:label>
+							<Label text="{i18n>Activity}" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<TextArea value="{headerUserModel>/Activity}" valueState="{headerUserModel>/ValueState6}" rows="3" cols="10"
+								enabled="{headerUserModel>/isEnable}" maxLength="250" wrapping="Soft" visible="true"/>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement visible="true">
+						<form:label>
+							<Label text="{i18n>CountryActivity}" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<Input type="Text" value="{headerUserModel>/REC_COUNTRY}" enabled="{headerUserModel>/isEnable}"
+								valueState="{headerUserModel>/ValueState111}" showValueHelp="true" valueHelpRequest="_onCountryValueHelpRequest1" visible="true"
+								width="auto" valueHelpOnly="true" maxLength="0"/>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement visible="true">
+						<form:label>
+							<Label text="{i18n>LocationActivity}" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<TextArea rows="3" value="{headerUserModel>/Loc_act}" valueState="{headerUserModel>/ValueState7}" enabled="{headerUserModel>/isEnable}"
+								cols="20" maxLength="250" wrapping="None" visible="true"/>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement visible="true">
+						<form:label>
+							<Label text="" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<Text class="labelClass" text="{i18n>Bussi}" width="100%"/>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement visible="true">
+						<form:label>
+							<Label text="" design="Bold" width="100%" textAlign="Begin" textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<TextArea rows="3" value="{headerUserModel>/buss_des}" valueState="{headerUserModel>/ValueState8}" cols="20"
+								enabled="{headerUserModel>/isEnable}" maxLength="250" wrapping="None" visible="true"/>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement visible="true">
+						<form:label>
+							<Label text="" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<Text class="labelClass" text="{i18n>AreAny}" wrapping="true" tooltip="Are any SPE employees accompanying any recipient" width="100%"
+								textAlign="Begin" textDirection="Inherit"/>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement visible="true">
+						<form:label>
+							<Label text="" wrapping="true" design="Bold" width="100%" textAlign="Begin" textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<RadioButtonGroup id="Are_Any_Id" columns="8" selectedIndex="{headerUserModel>/selectedIndex_SPE}"
+								valueState="{headerUserModel>/ValueState9}" width="auto" editable="true" enabled="{headerUserModel>/isEnable}" textDirection="Inherit"
+								select="_onRadioButtonGroupSelect">
+								<buttons>
+									<RadioButton text="Yes" editable="true" enabled="true" visible="true" width="auto"/>
+									<RadioButton text="No" editable="true" enabled="true" visible="true" width="auto"/>
+								</buttons>
+							</RadioButtonGroup>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement visible="{headerUserModel>/SPE_Visible}">
+						<form:label>
+							<Label text="{i18n>List}" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<TextArea id="SPE_List" value="{headerUserModel>/SPE_List}" rows="3" enabled="{headerUserModel>/isEnable}" cols="20" maxLength="250"
+								wrapping="None" visible="true"/>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement visible="true">
+						<form:label>
+							<Label text="" tooltip="" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<Text class="labelClass" text="{i18n>IsEmer}" tooltip="{i18n>IsEmer}" wrapping="true" width="100%" textAlign="Begin" textDirection="Inherit"/>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement visible="true">
+						<form:label>
+							<Label text="" design="Bold" width="100%" textAlign="Begin" textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<RadioButtonGroup id="Is_Emg_ID" valueState="{headerUserModel>/ValueState10}" columns="8"
+								selectedIndex="{headerUserModel>/selectedIndex_Exp}" width="auto" editable="true" enabled="{headerUserModel>/isEnable}"
+								textDirection="Inherit" select="_onRadioButtonGroupSelect1">
+								<buttons>
+									<RadioButton text="Yes" editable="true" enabled="true" visible="true" width="auto"/>
+									<RadioButton text="No" editable="true" enabled="true" visible="true" width="auto"/>
+								</buttons>
+							</RadioButtonGroup>
+						</form:fields>
+					</form:FormElement>
+				</form:formElements>
+				<form:title/>
+			</form:FormContainer>
+		</form:formContainers>
+		<form:layout>
+			<form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="2" labelSpanL="3" columnsM="1" labelSpanM="2" labelSpanS="12"/>
+		</form:layout>
+	</form:Form>
+	<VBox alignItems="Stretch" direction="Column" fitContainer="false" height="161.5625px" justifyContent="Start" renderType="Div"
+		visible="true" displayInline="false">
+		<items>
+			<Table width="100%" id="tblRecipient" noDataText="No data" mode="MultiSelect" showSeparators="All" growing="true" growingThreshold="20"
+				growingScrollToLoad="true" items="{repTableModel>/}" rememberSelections="false">
+				<infoToolbar>
+					<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+						<content>
+							<Label text="{i18n>Label}" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+						</content>
+					</Toolbar>
+				</infoToolbar>
+				<headerToolbar>
+					<Toolbar width="auto" height="46px" design="Transparent" visible="true" enabled="true">
+						<ToolbarSpacer/>
+						<content>
+							<Button text="" type="Emphasized" icon="sap-icon://add" iconFirst="true" width="auto" enabled="{headerUserModel>/isEnable}" visible="true"
+								iconDensityAware="false" press="onHandlePress"/>
+							<Button text="" type="Accept" icon="sap-icon://copy" iconFirst="true" width="auto" enabled="{headerUserModel>/isEnable}" visible="true"
+								iconDensityAware="false" press="onHandleCopyPress"/>
+							<Button text="" type="Reject" icon="sap-icon://delete" iconFirst="true" width="auto" enabled="{headerUserModel>/isEnable}" visible="true"
+								iconDensityAware="false" press="onHandleDeletePress"/>
+						</content>
+						<tooltip/>
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+						<header>
+							<Text class="required" text="Recipient Information" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+						</header>
+						<footer/>
+					</Column>
+					<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+						<header>
+							<Text class="required" text="Organization Information" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+						</header>
+						<footer/>
+					</Column>
+					<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+						<header>
+							<Text class="required" text="Expense Information" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+						</header>
+						<footer/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<Link text="{repTableModel>Recipient/title}" press="handleAddRecipient"/>
+							<Link text="{repTableModel>Organisation/title}" press="handleAddOrganization"/>
+							<Link text="{repTableModel>Expense/title}" press="handleAddExpense"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</items>
+		<layoutData/>
+		<form:SimpleForm id="SimpleFormChange354" editable="true" layout="ResponsiveGridLayout" title="Summary Totals" labelSpanXL="3"
+			labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0"
+			columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false">
+			<form:content>
+				<Label text="{i18n>SummaryTotals_text1}" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+				<Text text="{headerUserModel>/SummaryTotals_Value1}" wrapping="Soft" visible="true"/>
+				<Label text="{i18n>SummaryTotals_text2}" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+				<Text text="{headerUserModel>/SummaryTotals_Value2}" wrapping="Soft" visible="true"/>
+				<Label text="{i18n>SummaryTotals_text3}" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+				<Text text="{headerUserModel>/SummaryTotals_Value3}" wrapping="Soft" visible="true"/>
+				<Label text="{i18n>SummaryTotals_text4}" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+				<Text text="{headerUserModel>/SummaryTotals_Value4}" wrapping="Soft" visible="true"/>
+				<Label text="{i18n>SummaryTotals_text5}" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+				<Text text="{headerUserModel>/SummaryTotals_Value5}" wrapping="Soft" visible="true"/>
+				<Label text="{i18n>SummaryTotals_text6}" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+				<Text text="{headerUserModel>/SummaryTotals_Value6}" wrapping="Soft" visible="true"/>
+				<Label text="{i18n>SummaryTotals_text7}" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+				<Text text="{headerUserModel>/SummaryTotals_Value7}" wrapping="Soft" visible="true"/>
+			</form:content>
+		</form:SimpleForm>
+	</VBox>
+</core:FragmentDefinition>

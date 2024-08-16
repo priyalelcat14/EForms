@@ -1,0 +1,29 @@
+/* Enter your custom styles here */
+.redFontColor{
+  color: #e21616;
+  font-weight: bold;
+}
+.selectStyleClass{
+  border:0px;
+}
+.selectStyleClass>.sapMSltLabel{
+font-size: 0.65rem;
+}
+
+.simpleFormStyleClass .sapUiFormResGridCont {
+  width:45rem;
+}
+.AcceptStyleClass .sapMBtnAccept{
+background-color:green !important;
+}
+.RejectStyleClass .sapMBtnReject{
+background-color:red !important;
+
+}
+.EmphasizedStyleClass .sapMBtnAccept{
+background-color:blue !important;
+
+}
+.AcceptStyleClass .sapMBtnContent,.RejectStyleClass .sapMBtnContent{
+color:white;
+}

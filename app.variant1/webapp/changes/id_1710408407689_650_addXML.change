@@ -1,0 +1,37 @@
+{
+	"fileName": "id_1710408407689_650_addXML",
+	"fileType": "change",
+	"changeType": "addXML",
+	"moduleName": "customer/app/variant1/changes/fragments/testface.fragment.xml",
+	"reference": "customer.app.variant1",
+	"packageName": "$TMP",
+	"content": {
+		"targetAggregation": "content",
+		"index": 8,
+		"fragmentPath": "fragments/testface.fragment.xml"
+	},
+	"selector": {
+		"id": "mdm.md.customer.manage::sap.suite.ui.generic.template.ObjectPage.view.Details::C_BusinessPartnerSalesArea--objectPage-anchBar",
+		"idIsLocal": false
+	},
+	"layer": "CUSTOMER_BASE",
+	"texts": {},
+	"namespace": "apps/mdm.md.customer.manage/changes/",
+	"projectId": "customer.app.variant1",
+	"creation": "2024-03-14T09:26:47.884Z",
+	"originalLanguage": "EN",
+	"support": {
+		"generator": "sap.ui.rta.command",
+		"service": "",
+		"user": "",
+		"sapui5Version": "1.108.26",
+		"sourceChangeFileName": "",
+		"compositeCommand": "",
+		"command": "addXML"
+	},
+	"oDataInformation": {},
+	"dependentSelector": {},
+	"jsOnly": false,
+	"variantReference": "",
+	"appDescriptorChange": false
+}

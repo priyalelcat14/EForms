@@ -1,0 +1,204 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.governmentApp.controller.Recipient" xmlns="sap.m"
+	xmlns:form="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<Page showHeader="true" id="pageTitleId_Rec" title="Government Expenditure Revenue Form" showFooter="true" showNavButton="true"
+		navButtonPress="handleNavBack">
+		<content>
+			<form:Form width="100%" editable="true" visible="true">
+				<form:title>
+					<core:Title text="Provide the requested information" level="Auto"/>
+				</form:title>
+				<form:formContainers width="50%">
+					<form:FormContainer visible="true">
+						<form:formElements>
+							<form:FormElement id="reciWarnId" visible="false">
+								<form:label>
+									<Label text="" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+								</form:label>
+								<form:fields>
+									<Text class="redColor" text="{i18n>South_Korea_text}{i18n>South_Korea_text1}{i18n>South_Korea_text2}{i18n>South_Korea_text3}"/>
+								</form:fields>
+							</form:FormElement>
+							<form:FormElement visible="true">
+								<form:label>
+									<Label text="" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+								</form:label>
+								<form:fields>
+									<Text class="redColor boldFont" design="Bold" text="{i18n>ReciFnameLnameMsg}"/>
+								</form:fields>
+							</form:FormElement>
+							<form:FormElement visible="true">
+								<form:label>
+									<Label text="{i18n>ReciLName}" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+								</form:label>
+								<form:fields>
+									<Input value="{itemUserModel2>/RECIPIENT_LAST_NAME}" valueState="{itemUserModel2>/ReciLNameVStat}" type="Text" showValueHelp="false"
+										enabled="{headerUserModel>/isEnable}" visible="true" width="auto" valueHelpOnly="false" maxLength="15"/>
+								</form:fields>
+							</form:FormElement>
+							<form:FormElement visible="true">
+								<form:label>
+									<Label text="{i18n>ReciFName}" required="true" design="Bold" width="100%" textAlign="Begin" textDirection="Inherit"/>
+								</form:label>
+								<form:fields>
+									<Input value="{itemUserModel2>/RECIPIENT_FIRST_NAME}" valueState="{itemUserModel2>/ReciFNameVStat}" type="Text" showValueHelp="false"
+										enabled="{headerUserModel>/isEnable}" visible="true" width="auto" valueHelpOnly="false" maxLength="40"
+										placeholder="Please do not use nickname/alias"/>
+								</form:fields>
+							</form:FormElement>
+							<form:FormElement visible="true">
+								<form:label>
+									<Label text="{i18n>ReciJobTitle}" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+								</form:label>
+								<form:fields>
+									<Input value="{itemUserModel2>/RECIPIENT_TITLE}" valueState="{itemUserModel2>/ReciTitleVStat}" type="Text" showValueHelp="false"
+										enabled="{headerUserModel>/isEnable}" visible="true" width="auto" valueHelpOnly="false" maxLength="126"
+										valueHelpRequest="_onInputValueHelpRequest"/>
+								</form:fields>
+							</form:FormElement>
+							<form:FormElement visible="true">
+								<form:label>
+									<Label required="true" design="Bold" width="100%" textAlign="Begin" textDirection="Inherit"/>
+								</form:label>
+								<form:fields>
+									<Text text="{i18n>ReciBussiR}" class="labelClass"></Text>
+								</form:fields>
+							</form:FormElement>
+							<form:FormElement visible="true">
+								<form:label>
+									<Label text="" tooltip="" design="Bold" width="100%" textAlign="Begin" textDirection="Inherit"/>
+								</form:label>
+								<form:fields>
+									<TextArea rows="2"  value="{itemUserModel2>/RECI_BUSSI}" maxLength="250" enabled="{headerUserModel>/isEnable}"
+										valueState="{itemUserModel2>/ReciBussiVStat}"></TextArea>
+								</form:fields>
+							</form:FormElement>
+							<form:FormElement visible="true">
+								<form:label>
+									<Label text="{i18n>ReciAdd}" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+								</form:label>
+								<form:fields>
+									<TextArea value="{itemUserModel2>/RECIPIENT_ADD}" maxLength="128" enabled="{headerUserModel>/isEnable}"
+										valueState="{itemUserModel2>/ResAddValueState}"/>
+								</form:fields>
+							</form:FormElement>
+							<form:FormElement visible="true">
+								<form:label>
+									<Label text="{i18n>ReciCountry}" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+								</form:label>
+								<form:fields>
+									<Input value="{itemUserModel2>/RECIPIENT_COUNTRY}" valueState="{itemUserModel2>/ReciCountryVStat}" enabled="{headerUserModel>/isEnable}"
+										valueHelpOnly="true" showValueHelp="true" valueHelpRequest="_onCountryValueHelpRequest"></Input>
+								</form:fields>
+							</form:FormElement>
+							<form:FormElement visible="true">
+								<form:label>
+									<Label text="{i18n>ReciState}" design="Bold" width="306.3599853515625px" required="true" textAlign="Begin" textDirection="Inherit"/>
+								</form:label>
+								<form:fields>
+									<Input value="{itemUserModel2>/RECIPIENT_STATE}" valueHelpOnly="false" enabled="{headerUserModel>/isEnable}"
+										valueState="{itemUserModel2>/ReciStateVStat}" showValueHelp="true" valueHelpRequest="_onStateValueHelpRequest"></Input>
+								</form:fields>
+							</form:FormElement>
+							<form:FormElement visible="true">
+								<form:label>
+									<Label text="{i18n>ReciCity}" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+								</form:label>
+								<form:fields>
+									<Input value="{itemUserModel2>/RECIPIENT_CITY}" enabled="{headerUserModel>/isEnable}" valueState="{itemUserModel2>/ResCityValueState}"
+										type="Text" showValueHelp="false" visible="true" width="auto" valueHelpOnly="false" maxLength="12"/>
+								</form:fields>
+							</form:FormElement>
+							<form:FormElement visible="true">
+								<form:label>
+									<Label text="{i18n>ReciPostal}" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+								</form:label>
+								<form:fields>
+									<Input value="{itemUserModel2>/RECIPIENT_PC}" type="Text" maxLength="25" enabled="{headerUserModel>/isEnable}"
+										valueState="{itemUserModel2>/RES_PC_ValueState}"></Input>
+								</form:fields>
+							</form:FormElement>
+						</form:formElements>
+						<form:title/>
+					</form:FormContainer>
+				</form:formContainers>
+				<form:layout>
+					<form:ResponsiveGridLayout adjustLabelSpan="false" class="sapUiMediumMarginLeft" columnsL="2" labelSpanL="3" columnsM="1" labelSpanM="2"
+						labelSpanS="12"/>
+				</form:layout>
+			</form:Form>
+			<form:SimpleForm id="SimpleFormChange354" editable="true" layout="ResponsiveGridLayout" labelSpanXL="3" labelSpanL="3" labelSpanM="3"
+				labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1"
+				singleContainerFullSize="false">
+				<form:content>
+					<!-- recipient combobox to input-updated -->
+					<Label text="" design="Bold" width="100%" required="true" textDirection="Inherit"/>
+					<Text text="{i18n>ReciQues1}" class="labelClass"/>
+					<Label text=""/>
+					<Input id="comBoxId_rec" value="{itemUserModel2>/IS_REL_IND}" enabled="{headerUserModel>/isEnable}" maxLength="20"
+						valueState="{itemUserModel2>/ReciRelVStat}"></Input>
+					<Label text="{i18n>ReciOther}" visible="{itemUserModel2>/jusficationVisibleform_other}" required="true" design="Bold"/>
+					<Input value="{itemUserModel2>/RECIPIENT_OTHER_RELATION}" visible="{itemUserModel2>/jusficationVisibleform_other}"
+						enabled="{headerUserModel>/isEnable}" valueState="{itemUserModel2>/RecOtherVStat}" type="Text" showValueHelp="false" width="auto"
+						valueHelpOnly="false" maxLength="0"/>
+					<Label text="" required="true"/>
+					<Text text="{i18n>ReciQues2}" class="sapUiSmallMarginBottom labelClass" required="true"/>
+					<Label text=""/>
+					<RadioButtonGroup id="rb1" columns="5" selectedIndex="{itemUserModel2>/Res_sel1}" select="onRodioBtnSelect_Any_Relation"
+						class="sapUiSmallMarginBottom" enabled="{headerUserModel>/isEnable}">
+						<buttons>
+							<RadioButton text="{i18n>radio_yes}" enabled="{headerUserModel>/isEnable}" valueState="{itemUserModel2>/ValueState15}"/>
+							<RadioButton text="{i18n>radio_no}" enabled="{headerUserModel>/isEnable}" valueState="{itemUserModel2>/ValueState15}"/>
+						</buttons>
+					</RadioButtonGroup>
+					<Label text=""/>
+					<Text text="{i18n>form_Justification1}" class="sapUiSmallMarginBottom labelClass"
+						visible="{itemUserModel2>/jusficationVisibleform_Justification1}" id="just1"/>
+					<Label text=""/>
+					<TextArea id="ResTextBox1" rows="2" cols="30" value="{itemUserModel2>/form_Justification1}" enabled="{headerUserModel>/isEnable}"
+						valueState="{itemUserModel2>/ValueStateJustification1}" maxLength="250" width="80%"
+						visible="{itemUserModel2>/jusficationVisibleform_Justification1}"/>
+					<Label required="true"/>
+					<Text text="{i18n>ReciQues3}" class="sapUiSmallMarginBottom labelClass" required="true"/>
+					<Label text=""/>
+					<RadioButtonGroup id="rb2" columns="5" selectedIndex="{itemUserModel2>/Res_sel2}" select="onRodioBtnSelect_Any_Family"
+						class="sapUiSmallMarginBottom" enabled="{headerUserModel>/isEnable}">
+						<buttons>
+							<RadioButton text="{i18n>radio_yes}" enabled="{headerUserModel>/isEnable}" valueState="{itemUserModel2>/ValueState16}"/>
+							<RadioButton text="{i18n>radio_no}" enabled="{headerUserModel>/isEnable}" valueState="{itemUserModel2>/ValueState16}"/>
+						</buttons>
+					</RadioButtonGroup>
+					<Label text=""/>
+					<Text text="{i18n>form_Justification1}" class="sapUiSmallMarginBottom labelClass"
+						visible="{itemUserModel2>/jusficationVisibleform_Justification2}" id="just2"/>
+					<Label text=""/>
+					<TextArea id="ResTextBox2" rows="2" cols="30" value="{itemUserModel2>/form_Justification2}" valueState="{itemUserModel2>/ValueStateJustification2}"
+						enabled="{headerUserModel>/isEnable}" maxLength="250" width="80%" visible="{itemUserModel2>/jusficationVisibleform_Justification2}"/>
+					<Label text="" required="true"/>
+					<Text text="{i18n>ReciQues4}" class="sapUiSmallMarginBottom labelClass" required="true"/>
+					<Label text=""/>
+					<RadioButtonGroup id="rb3" columns="5" selectedIndex="{itemUserModel2>/Res_sel3}" select="onRodioBtnSelect_Any_Pending"
+						class="sapUiSmallMarginBottom">
+						<buttons>
+							<RadioButton text="{i18n>radio_yes}" enabled="{headerUserModel>/isEnable}" valueState="{itemUserModel2>/ValueState17}"/>
+							<RadioButton text="{i18n>radio_no}" enabled="{headerUserModel>/isEnable}" valueState="{itemUserModel2>/ValueState17}"/>
+						</buttons>
+					</RadioButtonGroup>
+					<Label text=""/>
+					<Text text="{i18n>form_Justification1}" class="sapUiSmallMarginBottom labelClass"
+						visible="{itemUserModel2>/jusficationVisibleform_Justification3}" id="just3"/>
+					<Label text=""/>
+					<TextArea rows="2" cols="30" id="ResTextBox3" value="{itemUserModel2>/form_Justification3}" valueState="{itemUserModel2>/ValueStateJustification3}"
+						enabled="{headerUserModel>/isEnable}" maxLength="250" width="80%" visible="{itemUserModel2>/jusficationVisibleform_Justification3}"/>
+				</form:content>
+			</form:SimpleForm>
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button text="OK" width="7rem" type="Accept" press="onPressOk" enabled="{headerUserModel>/isEnable}"></Button>
+					<Button text="Cancel" width="7rem" type="Reject" press="onPressCancel" enabled="{headerUserModel>/isEnable}"></Button>
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

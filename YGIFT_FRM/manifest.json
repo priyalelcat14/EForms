@@ -1,0 +1,141 @@
+{
+	"_version": "1.8.0",
+	"sap.app": {
+		"id": "YGIFT_FRM",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.8.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"dataSources": {
+			"Y_GIFT": {
+				"uri": "/sap/opu/odata/sap/YFPSFIPFRDD0028_GIFT_EFORM_SRV/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/metadata.xml"
+				}
+			}
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_bluecrystal"
+		]
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "YGIFT_FRM.view.App",
+			"type": "XML"
+		},
+		"dependencies": {
+			"minUI5Version": "1.30.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.ui.layout": {},
+				"sap.ushell": {},
+				"sap.collaboration": {},
+				"sap.ui.comp": {},
+				"sap.uxap": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "YGIFT_FRM.i18n.i18n"
+				}
+			},
+			"oData": {
+				"dataSource": "Y_GIFT"
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "YGIFT_FRM.view",
+				"controlId": "App",
+				"clearTarget": false,
+				"controlAggregation": "pages",
+				"bypassed": {
+					"target": [
+						"GiftOrder"
+					]
+				}
+			},
+			"targets": {
+				"Search": {
+					"controlAggregation": "pages",
+					"viewName": "Search",
+					"viewId": "Search",
+					"viewLevel": 1,
+					"transition": "slide"
+				},
+				"GiftOrder": {
+					"controlAggregation": "pages",
+					"viewName": "GiftOrder",
+					"viewId": "GiftOrder",
+					"viewLevel": 1,
+					"transition": "slide"
+				}
+			},
+			"routes": [
+				{
+					"pattern": "GiftOrder/:context:",
+					"name": "GiftOrder1",
+					"target": [
+						"GiftOrder"
+					]
+				},
+				{
+					"pattern": "",
+					"name": "default",
+					"target": [
+						"Search"
+					]
+				},
+				{
+					"pattern": "GiftOrder/{value}",
+					"name": "GiftOrder",
+					"target": [
+						"GiftOrder"
+					]
+				}
+			]
+		}
+	},
+	"sap.platform.abap": {
+		"uri": "/sap/bc/ui5_ui5/sap/ygift_frm",
+		"_version": "1.1.0"
+	}
+}

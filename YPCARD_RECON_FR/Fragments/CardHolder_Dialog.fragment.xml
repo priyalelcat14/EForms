@@ -1,0 +1,49 @@
+<core:FragmentDefinition
+  xmlns="sap.m"
+  xmlns:core="sap.ui.core">
+  <TableSelectDialog
+  id="UserDialogId"
+    noDataText="No Card Holder Found"
+    title="Select Card Holder"
+    search="handleSearch"
+    confirm="onHandleConfirm"
+    cancel="onHandleClose"
+    items="{
+      path : 'CardHolderModel>/CARDHOLDERNAMES',
+      sorter : {
+        path : 'UserName',
+        descending : false
+      },
+      templateShareable:false
+    }">
+    <ColumnListItem>
+      <cells>
+
+        <Text text="{CardHolderModel>UserId}" />
+        <Text text="{CardHolderModel>UserName}" />
+        <Text text="{CardHolderModel>UserNum}" />
+
+
+
+      </cells>
+    </ColumnListItem>
+    <columns>
+      <Column width="12em">
+        <header>
+         <Text text="CardHolder Id" />
+        </header>
+      </Column>
+<Column width="12em">
+        <header>
+         <Text text="CardHolder Name" />
+        </header>
+      </Column>
+      <Column width="12em">
+        <header>
+         <Text text="CardHolder Number" />
+        </header>
+      </Column>
+
+    </columns>
+  </TableSelectDialog>
+</core:FragmentDefinition>

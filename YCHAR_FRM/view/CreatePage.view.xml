@@ -1,0 +1,3040 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.charitableDonationForm.controller.CreatePage" xmlns:m="sap.m"
+	xmlns="sap.m" xmlns:u="sap.ui.unified" xmlns:form="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<Page id="page" showHeader="true" title="{i18n>CharitableDonationForm}" showFooter="true" showNavButton="true"
+		navButtonPress="_onPageNavButtonPress">
+		<content>
+			<IconTabBar expandable="false" expanded="true" applyContentPadding="false" backgroundDesign="Solid" upperCase="false" visible="true"
+				selectedKey="Ok" stretchContentHeight="true">
+				<items>
+					<IconTabFilter icon="sap-icon://document" iconColor="Neutral" text="{i18n>Title}" tooltip="{i18n>Title}" count="" design="Vertical"
+						showAll="false" textDirection="Inherit" enabled="true" visible="true" iconDensityAware="false">
+						<content>
+							<ScrollContainer height="100%" width="100%" horizontal="false" vertical="true">
+								<form:Form width="100%" editable="true" visible="true">
+									<form:title>
+										<core:Title text="{i18n>EnterorupdatetheTitleInformation}" level="Auto"/>
+									</form:title>
+									<form:formContainers>
+										<form:FormContainer visible="true">
+											<form:formElements>
+												<form:FormElement visible="true">
+													<form:label>
+														<Label text="{i18n>Title}" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+													</form:label>
+													<form:fields>
+														<Input id="TITLE" value="{/TITLE}" type="Text" showValueHelp="false" enabled="{/requestmode}" visible="true" width="auto"
+															valueHelpOnly="false" maxLength="0"/>
+													</form:fields>
+												</form:FormElement>
+												<form:FormElement visible="true">
+													<form:label>
+														<m:Label text="{i18n>Description}" tooltip="{i18n>Description}" design="Bold" width="100%" required="true" textAlign="Begin"
+															textDirection="Inherit"/>
+													</form:label>
+													<form:fields>
+														<m:TextArea id="DESC_PR" value="{/DESC_PR}" enabled="{/requestmode}" rows="2" cols="20" maxLength="250" wrapping="None" visible="true"/>
+													</form:fields>
+												</form:FormElement>
+												<form:FormElement visible="true">
+													<form:label>
+														<Label text="{i18n>Requestdate}" tooltip="{i18n>Requestdate}" design="Bold" width="100%" required="false" textAlign="Begin"
+															textDirection="Inherit"/>
+													</form:label>
+													<form:fields>
+														<Text id="REQUEST_DATE" text="{/REQUEST_DATE}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+													</form:fields>
+												</form:FormElement>
+												<form:FormElement visible="true">
+													<form:label>
+														<Label text="{i18n>Preparer}" tooltip="{i18n>Preparer}" design="Bold" width="100%" required="false" textAlign="Begin"
+															textDirection="Inherit"/>
+													</form:label>
+													<form:fields>
+														<Text id="PREPARER" text="{/PREPARER}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+													</form:fields>
+												</form:FormElement>
+												<form:FormElement visible="true">
+													<form:label>
+														<Label text="{i18n>OnBehalfof}" tooltip="{i18n>OnBehalfof}" design="Bold" width="100%" required="true" textAlign="Begin"
+															textDirection="Inherit"/>
+													</form:label>
+													<form:fields>
+														<Input id="ON_BEHALF_OF" value="{/ON_BEHALF_OF}" type="Text" showValueHelp="true" enabled="{/requestmode}" visible="true" width="auto"
+															valueHelpOnly="true" maxLength="0" valueHelpRequest="_onBehalfOf_ValueHelp"/>
+													</form:fields>
+												</form:FormElement>
+												<form:FormElement visible="true">
+													<form:label>
+														<Label text="{i18n>RequesterTitle}" tooltip="{i18n>RequesterTitle}" design="Bold" width="100%" required="true" textAlign="Begin"
+															textDirection="Inherit"/>
+													</form:label>
+													<form:fields>
+														<Input id="REQUESTER_TITLE" value="{/REQUESTER_TITLE}" type="Text" showValueHelp="false" enabled="{/requestmode}" visible="true"
+															width="auto" valueHelpOnly="false" maxLength="0"/>
+													</form:fields>
+												</form:FormElement>
+												<form:FormElement visible="true">
+													<form:label>
+														<Label text="{i18n>RequesterOfficePhoneNumber}" tooltip="{i18n>RequesterOfficePhoneNumber}" design="Bold" width="100%" required="true"
+															textAlign="Begin" textDirection="Inherit"/>
+													</form:label>
+													<form:fields>
+														<Input id="REQUESTER_PHONE" value="{/REQUESTER_PHONE}" liveChange="_onLiveChange_Business_phone" type="text" showValueHelp="false"
+															enabled="{/requestmode}" visible="true" width="auto" valueHelpOnly="false" maxLength="20"/>
+													</form:fields>
+												</form:FormElement>
+												<form:FormElement visible="true">
+													<form:label>
+														<Label text="{i18n>RequesterOfficeLocation}" tooltip="{i18n>RequesterOfficeLocation}" design="Bold" width="100%" required="true"
+															textAlign="Begin" textDirection="Inherit"/>
+													</form:label>
+													<form:fields>
+														<Input id="REQUESTER_OFFICE_LOCATION" value="{/REQUESTER_OFFICE_LOCATION}" type="Text" showValueHelp="false" enabled="{/requestmode}"
+															visible="true" width="auto" valueHelpOnly="false" maxLength="0"/>
+													</form:fields>
+												</form:FormElement>
+												<form:FormElement visible="true">
+													<form:label>
+														<m:Label text="{i18n>Lob}" tooltip="{i18n>Lob}" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+													</form:label>
+													<form:fields>
+														<!-- Start : FPDK900091	  PRS:DEV:DPATEL11:REQ0749558:Batch-3:CEF lob-sublob Changes -->
+														<!--<m:ComboBox id="LOB" value="{/LOB}" showSecondaryValues="true" items="{ path: '/LOBS' }" editable="true" enabled="{/requestmode}"-->
+														<!--	visible="true" width="50%" valueState="None" change="onChangeComboBox" selectionChange="onChangeLOB" maxWidth="100%">-->
+														<!--	<m:items>-->
+														<!--		<core:ListItem text="{LOB}" additionalText="{SLOB_DESCRIPTION}" enabled="true"/>-->
+														<!--	</m:items>-->
+														<!--</m:ComboBox>-->
+														<m:Input id="LOB" type="Text" value="{/LOB}" showValueHelp="true" enabled="{/requestmode}" visible="true" width="auto" valueHelpOnly="true"
+															maxLength="0" valueHelpRequest="_onLobValueHelpRequest"/>
+														<!-- End : FPDK900091	PRS:DEV:DPATEL11:REQ0749558:Batch-3:CEF lob-sublob Changes -->
+													</form:fields>
+												</form:FormElement>
+												<form:FormElement visible="true">
+													<form:label>
+														<m:Label text="{i18n>Sublob}" tooltip="{i18n>Sublob}" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+													</form:label>
+													<form:fields>
+														<!-- Start : FPDK900091	  PRS:DEV:DPATEL11:REQ0749558:Batch-3:CEF lob-sublob Changes -->
+														<!--<m:ComboBox id="SUBLOB" value="{/SUBLOB}" showSecondaryValues="true" items="{ path: '/SUBLOBS' }" editable="true" enabled="{/requestmode}"-->
+														<!--	visible="true" width="50%" valueState="None" change="onChangeComboBox" maxWidth="100%">-->
+														<!--	<m:items>-->
+														<!--		<core:ListItem text="{SUBLOB}" additionalText="{SLOB_DESCRIPTION}" enabled="true"/>-->
+														<!--	</m:items>-->
+														<!--</m:ComboBox>-->
+														<m:Input id="SUBLOB" type="Text" value="{/SUBLOB}" showValueHelp="true" enabled="{/requestmode}" visible="true" width="auto"
+															valueHelpOnly="true" maxLength="0" valueHelpRequest="_onSubLobValueHelpRequest"/>
+														<!-- End  : FPDK900091	  PRS:DEV:DPATEL11:REQ0749558:Batch-3:CEF lob-sublob Changes -->
+													</form:fields>
+												</form:FormElement>
+												<form:FormElement visible="true">
+													<form:label>
+														<Label text="{i18n>DepartmentHead}" tooltip="{i18n>DepartmentHead}" design="Bold" width="100%" required="true" textAlign="Begin"
+															textDirection="Inherit"/>
+													</form:label>
+													<form:fields>
+														<m:ComboBox id="DEPARTMENT_HEAD" value="{/DEPARTMENT_HEAD}" showSecondaryValues="true" items="{ path: '/DEPUSERS' }" editable="true"
+															enabled="{/requestmode}" visible="true" width="50%" valueState="None" change="onChangeComboBox" selectionChange="onChangeDepuser"
+															maxWidth="100%">
+															<m:items>
+																<core:ListItem text="{NAME}" additionalText="{USERID}" enabled="true"/>
+															</m:items>
+														</m:ComboBox>
+													</form:fields>
+												</form:FormElement>
+											</form:formElements>
+											<form:title/>
+										</form:FormContainer>
+									</form:formContainers>
+									<form:layout>
+										<form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="2" labelSpanL="3" columnsM="1" labelSpanM="2" labelSpanS="12"/>
+									</form:layout>
+								</form:Form>
+							</ScrollContainer>
+						</content>
+					</IconTabFilter>
+					<IconTabSeparator icon="" iconDensityAware="false"/>
+					<IconTabFilter icon="sap-icon://message-information" iconColor="Critical" tooltip="{i18n>RecipientInformation}"
+						text="{i18n>RecipientInformation}" count="" design="Vertical" showAll="false" textDirection="Inherit" enabled="true" visible="true"
+						iconDensityAware="false">
+						<content>
+							<ScrollContainer height="100%" width="100%" horizontal="false" vertical="true">
+								<form:Form width="100%" editable="true" visible="true">
+									<form:title>
+										<core:Title text="{i18n>EnterorupdatetheRecipientInformation}" level="Auto"/>
+									</form:title>
+									<form:formContainers>
+										<form:FormContainer visible="true">
+											<form:formElements>
+												<form:FormElement visible="true">
+													<form:label>
+														<Label text="{i18n>OrganizationName}" tooltip="{i18n>OrganizationName}" design="Bold" width="100%" required="true" textAlign="Begin"
+															textDirection="Inherit"/>
+													</form:label>
+													<form:fields>
+														<Input id="ORGANIZATION_NAME" value="{/ORGANIZATION_NAME}" type="Text" showValueHelp="false" enabled="{/requestmode}" visible="true"
+															width="auto" valueHelpOnly="false" maxLength="0"/>
+													</form:fields>
+												</form:FormElement>
+												<form:FormElement visible="true">
+													<form:label>
+														<Label text="{i18n>AmountandCurrencyDonation}" tooltip="{i18n>AmountandCurrencyDonation}" design="Bold" width="100%" required="true"
+															textAlign="Begin" textDirection="Inherit"/>
+													</form:label>
+													<form:fields>
+														<Input id="AMOUNT_DONATION" type="Text" liveChange="handleAmoutFormatterByTotal" value="{path:'/AMOUNT_DONATION'}" showValueHelp="false"
+															enabled="{/requestmode}" visible="true" width="auto" valueHelpOnly="false" maxLength="0"/>
+														<m:ComboBox id="CURRENCY" value="{/CURRENCY}" items="{ path: '/localcurrency' }" editable="true" enabled="{/requestmode}" visible="true"
+															width="50%" valueState="None" maxWidth="100%" selectionChange="_onCurrencyChange">
+															<m:items>
+																<core:Item text="{name}" enabled="true"/>
+															</m:items>
+														</m:ComboBox>
+													</form:fields>
+												</form:FormElement>
+												<form:FormElement id="AMOUNT_USD" visible="false">
+													<form:label>
+														<Label text="{i18n>AmountUSD}" tooltip="{i18n>AmountUSD}" design="Bold" width="100%" required="true" textAlign="Begin"
+															textDirection="Inherit"/>
+													</form:label>
+													<form:fields>
+														<m:Text id="AMOUNT_DONATION_USD" text="{/AMOUNT_DONATION_USD}" width="auto" maxLines="1" wrapping="false" textAlign="Begin"
+															textDirection="Inherit"/>
+													</form:fields>
+												</form:FormElement>
+												<form:FormElement visible="true">
+													<form:label>
+														<Label text="{i18n>ProposedDateofDonation}" tooltip="{i18n>ProposedDateofDonation}" design="Bold" width="100%" required="true"
+															textAlign="Begin" textDirection="Inherit"/>
+													</form:label>
+													<form:fields>
+														<DatePicker id="PROPOSED_DT_DONATION" value="{/PROPOSED_DT_DONATION}" enabled="{/requestmode}" visible="true" width="auto"
+															displayFormat="MMM/dd/yyyy"/>
+													</form:fields>
+												</form:FormElement>
+												<form:FormElement visible="true">
+													<form:label>
+														<Label text="{i18n>OrganizationAddress}" tooltip="{i18n>OrganizationAddress}" design="Bold" width="100%" required="true" textAlign="Begin"
+															textDirection="Inherit"/>
+													</form:label>
+													<form:fields>
+														<TextArea id="ORGANIZATION_ADDRESS" value="{/ORGANIZATION_ADDRESS}" rows="2" cols="20" enabled="{/requestmode}" maxLength="0"
+															wrapping="None" visible="true"/>
+													</form:fields>
+												</form:FormElement>
+												<form:FormElement visible="true">
+													<form:label>
+														<Label text="{i18n>Country}" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+													</form:label>
+													<form:fields>
+														<!-- Start : FPDK900091	  PRS:DEV:DPATEL11:REQ0749558:Batch-3:CEF lob-sublob Changes -->
+														<!--<m:ComboBox id="COUNTRY" value="{/COUNTRY}" showSecondaryValues="true" items="{ path: '/COUNTRIES' }" editable="true"-->
+														<!--	change="onChangeComboBox" selectionChange="onChangeCOUNTRY" enabled="{/requestmode}" visible="true" width="50%" valueState="None"-->
+														<!--	maxWidth="100%">-->
+														<!--	<m:items>-->
+														<!--		<core:ListItem text="{NAME}" additionalText="{COUNTRY}" enabled="true"/>-->
+														<!--	</m:items>-->
+														<!--</m:ComboBox>-->
+														<m:Input id="COUNTRY" type="Text" value="{/COUNTRY}" showValueHelp="true" enabled="{/requestmode}" visible="true" width="auto"
+															valueHelpOnly="true" maxLength="0" valueHelpRequest="_onCountryValueHelpRequest"/>
+														<!-- End  : FPDK900091	  PRS:DEV:DPATEL11:REQ0749558:Batch-3:CEF lob-sublob Changes -->
+													</form:fields>
+												</form:FormElement>
+												<form:FormElement visible="true">
+													<form:label>
+														<Label text="{i18n>City}" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+													</form:label>
+													<form:fields>
+														<Input id="CITY" value="{/CITY}" type="Text" showValueHelp="false" enabled="{/requestmode}" visible="true" width="auto"
+															valueHelpOnly="false" maxLength="0"/>
+													</form:fields>
+												</form:FormElement>
+												<form:FormElement visible="true">
+													<form:label>
+														<Label text="{i18n>State}" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+													</form:label>
+													<form:fields>
+														<!-- Start : FPDK900091	  PRS:DEV:DPATEL11:REQ0749558:Batch-3:CEF lob-sublob Changes -->
+														<!--<m:ComboBox id="STATE" value="{/STATE}" showSecondaryValues="true" items="{ path: '/STATES' }" editable="true" enabled="{/requestmode}"-->
+														<!--	change="onChangeComboBox" visible="true" width="50%" valueState="None" maxWidth="100%">-->
+														<!--	<m:items>-->
+														<!--		<core:ListItem text="{NAME}" additionalText="{STATE}" enabled="true"/>-->
+														<!--	</m:items>-->
+														<!--</m:ComboBox>-->
+														<m:Input id="STATE" type="Text" value="{/STATE}" showValueHelp="true" enabled="{/requestmode}" visible="true" width="auto"
+															valueHelpOnly="true" maxLength="0" valueHelpRequest="_onStateValueHelpRequest"/>
+														<!-- End : FPDK900091	  PRS:DEV:DPATEL11:REQ0749558:Batch-3:CEF lob-sublob Changes -->
+													</form:fields>
+												</form:FormElement>
+												<form:FormElement visible="true">
+													<form:label>
+														<Label text="{i18n>PostalCode}" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+													</form:label>
+													<form:fields>
+														<Input id="POSTAL_CODE" value="{/POSTAL_CODE}" type="Text" showValueHelp="false" enabled="{/requestmode}" visible="true" width="auto"
+															valueHelpOnly="false" maxLength="0"/>
+													</form:fields>
+												</form:FormElement>
+											</form:formElements>
+											<form:title/>
+										</form:FormContainer>
+									</form:formContainers>
+									<form:layout>
+										<form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="2" labelSpanL="3" columnsM="1" labelSpanM="2" labelSpanS="12"/>
+									</form:layout>
+								</form:Form>
+								<Table id="CONTACTS" items="{ path: '/CONTACTS'}" width="100%" noDataText="No data" mode="MultiSelect" showSeparators="All" growing="true"
+									growingThreshold="20" growingScrollToLoad="true">
+									<infoToolbar>
+										<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+											<content>
+												<Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+											</content>
+										</Toolbar>
+									</infoToolbar>
+									<headerToolbar>
+										<Toolbar width="auto" height="46px" design="Transparent" visible="true" enabled="true">
+											<content>
+												<Title text="{i18n>ContactInformation}" titleStyle="Auto" width="auto" textAlign="Begin" visible="true"/>
+												<ToolbarSpacer width=""/>
+												<Button text="" type="Transparent" icon="sap-icon://add" iconFirst="true" width="auto" enabled="{/requestmode}" visible="true"
+													iconDensityAware="false" press="_add_contact"/>
+												<Button text="" type="Transparent" icon="sap-icon://delete" iconFirst="true" width="auto" enabled="{/requestmode}" visible="true"
+													iconDensityAware="false" press="_delete_contact"/>
+												<Button text="" type="Default" icon="sap-icon://copy" iconFirst="true" width="auto" enabled="{/requestmode}" visible="true"
+													iconDensityAware="false" press="_copy_contact"/>
+											</content>
+											<tooltip/>
+										</Toolbar>
+									</headerToolbar>
+									<columns>
+										<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Phone" demandPopin="false" popinDisplay="Inline" mergeDuplicates="false">
+											<header>
+												<Text text="{i18n>ContactName}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</header>
+											<footer/>
+										</Column>
+										<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+											<header>
+												<Text text="{i18n>ContactMethod}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</header>
+											<footer/>
+										</Column>
+										<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+											<header>
+												<Text text="{i18n>ContactDetails}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</header>
+											<footer/>
+										</Column>
+									</columns>
+									<items>
+										<ColumnListItem type="Active">
+											<cells>
+												<Input type="Text" value="{CONTACT_NAME}" showValueHelp="false" enabled="{/comp_table_mode}" visible="true" width="auto"
+													valueHelpOnly="false" maxLength="0"/>
+												<ComboBox editable="true" value="{CONTACT_METHOD}" enabled="{/comp_table_mode}" visible="true" width="auto" valueState="None"
+													maxWidth="100%">
+													<items>
+														<core:Item text="Phone" enabled="true" key="Item"/>
+														<core:Item text="Email Address" enabled="true" key="Item"/>
+													</items>
+												</ComboBox>
+												<TextArea value="{CONTACT_DETAILS}" rows="1" cols="20" enabled="{/comp_table_mode}" maxLength="0" wrapping="None" visible="true"/>
+											</cells>
+										</ColumnListItem>
+									</items>
+								</Table>
+								<VBox alignItems="Stretch" direction="Column" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+									visible="true" displayInline="false">
+									<items>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<Text text="" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="false" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<Label text="{i18n>TypeofOrganization(Checkallthatapply)}" design="Bold" width="100%" required="false" textAlign="Begin"
+													textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<Text text="" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<Text text="{i18n>Organizationisa501(c)(3)nonprofitagency}" width="auto" maxLines="1" wrapping="false" textAlign="Begin"
+													textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width=""/>
+												<RadioButtonGroup id="ORGANIZATION_CHECK_1" columns="8" selectedIndex="{/ORGANIZATION_CHECK_1}" valueState="None" width="auto"
+													editable="true" enabled="{/requestmode}" textDirection="Inherit" select="onChangeORGANIZATION_CHECK_1">
+													<buttons>
+														<RadioButton text="Yes" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+														<RadioButton text="No" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+													</buttons>
+												</RadioButtonGroup>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<TextArea id="ORGANIZATION_CHECK_1_TEXT" value="{/ORGANIZATION_CHECK_1_TEXT}" rows="2" cols="100" enabled="{/requestmode}" maxLength="0"
+													wrapping="None" visible="true"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="false" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<Text text="{i18n>Donationistaxdeductible}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												<CheckBox id="ORGANIZATION_CHECK_2" text=""
+													selected="{path:'/ORGANIZATION_CHECK_2',formatter:'com.sap.build.standard.charitableDonationForm.model.formatter.stringToBoolean'}"
+													editable="true" enabled="true" visible="true" width="auto" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<Text text="{i18n>SPEhaspreviouslydonatedtothisorganization}" width="auto" maxLines="1" wrapping="false" textAlign="Begin"
+													textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width=""/>
+												<RadioButtonGroup id="ORGANIZATION_CHECK_3" columns="8" selectedIndex="{/ORGANIZATION_CHECK_3}" valueState="None" width="auto"
+													editable="true" enabled="{/requestmode}" textDirection="Inherit" select="_onRadioButtonGroupSelect23">
+													<buttons>
+														<RadioButton text="Yes" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+														<RadioButton text="No" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+													</buttons>
+												</RadioButtonGroup>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<Text text="{i18n>HighRiskDueDiligence1}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												<Link text="{i18n>AntiBriberyPolicy}" textAlign="Begin" width="auto" target="_blank"
+													href="https://sharepoint.spe.sony.com/myspe/policies/legal/Anti-Bribery/Anti-Bribery%20Policy%20%204-1-14%20ENGLISH.pdf#search=anti%20bribery"
+													wrapping="false" enabled="true" visible="true" emphasized="false" subtle="false"/>
+												<Text text="{i18n>HighRiskDueDiligence2}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width=""/>
+												<RadioButtonGroup id="ORGANIZATION_CHECK_4" columns="8" selectedIndex="{/ORGANIZATION_CHECK_4}" valueState="None" width="auto"
+													editable="true" enabled="{/requestmode}" textDirection="Inherit" select="_onRadioButtonGroupSelect23">
+													<buttons>
+														<RadioButton text="Yes" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+														<RadioButton text="No" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+													</buttons>
+												</RadioButtonGroup>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<Text text="{i18n>IsthisOrganizationconsidered}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<RadioButtonGroup id="CONTRIBUTION_QUESTIONNAIRE_1" columns="8" selectedIndex="{/CONTRIBUTION_QUESTIONNAIRE_1}" valueState="None"
+													width="auto" editable="true" enabled="{/requestmode}" textDirection="Inherit" select="onChangeCONTRIBUTION_QUESTIONNAIRE_1">
+													<buttons>
+														<RadioButton text="Yes" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+														<RadioButton text="No" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+													</buttons>
+												</RadioButtonGroup>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<TextArea id="CONTRIBUTION_QUESTIONNAIRE_1_TEXT" value="{/CONTRIBUTION_QUESTIONNAIRE_1_TEXT}" rows="2" cols="100" enabled="{/requestmode}"
+													maxLength="0" wrapping="None" visible="true"/>
+											</items>
+											<layoutData/>
+										</HBox>
+									</items>
+									<layoutData/>
+								</VBox>
+							</ScrollContainer>
+						</content>
+					</IconTabFilter>
+					<IconTabSeparator icon="" iconDensityAware="false"/>
+					<IconTabFilter icon="sap-icon://question-mark" iconColor="Neutral" text="{i18n>ContributionQuestionnaire}"
+						tooltip="{i18n>ContributionQuestionnaire}" count="" design="Vertical" showAll="false" textDirection="Inherit" enabled="true" visible="true"
+						iconDensityAware="false">
+						<content>
+							<ScrollContainer height="100%" width="100%" horizontal="false" vertical="true">
+								<form:Form width="100%" editable="true" visible="true">
+									<form:title>
+										<core:Title text="{i18n>EnterorupdatetheContributionQuestionnaireInformation}" level="Auto"/>
+									</form:title>
+									<form:formContainers/>
+									<form:layout>
+										<form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="2" labelSpanL="3" columnsM="1" labelSpanM="2" labelSpanS="12"/>
+									</form:layout>
+								</form:Form>
+								<VBox alignItems="Stretch" direction="Column" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+									visible="true" displayInline="false">
+									<items>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<Text text="" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<Text text="{i18n>AreSPEowneditems}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width=""/>
+												<RadioButtonGroup id="CONTRIBUTION_QUESTIONNAIRE_2" columns="8" selectedIndex="{/CONTRIBUTION_QUESTIONNAIRE_2}" valueState="None"
+													width="auto" editable="true" enabled="{/requestmode}" textDirection="Inherit" select="onChangeCONTRIBUTION_QUESTIONNAIRE_2">
+													<buttons>
+														<RadioButton text="Yes" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+														<RadioButton text="No" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+													</buttons>
+												</RadioButtonGroup>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<TextArea enabled="{/requestmode}" id="CONTRIBUTION_QUESTIONNAIRE_2_TEXT" value="{/CONTRIBUTION_QUESTIONNAIRE_2_TEXT}" rows="2" cols="100"
+													maxLength="0" wrapping="None" visible="true"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<Text text="{i18n>PaymentMethod}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<Text text="" width="65px" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<MultiComboBox value="{/PAYMENT_METHOD}" enabled="{/requestmode}" selectionChange="handleSelectionChange"
+													selectionFinish="handleSelectionFinish" id="PAYMENT_METHOD" width="auto">
+													<core:Item key="0" text="Check"/>
+													<core:Item key="1" text="ACH"/>
+													<core:Item key="2" text="Wire"/>
+													<core:Item key="3" text="Non-Cash"/>
+												</MultiComboBox>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<Text text="" width="65px" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<form:Form width="100%" editable="true" visible="false">
+											<form:FormContainer visible="true">
+												<form:formElements>
+													<form:FormElement visible="true">
+														<form:label>
+															<Label text="{i18n>Check}" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+														</form:label>
+														<form:fields>
+															<CheckBox text="" id="CONTRIBUTION_QUESTIONNAIRE_3"
+																selected="{path:'/CONTRIBUTION_QUESTIONNAIRE_3',formatter:'com.sap.build.standard.charitableDonationForm.model.formatter.stringToBoolean'}"
+																editable="true" enabled="{/requestmode}" visible="true" width="auto" textDirection="Inherit"/>
+														</form:fields>
+													</form:FormElement>
+													<form:FormElement visible="false">
+														<form:label>
+															<Label text="{i18n>FXDraft}" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+														</form:label>
+														<form:fields>
+															<CheckBox text="" id="CONTRIBUTION_QUESTIONNAIRE_4"
+																selected="{path:'/CONTRIBUTION_QUESTIONNAIRE_4',formatter:'com.sap.build.standard.charitableDonationForm.model.formatter.stringToBoolean'}"
+																editable="true" enabled="{/requestmode}" visible="true" width="auto" textDirection="Inherit"/>
+														</form:fields>
+													</form:FormElement>
+													<form:FormElement visible="true">
+														<form:label>
+															<Label text="{i18n>ACH}" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+														</form:label>
+														<form:fields>
+															<CheckBox text="" id="CONTRIBUTION_QUESTIONNAIRE_5"
+																selected="{path:'/CONTRIBUTION_QUESTIONNAIRE_5',formatter:'com.sap.build.standard.charitableDonationForm.model.formatter.stringToBoolean'}"
+																editable="true" enabled="{/requestmode}" visible="true" width="auto" textDirection="Inherit"/>
+														</form:fields>
+													</form:FormElement>
+													<form:FormElement visible="true">
+														<form:label>
+															<Label text="{i18n>Wire}" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+														</form:label>
+														<form:fields>
+															<CheckBox text="" id="CONTRIBUTION_QUESTIONNAIRE_6"
+																selected="{path:'/CONTRIBUTION_QUESTIONNAIRE_6',formatter:'com.sap.build.standard.charitableDonationForm.model.formatter.stringToBoolean'}"
+																editable="true" enabled="{/requestmode}" visible="true" width="auto" textDirection="Inherit"/>
+														</form:fields>
+													</form:FormElement>
+													<form:FormElement visible="true">
+														<form:label>
+															<Label text="{i18n>Non-Cash}" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+														</form:label>
+														<form:fields>
+															<CheckBox text="" id="CONTRIBUTION_QUESTIONNAIRE_7"
+																selected="{path:'/CONTRIBUTION_QUESTIONNAIRE_7',formatter:'com.sap.build.standard.charitableDonationForm.model.formatter.stringToBoolean'}"
+																editable="true" enabled="{/requestmode}" visible="true" width="auto" textDirection="Inherit"/>
+														</form:fields>
+													</form:FormElement>
+												</form:formElements>
+											</form:FormContainer>
+											<form:formContainers/>
+											<form:layout>
+												<form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="2" labelSpanL="3" columnsM="1" labelSpanM="2" labelSpanS="12"/>
+											</form:layout>
+										</form:Form>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<Text text="{i18n>IsContribution}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width=""/>
+												<RadioButtonGroup id="CONTRIBUTION_QUESTIONNAIRE_8" columns="8" selectedIndex="{/CONTRIBUTION_QUESTIONNAIRE_8}" valueState="None"
+													width="auto" editable="true" enabled="{/requestmode}" textDirection="Inherit" select="onChangeCONTRIBUTION_QUESTIONNAIRE_8">
+													<buttons>
+														<RadioButton text="Yes" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+														<RadioButton text="No" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+													</buttons>
+												</RadioButtonGroup>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<TextArea id="CONTRIBUTION_QUESTIONNAIRE_8_TEXT" enabled="{/requestmode}" value="{/CONTRIBUTION_QUESTIONNAIRE_8_TEXT}" rows="2" cols="100"
+													maxLength="0" wrapping="None" visible="true"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<Text id="CONTRIBUTION_QUESTIONNAIRE_8_MSG" text="{i18n>Thisisnot}" width="auto" maxLines="1" wrapping="false" textAlign="Begin"
+													textDirection="Inherit" visible="false"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<Text text="{i18n>DescriptionoftheOrganization}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<TextArea id="ORGANIZATION_DESCRIPTION" enabled="{/requestmode}" value="{/ORGANIZATION_DESCRIPTION}" rows="4" cols="100" maxLength="0"
+													wrapping="None" visible="true"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<Text text="" width="65px" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<Text text="" width="10px" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<Text text="{i18n>DescriptionofRequest(grant/program/event1}" width="auto" maxLines="1" wrapping="false" textAlign="Begin"
+													textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<TextArea id="REQUEST_DESCRIPTION" value="{/REQUEST_DESCRIPTION}" rows="2" cols="100" maxLength="0" wrapping="None" enabled="{/requestmode}"
+													visible="true"/>
+											</items>
+											<layoutData/>
+										</HBox>
+									</items>
+									<layoutData/>
+								</VBox>
+							</ScrollContainer>
+						</content>
+					</IconTabFilter>
+					<IconTabSeparator icon="" iconDensityAware="false"/>
+					<IconTabFilter icon="sap-icon://employee" iconColor="Positive" text="{i18n>Employee/Business Affiliation}"
+						tooltip="{i18n>Employee/Business Affiliation}" count="" design="Vertical" showAll="false" textDirection="Inherit" enabled="true"
+						visible="true" iconDensityAware="false">
+						<content>
+							<ScrollContainer height="100%" width="100%" horizontal="false" vertical="true">
+								<form:Form width="100%" editable="true" visible="true">
+									<form:title>
+										<core:Title text="{i18n>EnterorupdatetheEmployee/BusinessAffiliationInformation}" level="Auto"/>
+									</form:title>
+									<form:formContainers/>
+									<form:layout>
+										<form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="2" labelSpanL="3" columnsM="1" labelSpanM="2" labelSpanS="12"/>
+									</form:layout>
+								</form:Form>
+								<VBox alignItems="Stretch" direction="Column" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+									visible="true" displayInline="false">
+									<items>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<Text text="" width="65px" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<Text text="{i18n>Whatisthebusinessrationale1}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												<Link text="{i18n>AntiBriberyPolicy}" textAlign="Begin" width="auto" target="_blank"
+													href="https://sharepoint.spe.sony.com/myspe/policies/legal/Anti-Bribery/Anti-Bribery%20Policy%20%204-1-14%20ENGLISH.pdf#search=anti%20bribery"
+													wrapping="false" enabled="true" visible="true" emphasized="false" subtle="false"/>
+												<Text text="{i18n>Whatisthebusinessrationale2}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<TextArea id="BUSINESS_RATIONALE_1" enabled="{/requestmode}" value="{/BUSINESS_RATIONALE_1}" rows="2" cols="100" maxLength="0"
+													wrapping="None" visible="true"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<Text text="{i18n>AreanySPEEmployeesinvolvedintheeffort}" width="auto" maxLines="1" wrapping="false" textAlign="Begin"
+													textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<TextArea id="BUSINESS_AFFILIATION_1" value="{/BUSINESS_AFFILIATION_1}" enabled="{/requestmode}" rows="2" cols="100" maxLength="0"
+													wrapping="None" visible="true"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<Text text="" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<Text text="{i18n>DoesanyoneatSPEhave}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width=""/>
+												<RadioButtonGroup id="BUSINESS_AFFILIATION_2" columns="8" selectedIndex="{/BUSINESS_AFFILIATION_2}" valueState="None" width="auto"
+													editable="true" enabled="{/requestmode}" textDirection="Inherit" select="onChangeBUSINESS_AFFILIATION_2">
+													<buttons>
+														<RadioButton text="Yes" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+														<RadioButton text="No" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+													</buttons>
+												</RadioButtonGroup>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<TextArea id="BUSINESS_AFFILIATION_2_TEXT" value="{/BUSINESS_AFFILIATION_2_TEXT}" rows="2" cols="100" enabled="{/requestmode}" maxLength="0"
+													wrapping="None" visible="true"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<Text text="" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<Text text="{i18n>Willtherebeanyadvertising}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width=""/>
+												<RadioButtonGroup id="BUSINESS_AFFILIATION_3" columns="8" selectedIndex="{/BUSINESS_AFFILIATION_3}" valueState="None" width="auto"
+													editable="true" enabled="{/requestmode}" textDirection="Inherit" select="onChangeBUSINESS_AFFILIATION_3">
+													<buttons>
+														<RadioButton text="Yes" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+														<RadioButton text="No" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+													</buttons>
+												</RadioButtonGroup>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<Text id="BUSINESS_AFFILIATION_3_MSG" text="For Logo/Name placement use required approval" width="auto" maxLines="1" wrapping="false"
+													textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<TextArea id="BUSINESS_AFFILIATION_3_TEXT" enabled="{/requestmode}" value="{/BUSINESS_AFFILIATION_3_TEXT}" rows="2" cols="100" maxLength="0"
+													wrapping="None" visible="true"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<Text text="" width="65px" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<Text text="{i18n>Arethereanypendingoranticipateddecisions1}" width="auto" maxLines="1" wrapping="true" textAlign="Begin"
+													textDirection="Inherit"/>
+												<Link text="{i18n>AntiBriberyPolicy}" textAlign="Begin" width="auto" target="_blank"
+													href="https://sharepoint.spe.sony.com/myspe/policies/legal/Anti-Bribery/Anti-Bribery%20Policy%20%204-1-14%20ENGLISH.pdf#search=anti%20bribery"
+													wrapping="false" enabled="true" visible="true" emphasized="false" subtle="false"/>
+												<Text text="{i18n>Arethereanypendingoranticipateddecisions2}" width="auto" maxLines="1" wrapping="true" textAlign="Begin"
+													textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width=""/>
+												<RadioButtonGroup id="BUSINESS_AFFILIATION_4" columns="8" selectedIndex="{/BUSINESS_AFFILIATION_4}" valueState="None" width="auto"
+													editable="true" enabled="{/requestmode}" textDirection="Inherit" select="onChangeBUSINESS_AFFILIATION_4">
+													<buttons>
+														<RadioButton text="Yes" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+														<RadioButton text="No" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+													</buttons>
+												</RadioButtonGroup>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<TextArea id="BUSINESS_AFFILIATION_4_TEXT" value="{/BUSINESS_AFFILIATION_4_TEXT}" rows="2" cols="100" enabled="{/requestmode}" maxLength="0"
+													wrapping="None" visible="true"/>
+											</items>
+											<layoutData/>
+										</HBox>
+									</items>
+									<layoutData/>
+								</VBox>
+							</ScrollContainer>
+						</content>
+					</IconTabFilter>
+					<IconTabSeparator icon="" iconDensityAware="false"/>
+					<IconTabFilter icon="sap-icon://clinical-tast-tracker" iconColor="Default" text="{i18n>GovernmentAffiliation}"
+						tooltip="{i18n>GovernmentAffiliation}" count="" design="Vertical" showAll="false" textDirection="Inherit" enabled="true" visible="true"
+						iconDensityAware="false">
+						<content>
+							<ScrollContainer height="100%" width="100%" horizontal="false" vertical="true">
+								<form:Form width="100%" editable="true" visible="true">
+									<form:title>
+										<core:Title text="{i18n>EnterorupdatetheGovernment}" level="Auto"/>
+									</form:title>
+									<form:formContainers/>
+									<form:layout>
+										<form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="2" labelSpanL="3" columnsM="1" labelSpanM="2" labelSpanS="12"/>
+									</form:layout>
+								</form:Form>
+								<VBox alignItems="Stretch" direction="Column" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+									visible="true" displayInline="false">
+									<items>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<Text text="" width="65px" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="false" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<Text text="{i18n>AreanyRedFlags1}" width="auto" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+												<Link text="{i18n>AntiBriberyPolicy}" textAlign="Begin" width="auto" target="_blank"
+													href="https://sharepoint.spe.sony.com/myspe/policies/legal/Anti-Bribery/Anti-Bribery%20Policy%20%204-1-14%20ENGLISH.pdf#search=anti%20bribery"
+													wrapping="false" enabled="true" visible="true" emphasized="false" subtle="false"/>
+												<Text text="{i18n>AreanyRedFlags2}" width="auto" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<Link text="{i18n>AntiBriberyPolicyLink}" textAlign="Begin" width="auto" target="_blank"
+													href="https://sharepoint.spe.sony.com/myspe/policies/legal/Anti-Bribery/Anti-Bribery%20Policy%20%204-1-14%20ENGLISH.pdf#search=anti%20bribery"
+													wrapping="false" enabled="true" visible="true" emphasized="false" subtle="false"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<Text text="" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<VBox alignItems="Stretch" direction="Column" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+													visible="true" displayInline="false">
+													<items>
+														<Text text="{i18n>IsthedonationconsistentwithSPE1}" width="auto" maxLines="1" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+														<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+															visible="true" displayInline="false">
+															<items>
+																<Text text="{i18n>IsthedonationconsistentwithSPE2}" width="auto" maxLines="1" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+															</items>
+															<layoutData/>
+														</HBox>
+													</items>
+													<layoutData/>
+												</VBox>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width=""/>
+												<RadioButtonGroup id="GOVERNMENT_AFFILIATION_1" columns="8" selectedIndex="{/GOVERNMENT_AFFILIATION_1}" valueState="None" width="auto"
+													editable="true" enabled="{/requestmode}" textDirection="Inherit" select="onChangeGOVERNMENT_AFFILIATION_1">
+													<buttons>
+														<RadioButton text="Yes" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+														<RadioButton text="No" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+													</buttons>
+												</RadioButtonGroup>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<TextArea id="GOVERNMENT_AFFILIATION_1_TEXT" value="{/GOVERNMENT_AFFILIATION_1_TEXT}" rows="2" cols="100" enabled="{/requestmode}"
+													maxLength="0" wrapping="None" visible="true"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<Text text="" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<VBox alignItems="Stretch" direction="Column" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+													visible="true" displayInline="false">
+													<items>
+														<Text text="{i18n>Isthereanyknownrelationship1}" width="auto" maxLines="1" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+														<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+															visible="true" displayInline="false">
+															<items>
+																<Text text="{i18n>Isthereanyknownrelationship2}" width="auto" maxLines="1" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+																<Link text="{i18n>AntiBriberyPolicy}" textAlign="Begin" width="auto" target="_blank"
+																	href="https://sharepoint.spe.sony.com/myspe/policies/legal/Anti-Bribery/Anti-Bribery%20Policy%20%204-1-14%20ENGLISH.pdf#search=anti%20bribery"
+																	wrapping="false" enabled="true" visible="true" emphasized="false" subtle="false"/>
+																<Text text="{i18n>Isthereanyknownrelationship3}" width="auto" maxLines="1" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+															</items>
+															<layoutData/>
+														</HBox>
+													</items>
+													<layoutData/>
+												</VBox>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width=""/>
+												<RadioButtonGroup id="GOVERNMENT_AFFILIATION_2" columns="8" selectedIndex="{/GOVERNMENT_AFFILIATION_2}" valueState="None" width="auto"
+													editable="true" enabled="{/requestmode}" textDirection="Inherit" select="onChangeGOVERNMENT_AFFILIATION_2">
+													<buttons>
+														<RadioButton text="Yes" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+														<RadioButton text="No" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+													</buttons>
+												</RadioButtonGroup>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<TextArea id="GOVERNMENT_AFFILIATION_2_TEXT" value="{/GOVERNMENT_AFFILIATION_2_TEXT}" rows="2" cols="100" enabled="{/requestmode}"
+													maxLength="0" wrapping="None" visible="true"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<Text text="" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<Text text="{i18n>Thedonationandintended}" width="800px" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width=""/>
+												<RadioButtonGroup id="GOVERNMENT_AFFILIATION_3" columns="8" selectedIndex="{/GOVERNMENT_AFFILIATION_3}" valueState="None" width="auto"
+													editable="true" enabled="{/requestmode}" textDirection="Inherit" select="onChangeRED_FLAGS">
+													<buttons>
+														<RadioButton text="Yes" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+														<RadioButton text="No" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+													</buttons>
+												</RadioButtonGroup>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<Text text="" width="65px" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<Text text="{i18n>AGovernmentOfficialwhoisadecision1}" width="900px" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<Text text="{i18n>AGovernmentOfficialwhoisadecision2}" width="900px" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width=""/>
+												<RadioButtonGroup id="GOVERNMENT_AFFILIATION_4" columns="8" selectedIndex="{/GOVERNMENT_AFFILIATION_4}" valueState="None" width="auto"
+													editable="true" enabled="{/requestmode}" textDirection="Inherit" select="onChangeRED_FLAGS">
+													<buttons>
+														<RadioButton text="Yes" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+														<RadioButton text="No" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+													</buttons>
+												</RadioButtonGroup>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<Text text="" width="65px" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<Text text="{i18n>Isthereanysuggestion}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width=""/>
+												<RadioButtonGroup id="GOVERNMENT_AFFILIATION_5" columns="8" selectedIndex="{/GOVERNMENT_AFFILIATION_5}" valueState="None" width="auto"
+													editable="true" enabled="{/requestmode}" textDirection="Inherit" select="onChangeRED_FLAGS">
+													<buttons>
+														<RadioButton text="Yes" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+														<RadioButton text="No" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+													</buttons>
+												</RadioButtonGroup>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<Text text="" width="65px" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<Text text="{i18n>AnyadditionalRedFlag1}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												<Link text="{i18n>AntiBriberyPolicy}" textAlign="Begin" width="auto" target="_blank"
+													href="https://sharepoint.spe.sony.com/myspe/policies/legal/Anti-Bribery/Anti-Bribery%20Policy%20%204-1-14%20ENGLISH.pdf#search=anti%20bribery"
+													wrapping="false" enabled="true" visible="true" emphasized="false" subtle="false"/>
+												<Text text="{i18n>AnyadditionalRedFlag2}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width=""/>
+												<RadioButtonGroup id="GOVERNMENT_AFFILIATION_6" columns="8" selectedIndex="{/GOVERNMENT_AFFILIATION_6}" valueState="None" width="auto"
+													editable="true" enabled="{/requestmode}" textDirection="Inherit" select="onChangeRED_FLAGS">
+													<buttons>
+														<RadioButton text="Yes" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+														<RadioButton text="No" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+													</buttons>
+												</RadioButtonGroup>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<TextArea id="RED_FLAGS_TEXT" value="{/RED_FLAGS_TEXT}" enabled="{/requestmode}" rows="2" cols="100" maxLength="0" wrapping="None"
+													visible="true"/>
+											</items>
+											<layoutData/>
+										</HBox>
+									</items>
+									<layoutData/>
+								</VBox>
+							</ScrollContainer>
+						</content>
+					</IconTabFilter>
+					<IconTabSeparator icon="" iconDensityAware="false"/>
+					<IconTabFilter icon="sap-icon://payment-approval" iconColor="Negative" text="{i18n>ApprovalFlow}" tooltip="{i18n>ApprovalFlow}" count=""
+						design="Vertical" showAll="false" textDirection="Inherit" enabled="true" visible="true" iconDensityAware="false">
+						<content>
+							<ScrollContainer height="100%" width="100%" horizontal="false" vertical="true">
+								<m:Table id="approvers_table" width="100%" items="{ path: '/approvers'}" noDataText="No data" mode="SingleSelectLeft" showSeparators="All"
+									growing="true" growingThreshold="20" growingScrollToLoad="true">
+									<m:infoToolbar>
+										<m:Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+											<m:content>
+												<m:Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+											</m:content>
+										</m:Toolbar>
+									</m:infoToolbar>
+									<m:headerToolbar>
+										<m:Toolbar width="auto" height="46px" design="Transparent" visible="true" enabled="true">
+											<m:content>
+												<m:Title text="{i18n>Approvers}" titleStyle="H4" width="auto" textAlign="Begin" visible="true"/>
+												<m:ToolbarSpacer width=""/>
+												<m:Text text="{i18n>Type}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												<m:ComboBox id="REVIEWER_TYPE" value="{i18n>Approver}" editable="true" enabled="true" visible="true" width="auto" valueState="None"
+													maxWidth="100%">
+													<m:items>
+														<core:Item text="{i18n>Watcher}" enabled="true"/>
+														<core:Item text="{i18n>Approver}" enabled="true"/>
+													</m:items>
+												</m:ComboBox>
+												<m:Text text="{i18n>Position}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												<m:ComboBox id="ENTRY_SEQUENCE" value="{i18n>After}" editable="true" enabled="true" visible="true" width="auto" valueState="None"
+													maxWidth="100%">
+													<m:items>
+														<core:Item text="{i18n>Before}" enabled="true"/>
+														<core:Item text="{i18n>After}" enabled="true"/>
+													</m:items>
+												</m:ComboBox>
+												<m:Button text="" type="Emphasized" icon="sap-icon://add" iconFirst="true" width="auto" enabled="true" visible="true"
+													iconDensityAware="false" press="_add_approver"/>
+												<m:Button text="" type="Reject" icon="sap-icon://delete" iconFirst="true" width="auto" enabled="true" visible="true"
+													iconDensityAware="false" press="_delete_approver"/>
+											</m:content>
+											<m:tooltip/>
+										</m:Toolbar>
+									</m:headerToolbar>
+									<m:columns>
+										<m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+											<m:header>
+												<m:Text text="{i18n>Approved}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</m:header>
+											<m:footer/>
+										</m:Column>
+										<m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+											<m:header>
+												<m:Text text="{i18n>Approver}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</m:header>
+											<m:footer/>
+										</m:Column>
+										<m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+											<m:header>
+												<m:Text text="{i18n>ReviewerType}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</m:header>
+											<m:footer/>
+										</m:Column>
+										<m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+											<m:header>
+												<m:Text text="{i18n>ApprovedBy}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</m:header>
+											<m:footer/>
+										</m:Column>
+										<m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+											<m:header>
+												<m:Text text="{i18n>ApprovalDate}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</m:header>
+											<m:footer/>
+										</m:Column>
+										<m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+											<m:header>
+												<m:Text text="{i18n>ApprovalTime(PST)}" width="auto" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+											</m:header>
+											<m:footer/>
+										</m:Column>
+										<m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+											<m:header>
+												<m:Text text="{i18n>ManualAddition}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</m:header>
+											<m:footer/>
+										</m:Column>
+										<m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+											<m:header>
+												<m:Text text="{i18n>AddedBy}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</m:header>
+											<m:footer/>
+										</m:Column>
+										<m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+											<m:header>
+												<m:Text text="{i18n>AddedOn}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</m:header>
+											<m:footer/>
+										</m:Column>
+									</m:columns>
+									<m:items>
+										<m:ColumnListItem type="Active">
+											<m:cells>
+												<m:CheckBox text="" selected="{path:'approved',formatter:'com.sap.build.standard.charitableDonationForm.model.formatter.stringToBoolean'}"
+													editable="true" enabled="{can_edit}" visible="true" width="auto" textDirection="Inherit"/>
+												<m:Text text="{approver}" width="auto" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+												<m:Text text="{reviewer_type}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												<m:Text text="{approved_by}" width="auto" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+												<m:Text text="{approval_date}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												<m:Text text="{approval_time}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												<m:CheckBox text=""
+													selected="{path:'manual_addition',formatter:'com.sap.build.standard.charitableDonationForm.model.formatter.stringToBoolean'}"
+													editable="true" enabled="{can_edit}" visible="true" width="auto" textDirection="Inherit"/>
+												<m:Text text="{added_by}" width="auto" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+												<m:Text text="{added_on}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</m:cells>
+										</m:ColumnListItem>
+									</m:items>
+								</m:Table>
+								<m:Bar design="Auto">
+									<m:contentLeft/>
+									<m:contentMiddle/>
+									<m:contentRight>
+										<m:Button text="{i18n>Refresh}" type="Accept" icon="sap-icon://refresh" iconFirst="true" width="auto" enabled="true" visible="true"
+											iconDensityAware="false" press="_onRefreshApprovers"/>
+									</m:contentRight>
+								</m:Bar>
+							</ScrollContainer>
+						</content>
+					</IconTabFilter>
+					<IconTabSeparator icon="" iconDensityAware="false"/>
+					<IconTabFilter icon="sap-icon://attachment" iconColor="Neutral" tooltip="Justify" text="Justify" count="" design="Vertical" showAll="false"
+						textDirection="Inherit" enabled="true" visible="true" iconDensityAware="false">
+						<content>
+							<ScrollContainer height="100%" width="100%" horizontal="false" vertical="true">
+								<m:VBox alignItems="Stretch" direction="Column" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+									visible="true" displayInline="false">
+									<m:items>
+										<m:Text text="" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+										<m:Title class="sapUiTinyMarginBegin" text="{i18n>AttachmentInfo}" titleStyle="H4" width="auto" textAlign="Begin" visible="true"/>
+										<m:HBox alignItems="Center" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<m:items>
+												<m:ToolbarSpacer width="20px"/>
+												<m:ToolbarSpacer width="10px"/>
+												<m:ToolbarSpacer width="10px"/>
+											</m:items>
+											<m:layoutData/>
+										</m:HBox>
+										<m:HBox>
+											<m:items>
+												<m:ToolbarSpacer width="20px"/>
+												<u:FileUploader id="i_fileUploader1" name="myFileUpload" uploadUrl="/sap/opu/odata/sap/YFPSFIPFRDD0024_CHARITABLE_FRM_SRV/eFormAttachments/"
+													width="400px" sendXHR="true" useMultipart="false" uploadOnChange="false" change="_onhandleValueChange"
+													tooltip="Upload your file to the local server" uploadComplete="_onhandleUploadComplete"/>
+												<m:ToolbarSpacer width="20px"/>
+												<m:Button id="b_upload1" text="Upload File" enabled="true" type="Accept" icon="sap-icon://upload" iconFirst="true" width="auto"
+													visible="true" iconDensityAware="false" press="_onhandleUploadPress"/>
+											</m:items>
+											<m:layoutData/>
+										</m:HBox>
+										<m:Table id="t_attachment1" width="100%" noDataText="No data" mode="SingleSelectLeft" showSeparators="All" growing="true"
+											growingThreshold="20" growingScrollToLoad="true">
+											<m:infoToolbar>
+												<m:Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+													<m:content>
+														<m:Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+													</m:content>
+												</m:Toolbar>
+											</m:infoToolbar>
+											<m:headerToolbar>
+												<m:Toolbar width="auto" height="46px" design="Transparent" visible="true" enabled="true">
+													<m:content>
+														<m:Title text="{i18n>Attachments}" titleStyle="H4" width="auto" textAlign="Begin" visible="true"/>
+														<m:ToolbarSpacer width=""/>
+														<m:Button id="b_deleteattachment1" text="" type="Reject" icon="sap-icon://delete" iconFirst="true" width="auto" enabled="true"
+															visible="true" iconDensityAware="false" press="_onDeleteAttachment"/>
+													</m:content>
+													<m:tooltip/>
+												</m:Toolbar>
+											</m:headerToolbar>
+											<m:columns>
+												<m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+													<m:header>
+														<m:Text text="{i18n>FileName}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+													</m:header>
+													<m:footer/>
+												</m:Column>
+												<m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+													<m:header>
+														<m:Text text="{i18n>CreationDate}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+													</m:header>
+													<m:footer/>
+												</m:Column>
+												<m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+													<m:header>
+														<m:Text text="{i18n>CreationTime(PST)}" width="auto" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+													</m:header>
+													<m:footer/>
+												</m:Column>
+												<m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+													<m:header>
+														<m:Text text="{i18n>FileSize}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+													</m:header>
+													<m:footer/>
+												</m:Column>
+												<m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+													<m:header>
+														<m:Text text="{i18n>Creator}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+													</m:header>
+													<m:footer/>
+												</m:Column>
+											</m:columns>
+											<m:items>
+												<m:ColumnListItem type="Active">
+													<m:cells>
+														<m:Text text="" width="auto" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+														<m:Text text="" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+														<m:Text text="" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+														<m:Text text="" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+														<m:Text text="" width="auto" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+													</m:cells>
+												</m:ColumnListItem>
+											</m:items>
+										</m:Table>
+										<m:Bar design="Header">
+											<m:contentLeft/>
+											<m:contentMiddle/>
+											<m:contentRight/>
+										</m:Bar>
+									</m:items>
+									<m:layoutData/>
+								</m:VBox>
+								<m:Text text="" width="auto" maxLines="3" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+								<m:VBox alignItems="Stretch" direction="Column" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+									visible="true" displayInline="false">
+									<m:items>
+										<m:Title class="sapUiTinyMarginBegin" text="{i18n>CommentTitle}" titleStyle="H4" width="auto" textAlign="Begin" visible="true"/>
+										<m:HBox alignItems="Center" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<m:items>
+												<m:ToolbarSpacer width="20px"/>
+												<m:TextArea id="i_comment1" rows="2" placeholder="{i18n>EnterComments}" cols="120" maxLength="0" wrapping="None" visible="true"/>
+												<m:ToolbarSpacer width="10px"/>
+												<m:Button id="b_clear1" text="Clear" type="Reject" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"
+													press="_onClearComment"/>
+												<m:ToolbarSpacer width="10px"/>
+												<m:Button id="b_save1" text="Save" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"
+													press="_onSaveComment"/>
+											</m:items>
+											<m:layoutData/>
+										</m:HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<Text text="{i18n>Thisisnotapaymentrequest}" width="800px" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit"
+													visible="true"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<m:Table id="t_comment1" width="100%" noDataText="No data" mode="SingleSelectLeft" showSeparators="All" growing="true" growingThreshold="20"
+											growingScrollToLoad="true">
+											<m:infoToolbar>
+												<m:Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+													<m:content>
+														<m:Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+													</m:content>
+												</m:Toolbar>
+											</m:infoToolbar>
+											<m:headerToolbar>
+												<m:Toolbar width="auto" height="46px" design="Transparent" visible="true" enabled="true">
+													<m:content>
+														<m:Title text="" titleStyle="Auto" width="auto" textAlign="Begin" visible="true"/>
+														<m:ToolbarSpacer width=""/>
+														<m:Button id="b_update1" text="" type="Emphasized" icon="sap-icon://save" iconFirst="true" width="auto" enabled="true" visible="true"
+															iconDensityAware="false" press="_UpdateComment"/>
+														<m:Button id="b_delete1" text="" type="Reject" icon="sap-icon://delete" iconFirst="true" width="auto" enabled="true" visible="true"
+															iconDensityAware="false" press="_DeleteComment"/>
+													</m:content>
+													<m:tooltip/>
+												</m:Toolbar>
+											</m:headerToolbar>
+											<m:columns>
+												<m:Column width="10%" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+													<m:header>
+														<m:Text text="{i18n>Id}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+													</m:header>
+													<m:footer/>
+												</m:Column>
+												<m:Column width="50%" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+													<m:header>
+														<m:Text text="{i18n>Comments}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+													</m:header>
+													<m:footer/>
+												</m:Column>
+												<m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+													<m:header>
+														<m:Text text="{i18n>AddedBy}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+													</m:header>
+													<m:footer/>
+												</m:Column>
+												<m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+													<m:header>
+														<m:Text text="{i18n>AddedOn}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+													</m:header>
+													<m:footer/>
+												</m:Column>
+											</m:columns>
+											<m:items>
+												<m:ColumnListItem type="Active">
+													<m:cells>
+														<m:Text text="Text" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+														<m:TextArea rows="2" cols="70" maxLength="0" wrapping="None" visible="true"/>
+														<m:Text text="Text" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+														<m:Text text="Text" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+													</m:cells>
+												</m:ColumnListItem>
+											</m:items>
+										</m:Table>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="20px" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false"></HBox>
+									</m:items>
+									<m:layoutData/>
+								</m:VBox>
+							</ScrollContainer>
+						</content>
+					</IconTabFilter>
+					<IconTabSeparator icon="" iconDensityAware="false"/>
+					<IconTabFilter icon="sap-icon://document-text" iconColor="Positive" tooltip="{i18n>Summary}" text="{i18n>Summary}" count=""
+						design="Vertical" showAll="false" textDirection="Inherit" enabled="true" visible="true" iconDensityAware="false">
+						<content>
+							<ScrollContainer height="100%" width="100%" horizontal="false" vertical="true">
+								<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+									visible="true" displayInline="false">
+									<items>
+										<ToolbarSpacer width="10px"/>
+										<Text text="" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+									</items>
+									<layoutData/>
+								</HBox>
+								<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+									visible="true" displayInline="false">
+									<items>
+										<ToolbarSpacer width="10px"/>
+										<Text class="_redcolor" text="{i18n>Thisisnot}" width="auto" maxLines="10" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+									</items>
+									<layoutData/>
+								</HBox>
+								<form:Form width="100%" editable="true" visible="true">
+									<form:title>
+										<core:Title text="{i18n>TitleInformation}" level="Auto"/>
+									</form:title>
+									<form:formContainers>
+										<form:FormContainer visible="true">
+											<form:formElements>
+												<form:FormElement visible="true">
+													<form:label>
+														<Label text="{i18n>Title}" tooltip="{i18n>Title}" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+													</form:label>
+													<form:fields>
+														<Text text="{/TITLE}" width="auto" maxLines="10" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+													</form:fields>
+												</form:FormElement>
+												<form:FormElement visible="true">
+													<form:label>
+														<m:Label text="{i18n>Description}" tooltip="{i18n>Description}" design="Bold" width="100%" required="true" textAlign="Begin"
+															textDirection="Inherit"/>
+													</form:label>
+													<form:fields>
+														<m:Text text="{/DESC_PR}" width="auto" maxLines="10" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+													</form:fields>
+												</form:FormElement>
+												<form:FormElement visible="true">
+													<form:label>
+														<Label text="{i18n>Requestdate}" tooltip="{i18n>Requestdate}" design="Bold" width="100%" required="false" textAlign="Begin"
+															textDirection="Inherit"/>
+													</form:label>
+													<form:fields>
+														<Text text="{/REQUEST_DATE}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+													</form:fields>
+												</form:FormElement>
+												<form:FormElement visible="true">
+													<form:label>
+														<Label text="{i18n>Preparer}" tooltip="{i18n>Preparer}" design="Bold" width="100%" required="false" textAlign="Begin"
+															textDirection="Inherit"/>
+													</form:label>
+													<form:fields>
+														<Text text="{/PREPARER}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+													</form:fields>
+												</form:FormElement>
+												<form:FormElement visible="true">
+													<form:label>
+														<Label text="{i18n>OnBehalfof}" tooltip="{i18n>OnBehalfof}" design="Bold" width="100%" required="true" textAlign="Begin"
+															textDirection="Inherit"/>
+													</form:label>
+													<form:fields>
+														<Text text="{/ON_BEHALF_OF}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+													</form:fields>
+												</form:FormElement>
+												<form:FormElement visible="true">
+													<form:label>
+														<Label text="{i18n>RequesterTitle}" tooptip="{i18n>RequesterTitle}" design="Bold" width="100%" required="true" textAlign="Begin"
+															textDirection="Inherit"/>
+													</form:label>
+													<form:fields>
+														<Text text="{/REQUESTER_TITLE}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+													</form:fields>
+												</form:FormElement>
+												<form:FormElement visible="true">
+													<form:label>
+														<Label text="{i18n>RequesterOfficePhoneNumber}" tooltip="{i18n>RequesterOfficePhoneNumber}" design="Bold" width="100%" required="true"
+															textAlign="Begin" textDirection="Inherit"/>
+													</form:label>
+													<form:fields>
+														<Text text="{/REQUESTER_PHONE}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+													</form:fields>
+												</form:FormElement>
+												<form:FormElement visible="true">
+													<form:label>
+														<Label text="{i18n>RequesterOfficeLocation}" tooltip="{i18n>RequesterOfficeLocation}" design="Bold" width="100%" required="true"
+															textAlign="Begin" textDirection="Inherit"/>
+													</form:label>
+													<form:fields>
+														<Text text="{/REQUESTER_OFFICE_LOCATION}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+													</form:fields>
+												</form:FormElement>
+												<form:FormElement visible="false">
+													<form:label>
+														<Label text="{i18n>Dept/Division}" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+													</form:label>
+													<form:fields>
+														<Text text="{/DEPARTMENT}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+													</form:fields>
+												</form:FormElement>
+												<form:FormElement visible="true">
+													<form:label>
+														<m:Label text="{i18n>Lob}" tooltip="{i18n>Lob}" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+													</form:label>
+													<form:fields>
+														<m:Text text="{/LOB}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+													</form:fields>
+												</form:FormElement>
+												<form:FormElement visible="true">
+													<form:label>
+														<m:Label text="{i18n>Sublob}" tooltip="{i18n>Sublob}" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+													</form:label>
+													<form:fields>
+														<m:Text text="{/SUBLOB}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+													</form:fields>
+												</form:FormElement>
+												<form:FormElement visible="true">
+													<form:label>
+														<Label text="{i18n>DepartmentHead}" tooltip="{i18n>DepartmentHead}" design="Bold" width="100%" required="true" textAlign="Begin"
+															textDirection="Inherit"/>
+													</form:label>
+													<form:fields>
+														<Text text="{/DEPARTMENT_HEAD}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+													</form:fields>
+												</form:FormElement>
+											</form:formElements>
+											<form:title/>
+										</form:FormContainer>
+									</form:formContainers>
+									<form:layout>
+										<form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="2" labelSpanL="3" columnsM="1" labelSpanM="2" labelSpanS="12"/>
+									</form:layout>
+								</form:Form>
+								<form:Form width="100%" editable="true" visible="true">
+									<form:title>
+										<core:Title text="{i18n>RecipientInformation}" level="Auto"/>
+									</form:title>
+									<form:formContainers>
+										<form:FormContainer visible="true">
+											<form:formElements>
+												<form:FormElement visible="true">
+													<form:label>
+														<Label text="{i18n>OrganizationName}" tooltip="{i18n>OrganizationName}" design="Bold" width="100%" required="true" textAlign="Begin"
+															textDirection="Inherit"/>
+													</form:label>
+													<form:fields>
+														<Text text="{/ORGANIZATION_NAME}" width="auto" maxLines="10" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+													</form:fields>
+												</form:FormElement>
+												<form:FormElement visible="true">
+													<form:label>
+														<Label text="{i18n>AmountandCurrencyDonation}" tooltip="{i18n>AmountandCurrencyDonation}" design="Bold" width="100%" required="true"
+															textAlign="Begin" textDirection="Inherit"/>
+													</form:label>
+													<form:fields>
+														<Text text="{/AMOUNT_DONATION}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+														<Text text="{/CURRENCY}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+													</form:fields>
+												</form:FormElement>
+												<form:FormElement id="AMOUNT_USD_S" visible="false">
+													<form:label>
+														<Label text="{i18n>AmountUSD}" tooltip="{i18n>AmountUSD}" design="Bold" width="100%" required="true" textAlign="Begin"
+															textDirection="Inherit"/>
+													</form:label>
+													<form:fields>
+														<Text text="{/AMOUNT_DONATION_USD}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+													</form:fields>
+												</form:FormElement>
+												<form:FormElement visible="true">
+													<form:label>
+														<Label text="{i18n>ProposedDateofDonation}" tooltip="{i18n>ProposedDateofDonation}" design="Bold" width="100%" required="true"
+															textAlign="Begin" textDirection="Inherit"/>
+													</form:label>
+													<form:fields>
+														<Text text="{/PROPOSED_DT_DONATION}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+													</form:fields>
+												</form:FormElement>
+												<form:FormElement visible="true">
+													<form:label>
+														<Label text="{i18n>OrganizationAddress}" tooltip="{i18n>OrganizationAddress}" design="Bold" width="100%" required="true" textAlign="Begin"
+															textDirection="Inherit"/>
+													</form:label>
+													<form:fields>
+														<Text text="{/ORGANIZATION_ADDRESS}" width="auto" maxLines="10" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+													</form:fields>
+												</form:FormElement>
+												<form:FormElement visible="true">
+													<form:label>
+														<Label text="{i18n>Country}" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+													</form:label>
+													<form:fields>
+														<Text text="{/COUNTRY}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+													</form:fields>
+												</form:FormElement>
+												<form:FormElement visible="true">
+													<form:label>
+														<Label text="{i18n>City}" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+													</form:label>
+													<form:fields>
+														<Text text="{/CITY}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+													</form:fields>
+												</form:FormElement>
+												<form:FormElement visible="true">
+													<form:label>
+														<Label text="{i18n>State}" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+													</form:label>
+													<form:fields>
+														<Text text="{/STATE}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+													</form:fields>
+												</form:FormElement>
+												<form:FormElement visible="true">
+													<form:label>
+														<Label text="{i18n>PostalCode}" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+													</form:label>
+													<form:fields>
+														<Text text="{/POSTAL_CODE}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+													</form:fields>
+												</form:FormElement>
+											</form:formElements>
+											<form:title/>
+										</form:FormContainer>
+									</form:formContainers>
+									<form:layout>
+										<form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="2" labelSpanL="3" columnsM="1" labelSpanM="2" labelSpanS="12"/>
+									</form:layout>
+								</form:Form>
+								<Table width="100%" items="{ path: '/CONTACTS'}" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20"
+									growingScrollToLoad="true">
+									<infoToolbar>
+										<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+											<content>
+												<Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+											</content>
+										</Toolbar>
+									</infoToolbar>
+									<headerToolbar>
+										<Toolbar width="auto" height="46px" design="Transparent" visible="true" enabled="true">
+											<content>
+												<Title text="{i18n>ContactInformation}" titleStyle="Auto" width="auto" textAlign="Begin" visible="true"/>
+												<ToolbarSpacer width=""/>
+											</content>
+											<tooltip/>
+										</Toolbar>
+									</headerToolbar>
+									<columns>
+										<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Phone" demandPopin="false" popinDisplay="Inline" mergeDuplicates="false">
+											<header>
+												<Text text="{i18n>ContactName}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</header>
+											<footer/>
+										</Column>
+										<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+											<header>
+												<Text text="{i18n>ContactMethod}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</header>
+											<footer/>
+										</Column>
+										<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+											<header>
+												<Text text="{i18n>ContactDetails}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</header>
+											<footer/>
+										</Column>
+									</columns>
+									<items>
+										<ColumnListItem type="Active">
+											<cells>
+												<Text text="{CONTACT_NAME}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												<Text text="{CONTACT_METHOD}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												<Text text="{CONTACT_DETAILS}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</cells>
+										</ColumnListItem>
+									</items>
+								</Table>
+								<VBox alignItems="Stretch" direction="Column" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+									visible="true" displayInline="false">
+									<items>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<Text text="" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="false" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<Text text="{i18n>TypeofOrganization(Checkallthatapply)}" width="auto" maxLines="1" wrapping="false" textAlign="Begin"
+													textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<Text text="" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<Text text="{i18n>Organizationisa501(c)(3)nonprofitagency}" width="auto" maxLines="1" wrapping="false" textAlign="Begin"
+													textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width=""/>
+												<RadioButtonGroup columns="8" selectedIndex="{/ORGANIZATION_CHECK_1}" valueState="None" width="auto" editable="true" enabled="false"
+													textDirection="Inherit" select="_onRadioButtonGroupSelect23">
+													<buttons>
+														<RadioButton text="Yes" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+														<RadioButton text="No" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+													</buttons>
+												</RadioButtonGroup>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="20px"/>
+												<Text text="{/ORGANIZATION_CHECK_1_TEXT}" width="auto" maxLines="10" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="false" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<Text text="{i18n>Donationistaxdeductible}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												<CheckBox text=""
+													selected="{path:'/ORGANIZATION_CHECK_2',formatter:'com.sap.build.standard.charitableDonationForm.model.formatter.stringToBoolean'}"
+													editable="true" enabled="false" visible="true" width="auto" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<Text text="{i18n>SPEhaspreviouslydonatedtothisorganization}" width="auto" maxLines="1" wrapping="false" textAlign="Begin"
+													textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width=""/>
+												<RadioButtonGroup columns="8" selectedIndex="{/ORGANIZATION_CHECK_3}" valueState="None" width="auto" editable="true" enabled="false"
+													textDirection="Inherit" select="_onRadioButtonGroupSelect23">
+													<buttons>
+														<RadioButton text="Yes" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+														<RadioButton text="No" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+													</buttons>
+												</RadioButtonGroup>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<Text text="{i18n>HighRiskDueDiligence1}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												<Link text="{i18n>AntiBriberyPolicy}" textAlign="Begin" width="auto" target="_blank"
+													href="https://sharepoint.spe.sony.com/myspe/policies/legal/Anti-Bribery/Anti-Bribery%20Policy%20%204-1-14%20ENGLISH.pdf#search=anti%20bribery"
+													wrapping="false" enabled="true" visible="true" emphasized="false" subtle="false"/>
+												<Text text="{i18n>HighRiskDueDiligence2}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width=""/>
+												<RadioButtonGroup columns="8" selectedIndex="{/ORGANIZATION_CHECK_4}" valueState="None" width="auto" editable="true" enabled="false"
+													textDirection="Inherit" select="_onRadioButtonGroupSelect23">
+													<buttons>
+														<RadioButton text="Yes" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+														<RadioButton text="No" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+													</buttons>
+												</RadioButtonGroup>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<Text text="{i18n>IsthisOrganizationconsidered}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width=""/>
+												<RadioButtonGroup columns="8" selectedIndex="{/CONTRIBUTION_QUESTIONNAIRE_1}" valueState="None" width="auto" editable="true" enabled="false"
+													textDirection="Inherit" select="_onRadioButtonGroupSelect12">
+													<buttons>
+														<RadioButton text="Yes" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+														<RadioButton text="No" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+													</buttons>
+												</RadioButtonGroup>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="20px"/>
+												<Text text="{/CONTRIBUTION_QUESTIONNAIRE_1_TEXT}" width="auto" maxLines="10" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+									</items>
+									<layoutData/>
+								</VBox>
+								<form:Form width="100%" editable="true" visible="true">
+									<form:title>
+										<core:Title text="{i18n>ContributionQuestionnaireInformation}" level="Auto"/>
+									</form:title>
+									<form:formContainers/>
+									<form:layout>
+										<form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="2" labelSpanL="3" columnsM="1" labelSpanM="2" labelSpanS="12"/>
+									</form:layout>
+								</form:Form>
+								<VBox alignItems="Stretch" direction="Column" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+									visible="true" displayInline="false">
+									<items>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<Text text="" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<Text text="{i18n>AreSPEowneditems}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width=""/>
+												<RadioButtonGroup
+													id="sap_Responsive_Page_0-content-sap_m_IconTabBar-1500880096540-items-sap_m_IconTabFilter-1504533892033-content-sap_m_VBox-1516010363554-items-sap_m_HBox-5-items-sap_m_RadioButtonGroup-1"
+													columns="8" selectedIndex="{/CONTRIBUTION_QUESTIONNAIRE_2}" valueState="None" width="auto" editable="true" enabled="false"
+													textDirection="Inherit" select="_onRadioButtonGroupSelect13">
+													<buttons>
+														<RadioButton text="Yes" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+														<RadioButton text="No" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+													</buttons>
+												</RadioButtonGroup>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="20px"/>
+												<Text text="{/CONTRIBUTION_QUESTIONNAIRE_2_TEXT}" width="auto" maxLines="10" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<Text text="{i18n>PaymentMethod}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<Text id="PAYMENT_METHOD_S" text="" width="auto" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<Text text="" width="65px" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<form:Form width="100%" editable="true" visible="false">
+											<form:FormContainer visible="true">
+												<form:formElements>
+													<form:FormElement visible="true">
+														<form:label>
+															<Label text="{i18n>Check}" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+														</form:label>
+														<form:fields>
+															<CheckBox text=""
+																selected="{path:'/CONTRIBUTION_QUESTIONNAIRE_3',formatter:'com.sap.build.standard.charitableDonationForm.model.formatter.stringToBoolean'}"
+																editable="true" enabled="false" visible="true" width="auto" textDirection="Inherit"/>
+														</form:fields>
+													</form:FormElement>
+													<form:FormElement visible="false">
+														<form:label>
+															<Label text="{i18n>FXDraft}" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+														</form:label>
+														<form:fields>
+															<CheckBox text=""
+																selected="{path:'/CONTRIBUTION_QUESTIONNAIRE_4',formatter:'com.sap.build.standard.charitableDonationForm.model.formatter.stringToBoolean'}"
+																editable="true" enabled="false" visible="true" width="auto" textDirection="Inherit"/>
+														</form:fields>
+													</form:FormElement>
+													<form:FormElement visible="true">
+														<form:label>
+															<Label text="{i18n>ACH}" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+														</form:label>
+														<form:fields>
+															<CheckBox text=""
+																selected="{path:'/CONTRIBUTION_QUESTIONNAIRE_5',formatter:'com.sap.build.standard.charitableDonationForm.model.formatter.stringToBoolean'}"
+																editable="true" enabled="false" visible="true" width="auto" textDirection="Inherit"/>
+														</form:fields>
+													</form:FormElement>
+													<form:FormElement visible="true">
+														<form:label>
+															<Label text="{i18n>Wire}" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+														</form:label>
+														<form:fields>
+															<CheckBox text=""
+																selected="{path:'/CONTRIBUTION_QUESTIONNAIRE_6',formatter:'com.sap.build.standard.charitableDonationForm.model.formatter.stringToBoolean'}"
+																editable="true" enabled="false" visible="true" width="auto" textDirection="Inherit"/>
+														</form:fields>
+													</form:FormElement>
+													<form:FormElement visible="true">
+														<form:label>
+															<Label text="{i18n>Non-Cash}" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+														</form:label>
+														<form:fields>
+															<CheckBox text=""
+																selected="{path:'/CONTRIBUTION_QUESTIONNAIRE_7',formatter:'com.sap.build.standard.charitableDonationForm.model.formatter.stringToBoolean'}"
+																editable="true" enabled="false" visible="true" width="auto" textDirection="Inherit"/>
+														</form:fields>
+													</form:FormElement>
+												</form:formElements>
+											</form:FormContainer>
+											<form:formContainers/>
+											<form:layout>
+												<form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="2" labelSpanL="3" columnsM="1" labelSpanM="2" labelSpanS="12"/>
+											</form:layout>
+										</form:Form>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<Text text="{i18n>IsContribution}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width=""/>
+												<RadioButtonGroup columns="8" selectedIndex="{/CONTRIBUTION_QUESTIONNAIRE_8}" valueState="None" width="auto" editable="true" enabled="false"
+													textDirection="Inherit" select="_onRadioButtonGroupSelect1">
+													<buttons>
+														<RadioButton text="Yes" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+														<RadioButton text="No" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+													</buttons>
+												</RadioButtonGroup>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<Text id="CONTRIBUTION_QUESTIONNAIRE_8_MSG_S" text="{i18n>Thisisnot}" width="auto" maxLines="1" wrapping="false" textAlign="Begin"
+													textDirection="Inherit" visible="false"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<Text text="{/CONTRIBUTION_QUESTIONNAIRE_8_TEXT}" width="auto" maxLines="10" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<Text text="{i18n>DescriptionoftheOrganization}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<Text text="{/ORGANIZATION_DESCRIPTION}" width="auto" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<Text text="" width="65px" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<Text text="" width="10px" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<Text text="{i18n>DescriptionofRequest(grant/program/event1}" width="auto" maxLines="1" wrapping="false" textAlign="Begin"
+													textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<Text text="{/REQUEST_DESCRIPTION}" width="auto" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+									</items>
+									<layoutData/>
+								</VBox>
+								<form:Form width="100%" editable="true" visible="true">
+									<form:title>
+										<core:Title text="{i18n>Employee/BusinessAffiliationInformation}" level="Auto"/>
+									</form:title>
+									<form:formContainers/>
+									<form:layout>
+										<form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="2" labelSpanL="3" columnsM="1" labelSpanM="2" labelSpanS="12"/>
+									</form:layout>
+								</form:Form>
+								<VBox alignItems="Stretch" direction="Column" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+									visible="true" displayInline="false">
+									<items>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<Text text="" width="65px" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<Text text="{i18n>Whatisthebusinessrationale1}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												<Link text="{i18n>AntiBriberyPolicy}" textAlign="Begin" width="auto" target="_blank"
+													href="https://sharepoint.spe.sony.com/myspe/policies/legal/Anti-Bribery/Anti-Bribery%20Policy%20%204-1-14%20ENGLISH.pdf#search=anti%20bribery"
+													wrapping="false" enabled="true" visible="true" emphasized="false" subtle="false"/>
+												<Text text="{i18n>Whatisthebusinessrationale2}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<Text text="{/BUSINESS_RATIONALE_1}" width="auto" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<Text text="{i18n>AreanySPEEmployeesinvolvedintheeffort}" width="auto" maxLines="1" wrapping="false" textAlign="Begin"
+													textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<Text text="{/BUSINESS_AFFILIATION_1}" width="auto" maxLines="4" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<Text text="" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<Text text="{i18n>DoesanyoneatSPEhave}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width=""/>
+												<RadioButtonGroup id="USINESS_AFFILIATION_2" columns="8" selectedIndex="{/BUSINESS_AFFILIATION_2}" valueState="None" width="auto"
+													editable="true" enabled="false" textDirection="Inherit" select="_onRadioButtonGroupSelect15">
+													<buttons>
+														<RadioButton text="Yes" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+														<RadioButton text="No" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+													</buttons>
+												</RadioButtonGroup>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="20px"/>
+												<Text text="{/BUSINESS_AFFILIATION_2_TEXT}" width="auto" maxLines="4" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<Text text="" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<Text text="{i18n>Willtherebeanyadvertising}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width=""/>
+												<RadioButtonGroup
+													id="sap_Responsive_Page_0-content-sap_m_IconTabBar-1500880096540-items-sap_m_IconTabFilter-1504533892033-content-sap_m_VBox-1516010582903-items-sap_m_HBox-9-items-sap_m_RadioButtonGroup-2"
+													columns="8" selectedIndex="{/BUSINESS_AFFILIATION_3}" valueState="None" width="auto" editable="true" enabled="false" textDirection="Inherit"
+													select="_onRadioButtonGroupSelect16">
+													<buttons>
+														<RadioButton text="Yes" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+														<RadioButton text="No" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+													</buttons>
+												</RadioButtonGroup>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<Text id="BUSINESS_AFFILIATION_3_MSG_S" text="For Logo/Name placement use requried aprroval" width="auto" maxLines="1" wrapping="false"
+													textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="20px"/>
+												<Text text="{/BUSINESS_AFFILIATION_3_TEXT}" width="auto" maxLines="4" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<Text text="" width="65px" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<Text text="{i18n>Arethereanypendingoranticipateddecisions1}" width="auto" maxLines="1" wrapping="true" textAlign="Begin"
+													textDirection="Inherit"/>
+												<Link text="{i18n>AntiBriberyPolicy}" textAlign="Begin" width="auto" target="_blank"
+													href="https://sharepoint.spe.sony.com/myspe/policies/legal/Anti-Bribery/Anti-Bribery%20Policy%20%204-1-14%20ENGLISH.pdf#search=anti%20bribery"
+													wrapping="false" enabled="true" visible="true" emphasized="false" subtle="false"/>
+												<Text text="{i18n>Arethereanypendingoranticipateddecisions2}" width="auto" maxLines="1" wrapping="true" textAlign="Begin"
+													textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width=""/>
+												<RadioButtonGroup
+													id="sap_Responsive_Page_0-content-sap_m_IconTabBar-1500880096540-items-sap_m_IconTabFilter-1504533892033-content-sap_m_VBox-1516010582903-items-sap_m_HBox-12-items-sap_m_RadioButtonGroup-2"
+													columns="8" selectedIndex="{/BUSINESS_AFFILIATION_4}" valueState="None" width="auto" editable="true" enabled="false" textDirection="Inherit"
+													select="_onRadioButtonGroupSelect17">
+													<buttons>
+														<RadioButton text="Yes" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+														<RadioButton text="No" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+													</buttons>
+												</RadioButtonGroup>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="20px"/>
+												<Text text="{/BUSINESS_AFFILIATION_4_TEXT}" width="auto" maxLines="4" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+									</items>
+									<layoutData/>
+								</VBox>
+								<form:Form width="100%" editable="true" visible="true">
+									<form:title>
+										<core:Title text="{i18n>GovernmentAffiliationInformation}" level="Auto"/>
+									</form:title>
+									<form:formContainers/>
+									<form:layout>
+										<form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="2" labelSpanL="3" columnsM="1" labelSpanM="2" labelSpanS="12"/>
+									</form:layout>
+								</form:Form>
+								<VBox alignItems="Stretch" direction="Column" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+									visible="true" displayInline="false">
+									<items>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<Text text="" width="65px" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="false" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<Text text="{i18n>AreanyRedFlags1}" width="auto" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+												<Link text="{i18n>AntiBriberyPolicy}" textAlign="Begin" width="auto" target="_blank"
+													href="https://sharepoint.spe.sony.com/myspe/policies/legal/Anti-Bribery/Anti-Bribery%20Policy%20%204-1-14%20ENGLISH.pdf#search=anti%20bribery"
+													wrapping="false" enabled="true" visible="true" emphasized="false" subtle="false"/>
+												<Text text="{i18n>AreanyRedFlags2}" width="auto" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<Link text="{i18n>AntiBriberyPolicyLink}" textAlign="Begin" width="auto" target="_blank" wrapping="false" enabled="true" visible="true"
+													emphasized="false" subtle="false"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<Text text="" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<VBox alignItems="Stretch" direction="Column" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+													visible="true" displayInline="false">
+													<items>
+														<Text text="{i18n>IsthedonationconsistentwithSPE1}" width="auto" maxLines="1" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+														<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+															visible="true" displayInline="false">
+															<items>
+																<Text text="{i18n>IsthedonationconsistentwithSPE2}" width="auto" maxLines="1" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+															</items>
+															<layoutData/>
+														</HBox>
+													</items>
+													<layoutData/>
+												</VBox>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width=""/>
+												<RadioButtonGroup
+													id="sap_Responsive_Page_0-content-sap_m_IconTabBar-1500880096540-items-sap_m_IconTabFilter-1504533892033-content-sap_m_VBox-1516010695641-items-sap_m_HBox-5-items-sap_m_RadioButtonGroup-2"
+													columns="8" selectedIndex="{/GOVERNMENT_AFFILIATION_1}" valueState="None" width="auto" editable="true" enabled="false"
+													textDirection="Inherit" select="_onRadioButtonGroupSelect18">
+													<buttons>
+														<RadioButton text="Yes" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+														<RadioButton text="No" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+													</buttons>
+												</RadioButtonGroup>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="20px"/>
+												<Text text="{/GOVERNMENT_AFFILIATION_1_TEXT}" width="auto" maxLines="4" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<Text text="" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<VBox alignItems="Stretch" direction="Column" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+													visible="true" displayInline="false">
+													<items>
+														<Text text="{i18n>Isthereanyknownrelationship1}" width="auto" maxLines="1" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+														<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+															visible="true" displayInline="false">
+															<items>
+																<Text text="{i18n>Isthereanyknownrelationship2}" width="auto" maxLines="1" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+																<Link text="{i18n>AntiBriberyPolicy}" textAlign="Begin" width="auto" target="_blank"
+																	href="https://sharepoint.spe.sony.com/myspe/policies/legal/Anti-Bribery/Anti-Bribery%20Policy%20%204-1-14%20ENGLISH.pdf#search=anti%20bribery"
+																	wrapping="false" enabled="true" visible="true" emphasized="false" subtle="false"/>
+																<Text text="{i18n>Isthereanyknownrelationship3}" width="auto" maxLines="1" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+															</items>
+															<layoutData/>
+														</HBox>
+													</items>
+													<layoutData/>
+												</VBox>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width=""/>
+												<RadioButtonGroup
+													id="sap_Responsive_Page_0-content-sap_m_IconTabBar-1500880096540-items-sap_m_IconTabFilter-1504533892033-content-sap_m_VBox-1516010695641-items-sap_m_HBox-8-items-sap_m_RadioButtonGroup-2"
+													columns="8" selectedIndex="{/GOVERNMENT_AFFILIATION_2}" valueState="None" width="auto" editable="true" enabled="false"
+													textDirection="Inherit" select="_onRadioButtonGroupSelect19">
+													<buttons>
+														<RadioButton text="Yes" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+														<RadioButton text="No" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+													</buttons>
+												</RadioButtonGroup>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="20px"/>
+												<Text text="{/GOVERNMENT_AFFILIATION_2_TEXT}" width="auto" maxLines="4" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<Text text="" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<Text text="{i18n>Thedonationandintended}" width="800px" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width=""/>
+												<RadioButtonGroup
+													id="sap_Responsive_Page_0-content-sap_m_IconTabBar-1500880096540-items-sap_m_IconTabFilter-1504533892033-content-sap_m_VBox-1516010695641-items-sap_m_HBox-12-items-sap_m_RadioButtonGroup-2"
+													columns="8" selectedIndex="{/GOVERNMENT_AFFILIATION_3}" valueState="None" width="auto" editable="true" enabled="false"
+													textDirection="Inherit" select="_onRadioButtonGroupSelect20">
+													<buttons>
+														<RadioButton text="Yes" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+														<RadioButton text="No" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+													</buttons>
+												</RadioButtonGroup>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<Text text="" width="65px" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<Text text="{i18n>AGovernmentOfficialwhoisadecision1}" width="900px" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<Text text="{i18n>AGovernmentOfficialwhoisadecision2}" width="900px" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width=""/>
+												<RadioButtonGroup
+													id="sap_Responsive_Page_0-content-sap_m_IconTabBar-1500880096540-items-sap_m_IconTabFilter-1504533892033-content-sap_m_VBox-1516010695641-items-sap_m_HBox-15-items-sap_m_RadioButtonGroup-2"
+													columns="8" selectedIndex="{/GOVERNMENT_AFFILIATION_4}" valueState="None" width="auto" editable="true" enabled="false"
+													textDirection="Inherit" select="_onRadioButtonGroupSelect21">
+													<buttons>
+														<RadioButton text="Yes" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+														<RadioButton text="No" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+													</buttons>
+												</RadioButtonGroup>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<Text text="" width="65px" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<Text text="{i18n>Isthereanysuggestion}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width=""/>
+												<RadioButtonGroup
+													id="sap_Responsive_Page_0-content-sap_m_IconTabBar-1500880096540-items-sap_m_IconTabFilter-1504533892033-content-sap_m_VBox-1516010695641-items-sap_m_HBox-18-items-sap_m_RadioButtonGroup-2"
+													columns="8" selectedIndex="{/GOVERNMENT_AFFILIATION_5}" valueState="None" width="auto" editable="true" enabled="false"
+													textDirection="Inherit" select="_onRadioButtonGroupSelect22">
+													<buttons>
+														<RadioButton text="Yes" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+														<RadioButton text="No" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+													</buttons>
+												</RadioButtonGroup>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<Text text="" width="65px" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<Text text="{i18n>AnyadditionalRedFlag1}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												<Link text="{i18n>AntiBriberyPolicy}" textAlign="Begin" width="auto" target="_blank"
+													href="https://sharepoint.spe.sony.com/myspe/policies/legal/Anti-Bribery/Anti-Bribery%20Policy%20%204-1-14%20ENGLISH.pdf#search=anti%20bribery"
+													wrapping="false" enabled="true" visible="true" emphasized="false" subtle="false"/>
+												<Text text="{i18n>AnyadditionalRedFlag2}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width=""/>
+												<RadioButtonGroup
+													id="sap_Responsive_Page_0-content-sap_m_IconTabBar-1500880096540-items-sap_m_IconTabFilter-1504533892033-content-sap_m_VBox-1516010695641-items-sap_m_HBox-21-items-sap_m_RadioButtonGroup-2"
+													columns="8" selectedIndex="{/GOVERNMENT_AFFILIATION_6}" valueState="None" width="auto" editable="true" enabled="false"
+													textDirection="Inherit" select="_onRadioButtonGroupSelect23">
+													<buttons>
+														<RadioButton text="Yes" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+														<RadioButton text="No" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+													</buttons>
+												</RadioButtonGroup>
+											</items>
+											<layoutData/>
+										</HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="20px"/>
+												<Text text="{/RED_FLAGS_TEXT}" width="auto" maxLines="4" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+									</items>
+									<layoutData/>
+								</VBox>
+								<m:Table width="100%" items="{ path: '/approvers'}" noDataText="No data" mode="SingleSelectLeft" showSeparators="All" growing="true"
+									growingThreshold="20" growingScrollToLoad="true">
+									<m:infoToolbar>
+										<m:Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+											<m:content>
+												<m:Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+											</m:content>
+										</m:Toolbar>
+									</m:infoToolbar>
+									<m:headerToolbar>
+										<m:Toolbar width="auto" height="46px" design="Transparent" visible="true" enabled="true">
+											<m:content>
+												<m:Title text="{i18n>Approvers}" titleStyle="Auto" width="auto" textAlign="Begin" visible="true"/>
+												<m:ToolbarSpacer width=""/>
+											</m:content>
+											<m:tooltip/>
+										</m:Toolbar>
+									</m:headerToolbar>
+									<m:columns>
+										<m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+											<m:header>
+												<m:Text text="{i18n>Approved}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</m:header>
+											<m:footer/>
+										</m:Column>
+										<m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+											<m:header>
+												<m:Text text="{i18n>Approver}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</m:header>
+											<m:footer/>
+										</m:Column>
+										<m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+											<m:header>
+												<m:Text text="{i18n>ReviewerType}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</m:header>
+											<m:footer/>
+										</m:Column>
+										<m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+											<m:header>
+												<m:Text text="{i18n>ApprovedBy}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</m:header>
+											<m:footer/>
+										</m:Column>
+										<m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+											<m:header>
+												<m:Text text="{i18n>ApprovalDate}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</m:header>
+											<m:footer/>
+										</m:Column>
+										<m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+											<m:header>
+												<m:Text text="{i18n>ApprovalTime(PST)}" width="auto" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+											</m:header>
+											<m:footer/>
+										</m:Column>
+										<m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+											<m:header>
+												<m:Text text="{i18n>ManualAddition}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</m:header>
+											<m:footer/>
+										</m:Column>
+										<m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+											<m:header>
+												<m:Text text="{i18n>AddedBy}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</m:header>
+											<m:footer/>
+										</m:Column>
+										<m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+											<m:header>
+												<m:Text text="{i18n>AddedOn}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</m:header>
+											<m:footer/>
+										</m:Column>
+									</m:columns>
+									<m:items>
+										<m:ColumnListItem type="Active">
+											<m:cells>
+												<m:CheckBox text="" selected="{path:'approved',formatter:'com.sap.build.standard.charitableDonationForm.model.formatter.stringToBoolean'}"
+													editable="true" enabled="{can_edit}" visible="true" width="auto" textDirection="Inherit"/>
+												<m:Text text="{approver}" width="auto" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+												<m:Text text="{reviewer_type}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												<m:Text text="{approved_by}" width="auto" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+												<m:Text text="{approval_date}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												<m:Text text="{approval_time}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+												<m:CheckBox text=""
+													selected="{path:'manual_addition',formatter:'com.sap.build.standard.charitableDonationForm.model.formatter.stringToBoolean'}"
+													editable="true" enabled="{can_edit}" visible="true" width="auto" textDirection="Inherit"/>
+												<m:Text text="{added_by}" width="auto" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+												<m:Text text="{added_on}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											</m:cells>
+										</m:ColumnListItem>
+									</m:items>
+								</m:Table>
+								<m:VBox alignItems="Stretch" direction="Column" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+									visible="true" displayInline="false">
+									<m:items>
+										<m:Text text="" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+										<m:Title class="sapUiTinyMarginBegin" text="{i18n>AttachmentInfo}" titleStyle="H4" width="auto" textAlign="Begin" visible="true"/>
+										<m:HBox alignItems="Center" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<m:items>
+												<m:ToolbarSpacer width="20px"/>
+												<m:ToolbarSpacer width="10px"/>
+												<m:ToolbarSpacer width="10px"/>
+											</m:items>
+											<m:layoutData/>
+										</m:HBox>
+										<m:HBox>
+											<m:items>
+												<m:ToolbarSpacer width="20px"/>
+												<u:FileUploader id="i_fileUploader2" name="myFileUpload" uploadUrl="/sap/opu/odata/sap/YFPSFIPFRDD0024_CHARITABLE_FRM_SRV/eFormAttachments/"
+													width="400px" sendXHR="true" useMultipart="false" uploadOnChange="false" change="_onhandleValueChange"
+													tooltip="Upload your file to the local server" uploadComplete="_onhandleUploadComplete"/>
+												<m:ToolbarSpacer width="20px"/>
+												<m:Button id="b_upload2" text="Upload File" enabled="true" type="Accept" icon="sap-icon://upload" iconFirst="true" width="auto"
+													visible="true" iconDensityAware="false" press="_onhandleUploadPress"/>
+											</m:items>
+											<m:layoutData/>
+										</m:HBox>
+										<m:Table id="t_attachment2" width="100%" noDataText="No data" mode="SingleSelectLeft" showSeparators="All" growing="true"
+											growingThreshold="20" growingScrollToLoad="true">
+											<m:infoToolbar>
+												<m:Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+													<m:content>
+														<m:Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+													</m:content>
+												</m:Toolbar>
+											</m:infoToolbar>
+											<m:headerToolbar>
+												<m:Toolbar width="auto" height="46px" design="Transparent" visible="true" enabled="true">
+													<m:content>
+														<m:Title text="{i18n>Attachments}" titleStyle="H4" width="auto" textAlign="Begin" visible="true"/>
+														<m:ToolbarSpacer width=""/>
+														<m:Button id="b_deleteattachment2" text="" type="Reject" icon="sap-icon://delete" iconFirst="true" width="auto" enabled="true"
+															visible="true" iconDensityAware="false" press="_onDeleteAttachment"/>
+													</m:content>
+													<m:tooltip/>
+												</m:Toolbar>
+											</m:headerToolbar>
+											<m:columns>
+												<m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+													<m:header>
+														<m:Text text="{i18n>FileName}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+													</m:header>
+													<m:footer/>
+												</m:Column>
+												<m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+													<m:header>
+														<m:Text text="{i18n>CreationDate}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+													</m:header>
+													<m:footer/>
+												</m:Column>
+												<m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+													<m:header>
+														<m:Text text="{i18n>CreationTime(PST)}" width="auto" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+													</m:header>
+													<m:footer/>
+												</m:Column>
+												<m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+													<m:header>
+														<m:Text text="{i18n>FileSize}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+													</m:header>
+													<m:footer/>
+												</m:Column>
+												<m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+													<m:header>
+														<m:Text text="{i18n>Creator}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+													</m:header>
+													<m:footer/>
+												</m:Column>
+											</m:columns>
+											<m:items>
+												<m:ColumnListItem type="Active">
+													<m:cells>
+														<m:Text text="" width="auto" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+														<m:Text text="" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+														<m:Text text="" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+														<m:Text text="" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+														<m:Text text="" width="auto" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+													</m:cells>
+												</m:ColumnListItem>
+											</m:items>
+										</m:Table>
+										<m:Bar design="Header">
+											<m:contentLeft/>
+											<m:contentMiddle/>
+											<m:contentRight/>
+										</m:Bar>
+									</m:items>
+									<m:layoutData/>
+								</m:VBox>
+								<m:Text text="" width="auto" maxLines="3" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+								<m:VBox alignItems="Stretch" direction="Column" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+									visible="true" displayInline="false">
+									<m:items>
+										<m:Title class="sapUiTinyMarginBegin" text="{i18n>CommentTitle}" titleStyle="H4" width="auto" textAlign="Begin" visible="true"/>
+										<m:HBox alignItems="Center" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<m:items>
+												<m:ToolbarSpacer width="20px"/>
+												<m:TextArea id="i_comment2" rows="2" placeholder="{i18n>EnterComments}" cols="120" maxLength="0" wrapping="None" visible="true"/>
+												<m:ToolbarSpacer width="10px"/>
+												<m:Button id="b_clear2" text="Clear" type="Reject" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"
+													press="_onClearComment"/>
+												<m:ToolbarSpacer width="10px"/>
+												<m:Button id="b_save2" text="Save" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"
+													press="_onSaveComment"/>
+											</m:items>
+											<m:layoutData/>
+										</m:HBox>
+										<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+											visible="true" displayInline="false">
+											<items>
+												<ToolbarSpacer width="10px"/>
+												<Text text="{i18n>Thisisnotapaymentrequest}" width="800px" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+											</items>
+											<layoutData/>
+										</HBox>
+										<m:Table id="t_comment2" width="100%" noDataText="No data" mode="SingleSelectLeft" showSeparators="All" growing="true" growingThreshold="20"
+											growingScrollToLoad="true">
+											<m:infoToolbar>
+												<m:Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+													<m:content>
+														<m:Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+													</m:content>
+												</m:Toolbar>
+											</m:infoToolbar>
+											<m:headerToolbar>
+												<m:Toolbar width="auto" height="46px" design="Transparent" visible="true" enabled="true">
+													<m:content>
+														<m:Title text="" titleStyle="Auto" width="auto" textAlign="Begin" visible="true"/>
+														<m:ToolbarSpacer width=""/>
+														<m:Button id="b_update2" text="" type="Emphasized" icon="sap-icon://save" iconFirst="true" width="auto" enabled="true" visible="true"
+															iconDensityAware="false" press="_UpdateComment"/>
+														<m:Button id="b_delete2" text="" type="Reject" icon="sap-icon://delete" iconFirst="true" width="auto" enabled="true" visible="true"
+															iconDensityAware="false" press="_DeleteComment"/>
+													</m:content>
+													<m:tooltip/>
+												</m:Toolbar>
+											</m:headerToolbar>
+											<m:columns>
+												<m:Column width="10%" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+													<m:header>
+														<m:Text text="{i18n>Id}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+													</m:header>
+													<m:footer/>
+												</m:Column>
+												<m:Column width="50%" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+													<m:header>
+														<m:Text text="{i18n>Comments}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+													</m:header>
+													<m:footer/>
+												</m:Column>
+												<m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+													<m:header>
+														<m:Text text="{i18n>AddedBy}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+													</m:header>
+													<m:footer/>
+												</m:Column>
+												<m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+													<m:header>
+														<m:Text text="{i18n>AddedOn}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+													</m:header>
+													<m:footer/>
+												</m:Column>
+											</m:columns>
+											<m:items>
+												<m:ColumnListItem type="Active">
+													<m:cells>
+														<m:Text text="" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+														<m:TextArea rows="2" cols="70" maxLength="0" wrapping="None" visible="true"/>
+														<m:Text text="" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+														<m:Text text="" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+													</m:cells>
+												</m:ColumnListItem>
+											</m:items>
+										</m:Table>
+									</m:items>
+									<m:layoutData/>
+								</m:VBox>
+							</ScrollContainer>
+						</content>
+					</IconTabFilter>
+				</items>
+				<content/>
+			</IconTabBar>
+		</content>
+		<footer>
+			<Bar design="Auto">
+				<contentLeft/>
+				<contentMiddle/>
+				<contentRight>
+					<m:Button id="b_approve" text="Approve" type="Accept" icon="sap-icon://accept" iconFirst="true" width="auto" enabled="true" visible="false"
+						iconDensityAware="false" press="approve_eform"/>
+					<m:Button id="b_reject" text="Reject" type="Reject" icon="sap-icon://decline" iconFirst="true" width="auto" enabled="true" visible="false"
+						iconDensityAware="false" press="reject_eform"/>
+					<m:Button id="b_save" text="Save" type="Accept" icon="sap-icon://save" iconFirst="true" width="auto" enabled="true" visible="true"
+						iconDensityAware="false" press="onSavePress"/>
+					<m:Button id="b_submit" text="Submit" type="Emphasized" icon="sap-icon://enter-more" iconFirst="true" width="auto" enabled="true"
+						visible="true" iconDensityAware="false" press="onSavePress"/>
+					<m:Button id="b_withdraw" text="Withdraw" type="Reject" icon="sap-icon://inspect-down" iconFirst="true" width="auto" enabled="true"
+						visible="true" iconDensityAware="false" press="_onWithdrawPress"/>
+					<m:Button id="b_print" text="Print" type="Accept" icon="sap-icon://print" iconFirst="true" width="auto" enabled="true" visible="true"
+						iconDensityAware="false" press="_onprintpress"/>
+				</contentRight>
+			</Bar>
+		</footer>
+		<m:headerContent></m:headerContent>
+		<m:subHeader/>
+		<m:customHeader>
+			<m:Bar design="Auto">
+				<m:contentLeft>
+					<core:Icon src="sap-icon://nav-back" id="back" size="30px" height="46px" width="46px" color="black" visible="false"
+						press="_onPageNavButtonPress"/>
+					<core:Icon src="sap-icon://home" id="HOME" size="30px" height="46px" width="46px" color="blue" visible="false" press="_onNavigateHome"/>
+				</m:contentLeft>
+				<contentMiddle>
+					<m:Label id="page1" design="Bold" text="{i18n>CharitableDonationForm}"/>
+				</contentMiddle>
+				<m:contentRight>
+					<core:Icon src="sap-icon://delete" id="b_delete" size="30px" height="46px" width="46px" color="red" visible="true" press="_onDeletePress"/>
+					<core:Icon src="sap-icon://edit" id="b_edit" size="30px" height="46px" width="46px" color="orange" visible="true" press="_onEditPress"/>
+				</m:contentRight>
+			</m:Bar>
+		</m:customHeader>
+	</Page>
+</mvc:View>

@@ -1,0 +1,14 @@
+/* Enter your custom styles here */
+
+.sapMTitle {
+    font-weight: 800;
+}
+.sapUiFormTitleH3 {
+    font-size: 1.35rem;
+}
+.sapUiForm .sapUiFormTitle {
+    font-weight: 800;
+}
+.sapMTB-Transparent-CTX>.sapMTitleTB.sapMTitleStyleAuto {
+    font-size: 1.35rem;
+}

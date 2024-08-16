@@ -1,0 +1,212 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:form="sap.ui.layout.form" xmlns:core="sap.ui.core"
+	xmlns:html="http://www.w3.org/1999/xhtml" controllerName="com.sap.build.standard.governmentApp.controller.SearchPage">
+	<Page showHeader="true" title="Search Government Expenditure Form" showFooter="true" showNavButton="false">
+		<content>
+			<VBox>
+				<form:Form editable="false">
+					<form:layout>
+						<form:ResponsiveGridLayout labelSpanXL="4" labelSpanL="4" labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"
+							emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2" columnsM="2" singleContainerFullSize="false"/>
+					</form:layout>
+					<form:formContainers>
+						<form:FormContainer title="">
+							<form:formElements>
+								<form:FormElement label="{i18n>Title1}">
+									<form:fields>
+										<Input type="Text" id="TITLE" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="0"/>
+									</form:fields>
+								</form:FormElement>
+								<form:FormElement label="{i18n>Id}">
+									<form:fields>
+										<Input type="Text" id="EFORM_NUM" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="0"/>
+									</form:fields>
+								</form:FormElement>
+								<form:FormElement label="{i18n>Approved_By}">
+									<form:fields>
+										<Input type="Text" id="APPROVED_BY" showValueHelp="true" enabled="true" visible="true" width="auto" valueHelpOnly="false"
+											valueHelpRequest="onHandleUserValueHelp" maxLength="0"/>
+									</form:fields>
+								</form:FormElement>
+								<form:FormElement label="{i18n>Approver}">
+									<form:fields>
+										<Input type="Text" id="APPROVER" showValueHelp="true" enabled="true" visible="true" width="auto" valueHelpOnly="false"
+											valueHelpRequest="onHandleUserValueHelp" maxLength="0"/>
+									</form:fields>
+								</form:FormElement>
+								<form:FormElement label="{i18n>Date_Approved}">
+									<form:fields>
+										<DatePicker enabled="true" id="APPROVED_DT" visible="true" width="auto" displayFormat="MMM dd, yyyy" placeholder="From MMM dd, yyyy"/>
+										<DatePicker enabled="true" id="APPROVED_DT_TO" visible="true" width="auto" displayFormat="MMM dd, yyyy" placeholder="To MMM dd, yyyy"/>
+									</form:fields>
+								</form:FormElement>
+							</form:formElements>
+						</form:FormContainer>
+						<form:FormContainer title="">
+							<form:formElements>
+								<form:FormElement label="{i18n>Date_Created}">
+									<form:fields>
+										<DatePicker enabled="true" id="CREATED_DT" visible="true" width="auto" displayFormat="MMM dd, yyyy" placeholder="From MMM dd, yyyy"/>
+										<DatePicker enabled="true" id="CREATED_DT_TO" visible="true" width="auto" displayFormat="MMM dd, yyyy" placeholder="To MMM dd, yyyy"/>
+									</form:fields>
+								</form:FormElement>
+								<form:FormElement label="{i18n>Date_Submited}">
+									<form:fields>
+										<DatePicker enabled="true" id="SUBMITED_DT" visible="true" width="auto" displayFormat="MMM dd, yyyy" placeholder="From MMM dd, yyyy"/>
+										<DatePicker enabled="true" id="SUBMITED_DT_TO" visible="true" width="auto" displayFormat="MMM dd, yyyy" placeholder="To MMM dd, yyyy"/>
+									</form:fields>
+								</form:FormElement>
+								<form:FormElement label="{i18n>Preparer}">
+									<form:fields>
+										<Input type="Text" id="PREPARED_BY" showValueHelp="true" enabled="true" visible="true" width="auto" valueHelpOnly="false"
+											valueHelpRequest="onHandleUserValueHelp" maxLength="0"/>
+									</form:fields>
+								</form:FormElement>
+								<form:FormElement label="{i18n>Requester}">
+									<form:fields>
+										<Input type="Text" id="REQUESTER" showValueHelp="true" enabled="true" visible="true" width="auto" valueHelpOnly="false"
+											valueHelpRequest="onHandleUserValueHelp" maxLength="0"/>
+									</form:fields>
+								</form:FormElement>
+								<form:FormElement label="{i18n>Status}">
+									<form:fields>
+										<ComboBox editable="true" id="STATUS" enabled="true" visible="true" width="auto" valueState="None" maxWidth="100%">
+											<items>
+												<core:Item text="{i18n>DataSaved}" key="PT" enabled="true"/>
+												<core:Item text="{i18n>InApproval}" key="FT" enabled="true"/>
+												<core:Item text="{i18n>Approved}" key="S" enabled="true"/>
+												<core:Item text="{i18n>Withdrawn}" key="V" enabled="true"/>
+												<core:Item text="{i18n>Rejected}" key="RJ" enabled="true"/>
+											</items>
+										</ComboBox>
+									</form:fields>
+								</form:FormElement>
+							</form:formElements>
+						</form:FormContainer>
+					</form:formContainers>
+				</form:Form>
+			</VBox>
+			<VBox>
+				<form:Form id="FormChange354" editable="true" visible="false">
+					<form:title>
+						<core:Title text=""/>
+					</form:title>
+					<form:layout>
+						<form:ResponsiveGridLayout labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4"
+							emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+					</form:layout>
+					<form:formContainers>
+						<form:FormContainer>
+							<form:formElements>
+								<form:FormElement label="{i18n>Billed_Amount}">
+									<form:fields>
+										<Input id="AMOUNT1" value="{SupplierName}"/>
+										<Input value="{SupplierName}"/>
+										<Text text="USD"/>
+									</form:fields>
+								</form:FormElement>
+							</form:formElements>
+						</form:FormContainer>
+					</form:formContainers>
+				</form:Form>
+			</VBox>
+			<Bar design="Auto">
+				<contentLeft/>
+				<contentMiddle/>
+				<contentRight>
+					<Button text="Search" icon="sap-icon://search" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true"
+						iconDensityAware="false" press="onSearchFormNumber"/>
+					<Button text="Clear" icon="sap-icon://cancel" type="Reject" iconFirst="true" width="auto" enabled="true" visible="true"
+						iconDensityAware="false" press="clear_fields"/>
+					<Button text="Report" icon="sap-icon://excel-attachment" type="Accept" iconFirst="true" width="auto" enabled="true" visible="true"
+						iconDensityAware="false" press="report_records"/>
+				</contentRight>
+			</Bar>
+			<Table id="eforms_tab" width="100%" noDataText="No data" mode="SingleSelectLeft" showSeparators="All" growing="true" growingThreshold="20"
+				growingScrollToLoad="true" items="{path:'mainSearchModel>/eFormSearchHeaders',sorter : { path : 'EFORM_NUM', descending : true }}">
+				<infoToolbar>
+					<Toolbar width="auto" height="46px" design="Transparent" visible="true" enabled="true">
+						<content>
+							<Title text="Results" titleStyle="Auto" width="auto" textAlign="Begin" visible="true"/>
+							<ToolbarSpacer width=""/>
+							<Button text="Copy eForm" id="COPY_EFORM" type="Accept" icon="sap-icon://copy" iconFirst="true" width="auto" enabled="true" visible="true"
+								iconDensityAware="false" press="copy_eform"/>
+						</content>
+						<tooltip/>
+					</Toolbar>
+				</infoToolbar>
+				<headerToolbar/>
+				<columns>
+					<!--
+
+                    <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                        <header>
+                            <Text text="Type" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                        </header>
+                        <footer/>
+                    </Column>
+                    
+-->
+					<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+						<header>
+							<Text text="{i18n>Id}" width="auto" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+						</header>
+						<footer/>
+					</Column>
+					<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+						<header>
+							<Text text="{i18n>Title1}" width="auto" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+						</header>
+						<footer/>
+					</Column>
+					<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+						<header>
+							<Text text="{i18n>Status}" width="auto" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+						</header>
+						<footer/>
+					</Column>
+					<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+						<header>
+							<Text text="{i18n>Date_Created}" width="auto" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+						</header>
+						<footer/>
+					</Column>
+					<!--//REQ0470877:RMANDAL:GWDK901935:10/31/2019:Adding Current Approver Column:START-->
+					<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+						<header>
+							<Text text="{i18n>CurrentApprover}" width="auto" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+						</header>
+						<footer/>
+					</Column>
+					<!--//REQ0470877:RMANDAL:GWDK901935:10/31/2019:Adding Current Approver Column:END-->
+				</columns>
+				<items>
+					<ColumnListItem id="eforms_row" type="Active" selected="true">
+						<cells>
+							<!--
+  <Text text="{EFORM_NUM}" width="auto"  wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                            
+-->
+							<Link text="{mainSearchModel>EFORM_NUM}" width="auto" wrapping="false" textAlign="Begin" textDirection="Inherit" press="handleLinkPress"/>
+							<Text text="{mainSearchModel>TITLE}" width="auto" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+							<Text text="{mainSearchModel>STATUS}" width="auto" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+							<Text text="{mainSearchModel>REQUEST_DATE}" width="auto" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+							<!--//REQ0470877:RMANDAL:GWDK901935:10/31/2019:Adding Current Approver Column:START-->
+							<Text text="{mainSearchModel>APPROVER}" width="auto" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+							<!--//REQ0470877:RMANDAL:GWDK901935:10/31/2019:Adding Current Approver Column:END-->
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+		<footer>
+			<Bar design="Auto">
+				<contentLeft/>
+				<contentMiddle/>
+				<contentRight>
+					<Button text="Create" type="Accept" icon="sap-icon://create-form" iconFirst="true" width="auto" enabled="true" visible="true"
+						iconDensityAware="false" press="onCreate"/>
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

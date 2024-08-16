@@ -1,0 +1,103 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="com.spe.gpas.YGPAS_API.controller.SearchGpas"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:f="sap.ui.layout.form">
+	<App>
+		<pages>
+			<Page id="page" showHeader="true" title="Production Page">
+				<content>
+					<f:SimpleForm id="SimpleFormToolbar" editable="true" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4" labelSpanM="12"
+						labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2" columnsM="2"
+						singleContainerFullSize="true" ariaLabelledBy="Title1">
+						<core:Title text=""/>
+						<Label text="License"/>
+						<Input type="Text" id="License" showValueHelp="false"  maxLength="10" />
+						<Label text="Production Name"/>
+						<Input type="Text" id="Prod_name" showValueHelp="false" maxLength="80"/>
+						<Label text="Production Type"/>
+						<RadioButtonGroup id="prodtypeID" columns="8" selectedIndex="2" select="onSelectProdType" width="auto" editable="true" textDirection="Inherit">
+							<buttons>
+								<RadioButton text="Feature" editable="true" visible="true" width="auto"/>
+								<RadioButton text="Television" editable="true" visible="true" width="auto"/>
+								<RadioButton text="Both" editable="true" visible="true" width="auto"/>
+							</buttons>
+						</RadioButtonGroup>
+						<Label text="Inbound Status"/>
+						<RadioButtonGroup id="statusID" columns="8" selectedIndex="2" select="onSelectStatus" width="auto" editable="true" textDirection="Inherit">
+							<buttons>
+								<RadioButton text="Active" editable="true" visible="true" width="auto"/>
+								<RadioButton text="Inactive" editable="true" visible="true" width="auto"/>
+								<RadioButton text="Both" editable="true" visible="true" width="auto"/>
+							</buttons>
+						</RadioButtonGroup>
+						<Label text="Outbound Status"/>
+						<RadioButtonGroup id="ostatusID" columns="8" selectedIndex="2" select="onSelectStatus_O" width="auto" editable="true" textDirection="Inherit">
+							<buttons>
+								<RadioButton text="Active" editable="true" visible="true" width="auto"/>
+								<RadioButton text="Inactive" editable="true" visible="true" width="auto"/>
+								<RadioButton text="Both" editable="true" visible="true" width="auto"/>
+							</buttons>
+						</RadioButtonGroup>
+						<core:Title text=""/>
+						<Button text="Search" id="serach" icon="sap-icon://search" visible="true" enabled="true" press="onPressSearch"></Button>
+						<Button text="New" id="new" icon="sap-icon://write-new" visible="true" enabled="true" press="onPressNew"></Button>
+					</f:SimpleForm>
+					<Bar design="Auto">
+						<contentLeft/>
+						<contentMiddle/>
+						<contentRight>
+							<Button text="Edit" icon="sap-icon://edit" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true"
+								iconDensityAware="false" press="onPressEdit"/>
+							<Button text="View" icon="sap-icon://display" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true"
+								iconDensityAware="false" press="onPressView"/>
+						</contentRight>
+					</Bar>
+					<Table id="eforms_tab" width="100%" noDataText="No data" mode="SingleSelectLeft" showSeparators="All" growing="true" growingThreshold="20"
+						growingScrollToLoad="true" items="{path:'mainSearchModel>/searchHeaders'}">
+						<columns>
+							<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+								<header>
+									<Text text="License" width="auto" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+								</header>
+								<footer/>
+							</Column>
+							<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+								<header>
+									<Text text="Production Name" width="auto" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+								</header>
+								<footer/>
+							</Column>
+							<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+								<header>
+									<Text text="Production Type" width="auto" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+								</header>
+								<footer/>
+							</Column>
+							<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+								<header>
+									<Text text="Inbound Status" width="auto" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+								</header>
+								<footer/>
+							</Column>
+							<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+								<header>
+									<Text text="Outbound Status" width="auto" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+								</header>
+								<footer/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem id="rows" type="Active" selected="true">
+								<cells>
+									<Text text="{mainSearchModel>LICENSE_NO}" width="auto" wrapping="false" textAlign="Begin" textDirection="Inherit" />
+									<Text text="{mainSearchModel>PROD_NAME}" width="auto" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+									<Text text="{mainSearchModel>PROD_TYPE}" width="auto" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+									<Text text="{mainSearchModel>STATUS}" width="auto" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+									<Text text="{mainSearchModel>STATUS_O}" width="auto" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

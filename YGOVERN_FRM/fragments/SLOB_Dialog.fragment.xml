@@ -1,0 +1,18 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<TableSelectDialog id="sLoBDialogId" noDataText="No SLOB Found" title="Select Product" search="handleSearch" confirm="onHandleConfirmSLOB"
+		cancel="onHandleClose"
+		items="{ path : 'LobUserSearchModel>/esLob', sorter : { path : 'SLOB', descending : false }, templateShareable:false }">
+		<ColumnListItem>
+			<cells>
+				<Text text="{LobUserSearchModel>SLOB}"/>
+			</cells>
+		</ColumnListItem>
+		<columns>
+			<Column width="12em">
+				<header>
+					<Text text="SLOB"/>
+				</header>
+			</Column>
+		</columns>
+	</TableSelectDialog>
+</core:FragmentDefinition>

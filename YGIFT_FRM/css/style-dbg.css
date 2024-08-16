@@ -1,0 +1,32 @@
+/* Enter your custom styles here */
+
+.labelClass{
+font-weight: bold;
+    color: #666666;
+    }
+
+
+.sapMITBFilter .sapMITBText {
+    color: #666666;
+    text-shadow: 0 0.0625rem 0 rgba(255,255,255,0.7);
+    width: 100%;
+}
+
+
+
+ .redColor {
+color:red !important;
+}
+
+.required:before {
+   content: "*";
+    color: #004990;
+    font-size: 1.25rem;
+    font-weight: bold;
+    line-height: 0;
+    position: relative;
+    top: 0.15rem;
+}
+.display.sapMTextMaxLine:{
+display: block !important;
+}

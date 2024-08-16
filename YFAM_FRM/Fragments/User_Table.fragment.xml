@@ -1,0 +1,77 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<VBox>
+		<Table inset="false" id="userTableId" items="{path: 'oldapproverModel>/eFormFiMaintSet'}" mode="MultiSelect">
+			<headerToolbar>
+				<Toolbar>
+					<Title text="{i18n>UserTableTitle}" level="H2"/>
+					<ToolbarSpacer/>
+					<Button id="btnAddRow" tooltip="Add" icon="sap-icon://add" press="onAddPress" visible="{DisplayModel>/Readonly}" enabled="true"/>
+					<Button id="btnDeleteRow" tooltip="Delete" icon="sap-icon://delete" press="onRemovePress" visible="{DisplayModel>/Readonly}" enabled="true"/>
+					<Button id="btnCopyRow" tooltip="Copy" icon="sap-icon://copy" press="onCopyPress" visible="{DisplayModel>/Readonly}" enabled="true"/>
+					<Button tooltip="Edit" icon="sap-icon://edit" press="onEditPress" visible="{DisplayModel>/Readonly}"/>
+				</Toolbar>
+			</headerToolbar>
+			<columns>
+				<Column>
+					<Text text="{i18n>LOB_Label}"/>
+				</Column>
+				<Column>
+					<Text text="{i18n>Subob_Label}"/>
+				</Column>
+				<Column >
+					<Text text="{i18n>Subob_Description_Label}"/>
+				</Column>
+				<Column>
+					<Text text="FA"/>
+				</Column>
+				<Column>
+					<Text text="User Name"/>
+				</Column>
+				<Column>
+					<Text text="User Id"/>
+				</Column>
+				<Column>
+					<Text text="Previous User"/>
+				</Column>
+				<Column>
+					<Text text=""/>
+				</Column>
+				<Column>
+					<Text text=""/>
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem>
+					<cells>
+						<Input value="{oldapproverModel>LOB}" valueHelpOnly="true" enabled="{oldapproverModel>isDefaultEnable}"
+							valueState="{oldapproverModel>ValueState}" placeholder="Enter LOB" showValueHelp="true" valueHelpRequest="handleLOBValueHelp"/>
+						<Input value="{oldapproverModel>SUBLOB}" valueHelpOnly="true" enabled="{oldapproverModel>isDefaultEnable}"
+							valueState="{oldapproverModel>ValueState}" placeholder="Enter SLOB" showValueHelp="true" valueHelpRequest="handleSLOBValueHelp"/>
+						<Input value="{oldapproverModel>SLOB_DESCRIPTION}" enabled="false" valueState="{oldapproverModel>ValueState}"
+							placeholder="Enter SLOB Description" showValueHelp="false"/>
+						<ComboBox value="{oldapproverModel>FA}" enabled="{oldapproverModel>isDefaultEnable}" valueState="{oldapproverModel>ValueState}">
+							<items>
+								<core:Item key="FA5" text="FA5"/>
+								<core:Item key="FA1" text="FA4"/>
+								<core:Item key="FA2" text="FA3"/>
+								<core:Item key="FA3" text="FA2"/>
+								<core:Item key="FA4" text="FA1"/>
+								<core:Item key="DCFO/CAO" text="DCFO/CAO"/>
+								<core:Item key="SPE CFO" text="SPE CFO"/>
+							</items>
+						</ComboBox>
+						<Input value="{oldapproverModel>UNAME1}" enabled="false" valueState="{oldapproverModel>ValueState}" type="Text"
+							placeholder="Enter user name"/>
+						<Input value="{oldapproverModel>UNAME}" valueHelpOnly="true" enabled="{oldapproverModel>isEnable}"
+							valueState="{oldapproverModel>ValueState}" type="Text" placeholder="Enter user Id" showValueHelp="true"
+							valueHelpRequest="handleUserValueHelp"/>
+						<Text text="{parts:[{path:'oldapproverModel>OLD_UNAME'},{path:'oldapproverModel>OLD_NAME_TEXT'}],formatter:'.formaterUser'}"
+							visible="{oldapproverModel>ChangedRowFlag}"/>
+						<core:Icon src="sap-icon://flag" class="size1" color="#ed0b1e" visible="{oldapproverModel>ChangedRowFlag}" tooltip="Changed rows"></core:Icon>
+						<core:Icon src="sap-icon://locked" class="size2" color="#ed0b1e" visible="{oldapproverModel>isVisibleLocked}" tooltip="Locked "></core:Icon>
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table>
+	</VBox>
+</core:FragmentDefinition>

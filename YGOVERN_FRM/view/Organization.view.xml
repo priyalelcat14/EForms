@@ -1,0 +1,136 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.governmentApp.controller.Organization" xmlns="sap.m"
+	xmlns:form="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<Page showHeader="true" id="pageTitleId_Org" title="Review Details for Organization Information" showFooter="true" showNavButton="true"
+		navButtonPress="handleNavBack">
+		<content>
+			<form:Form width="100%" editable="true" visible="true">
+				<form:title>
+					<core:Title text="Provide the requested information" level="Auto"/>
+				</form:title>
+				<form:formContainers width="50%">
+					<form:FormContainer visible="true">
+						<form:formElements>
+							<form:FormElement id="orgWarnId" visible="false">
+								<form:label>
+									<Label text="" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+								</form:label>
+								<form:fields>
+									<Text class="redColor" text="{i18n>South_Korea_text}{i18n>South_Korea_text1}{i18n>South_Korea_text2}{i18n>South_Korea_text3}"/>
+								</form:fields>
+							</form:FormElement>
+							<form:FormElement visible="true">
+								<form:label>
+									<Label text="" required="true" textAlign="Begin" textDirection="Inherit"/>
+								</form:label>
+								<form:fields>
+									<Text text="{i18n>OrgName}" class="labelClass"/>
+								</form:fields>
+							</form:FormElement>
+							<form:FormElement visible="true">
+								<form:label>
+									<Label text=""/>
+								</form:label>
+								<form:fields>
+									<Input value="{itemUserModel1>/RECIPIENT_ORG}" valueState="{itemUserModel1>/VALSTATORGNAME}" type="Text" showValueHelp="false"
+										enabled="{headerUserModel>/isEnable}" visible="true" width="auto" valueHelpOnly="false" maxLength="200"
+										placeholder="Please avoid acronym for the organization name"/>
+								</form:fields>
+							</form:FormElement>
+							<form:FormElement id="orgMsgId" visible="true">
+								<form:label>
+									<Label text="" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+								</form:label>
+								<form:fields>
+									<Text class="blueColor boldFont" text="{i18n>OrgMsg}"/>
+								</form:fields>
+							</form:FormElement>
+							<form:FormElement visible="true">
+								<form:label>
+									<Label text="{i18n>OrgType}" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+								</form:label>
+								<form:fields>
+									<Input value="{itemUserModel1>/ORG_TYPE}" valueState="{itemUserModel1>/VALSTATORGTYPE}" type="Text" showValueHelp="false"
+										enabled="{headerUserModel>/isEnable}" visible="true" width="auto" valueHelpOnly="false" maxLength="250"/>
+								</form:fields>
+							</form:FormElement>
+							<form:FormElement visible="true">
+								<form:label>
+									<Label text="" required="true" design="Bold" width="100%" textAlign="Begin" textDirection="Inherit"/>
+								</form:label>
+								<form:fields>
+									<Text text="{i18n>OrgBussiR}" class="labelClass"></Text>
+								</form:fields>
+							</form:FormElement>
+							<form:FormElement visible="true">
+								<form:label>
+									<Label text=""/>
+								</form:label>
+								<form:fields>
+									<TextArea value="{itemUserModel1>/ORG_BUSSI}" maxLength="250" enabled="{headerUserModel>/isEnable}"
+										valueState="{itemUserModel1>/OrgBussiVStat}"></TextArea>
+								</form:fields>
+							</form:FormElement>
+							<form:FormElement visible="true">
+								<form:label>
+									<Label text="{i18n>OrgAdd}" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+								</form:label>
+								<form:fields>
+									<TextArea id="txtOrgAddress" value="{itemUserModel1>/ORG_ADDRESS}" maxLength="128" enabled="{headerUserModel>/isEnable}"
+										valueState="{itemUserModel1>/VALSTATORGADDR}"></TextArea>
+								</form:fields>
+							</form:FormElement>
+							<form:FormElement visible="true">
+								<form:label>
+									<Label text="{i18n>OrgCountry}" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+								</form:label>
+								<form:fields>
+									<Input id="InpCountry" value="{itemUserModel1>/ORG_COUNTRY}" enabled="{headerUserModel>/isEnable}" showValueHelp="true" valueHelpOnly="true"
+										valueHelpRequest="_onCountryValueHelpRequest" valueState="{itemUserModel1>/VALSTATORGCOUNTRY}"></Input>
+								</form:fields>
+							</form:FormElement>
+							<form:FormElement visible="true">
+								<form:label>
+									<Label text="{i18n>OrgState}" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+								</form:label>
+								<form:fields>
+									<Input value="{itemUserModel1>/ORG_STATE}" showValueHelp="true" enabled="{headerUserModel>/isEnable}"
+										valueHelpRequest="_onStateValueHelpRequest" valueHelpOnly="false" valueState="{itemUserModel1>/VALSTATORGSTATE}"></Input>
+								</form:fields>
+							</form:FormElement>
+							<form:FormElement visible="true">
+								<form:label>
+									<Label text="{i18n>OrgCity}" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+								</form:label>
+								<form:fields>
+									<TextArea id="txtCity" value="{itemUserModel1>/CITY}" maxLength="75" enabled="{headerUserModel>/isEnable}"
+										valueState="{itemUserModel1>/VALSTATORGCITY}"></TextArea>
+								</form:fields>
+							</form:FormElement>
+							<form:FormElement visible="true">
+								<form:label>
+									<Label text="{i18n>OrgPincode}" design="Bold" width="306.3599853515625px" required="false" textAlign="Begin" textDirection="Inherit"/>
+								</form:label>
+								<form:fields>
+									<Input id="InpPostal" enabled="{headerUserModel>/isEnable}" type="Text" maxLength="10" value="{itemUserModel1>/ORG_POSTAL_CODE}"
+										valueState="{itemUserModel1>/OrgPostalCodeValueState}"></Input>
+								</form:fields>
+							</form:FormElement>
+						</form:formElements>
+						<form:title/>
+					</form:FormContainer>
+				</form:formContainers>
+				<form:layout>
+					<form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="2" labelSpanL="3" columnsM="1" labelSpanM="2" labelSpanS="12"/>
+				</form:layout>
+			</form:Form>
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button text="OK" width="7rem" type="Accept" press="onPressOk" enabled="{headerUserModel>/isEnable}"></Button>
+					<Button text="Cancel" width="7rem" type="Reject" press="onPressCancel" enabled="{headerUserModel>/isEnable}"></Button>
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

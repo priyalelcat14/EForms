@@ -1,0 +1,45 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="YFPSFIPFRDD0389_GL_PRODUCTION_SRV" xml:lang="en"
+			sap:schema-version="1">
+			<EntityType Name="Header" sap:content-version="1">
+				<Key><PropertyRef Name="LICENSE_NO"/><PropertyRef Name="STATUS"/></Key><Property Name="LICENSE_NO" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="License" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="STATUS" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="GL Production Status"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Prod_name" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="Production Name"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="PROD_TYPE" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Production Type"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="ACC_PKG" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Accounting Package"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="IS_EPISODIC" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Episodic" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="CHART_OF_ACC" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Chart of Account"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="LAS_TO_SAP" sap:content-version="1">
+				<Key><PropertyRef Name="LICENSE_NO"/></Key><Property Name="LICENSE_NO" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label=" License Number"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="GL_RPOD_ID" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="GL Production"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="GL_RPOD_TYPE" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="GL Production Type"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="PROJ_INT" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Project (internal)"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="PROJ_EXT" Type="Edm.String" Nullable="false" MaxLength="24" sap:unicode="false" sap:label="Project definition"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="MPM" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="MPM" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="STATUS" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="GL Production Status"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="SAP_TO_LAS" sap:content-version="1">
+				<Key><PropertyRef Name="LICENSE_NO"/></Key><Property Name="LICENSE_NO" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label=" License Number"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="GL_RPOD_ID" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="GL Production"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="GL_RPOD_TYPE" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="GL Production Type"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="PROJ_INT" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Project (internal)"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="PROJ_EXT" Type="Edm.String" Nullable="false" MaxLength="24" sap:unicode="false" sap:label="Project definition"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="MPM" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="MPM" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="STATUS" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="GL Production Status"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="Search" sap:content-version="1">
+				<Key><PropertyRef Name="LICENSE_NO"/></Key><Property Name="LICENSE_NO" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="License" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/><Property Name="PROD_NAME" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="Production Name"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false"/><Property Name="PROD_TYPE" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Production Type"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false"/><Property Name="STATUS" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Status" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/></EntityType>
+			<EntityContainer Name="YFPSFIPFRDD0389_GL_PRODUCTION_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet Name="HeaderSet" EntityType="YFPSFIPFRDD0389_GL_PRODUCTION_SRV.Header" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="LAS_TO_SAPSet" EntityType="YFPSFIPFRDD0389_GL_PRODUCTION_SRV.LAS_TO_SAP" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="SAP_TO_LASSet" EntityType="YFPSFIPFRDD0389_GL_PRODUCTION_SRV.SAP_TO_LAS" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="SearchSet" EntityType="YFPSFIPFRDD0389_GL_PRODUCTION_SRV.Search" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/></EntityContainer><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/YFPSFIPFRDD0389_GL_PRODUCTION_SRV/$metadata"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/YFPSFIPFRDD0389_GL_PRODUCTION_SRV/$metadata"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

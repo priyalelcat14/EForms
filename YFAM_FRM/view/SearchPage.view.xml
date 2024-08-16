@@ -1,0 +1,91 @@
+<mvc:View controllerName="sony.finance.maintaince.app.controller.SearchPage" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns:f="sap.ui.layout.form" xmlns="sap.m" xmlns:fb="sap.ui.comp.filterbar"
+	xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core">
+	<App>
+		<pages>
+			<Page title="Finance Approval Request Form" id="pageId">
+				<content>
+					<Panel expandable="true" expanded="true" headerText="Search Criteria">
+						<fb:FilterBar id="filterbar" search="onSearchFormNumber" useToolbar="false" showGoOnFB="true" showClearOnFB="true"
+							showFilterConfiguration="false" clear="onClear">
+							<fb:filterGroupItems groupName="masterHeader">
+								<fb:FilterGroupItem name="fbTitle" label="Title" groupName="masterHeader" visibleInFilterBar="true">
+									<fb:control>
+										<Input id="idTitle"/>
+									</fb:control>
+								</fb:FilterGroupItem>
+								<fb:FilterGroupItem name="fbFormNum" label="Form Number" groupName="masterHeader" visibleInFilterBar="true">
+									<fb:control>
+										<Input id="idFormNum"/>
+									</fb:control>
+								</fb:FilterGroupItem>
+								<fb:FilterGroupItem name="fbCrDate" label="Creation Date" groupName="masterHeader" visibleInFilterBar="true">
+									<fb:control>
+										<DateRangeSelection id="searchDateRangeId" change="handleChange"/>
+									</fb:control>
+								</fb:FilterGroupItem>
+							</fb:filterGroupItems>
+						</fb:FilterBar>
+						<!--<l:VerticalLayout width="100%">-->
+						<!--	<f:SimpleForm id="SimpleFormChange354" minWidth="1024" maxContainerCols="2" editable="true" layout="ResponsiveGridLayout" labelSpanL="2"-->
+						<!--		labelSpanM="3" emptySpanL="2" emptySpanM="4" columnsL="2" columnsM="1" class="sapUiMediumMarginTop searchForm">-->
+						<!--		<f:content>-->
+						<!--			<Label text="Title" class="sapUiSmallMarginTop"/>-->
+						<!--			<Input id="idTitle" value="" width="23rem"/>-->
+						<!--			<Label text="Form Number" class="sapUiSmallMarginTop"/>-->
+						<!--			<Input id="idFormNum" value="" width="23rem"/>-->
+						<!--			<Label text="Creation Date"/>-->
+						<!--			<DateRangeSelection id="searchDateRangeId" width="23rem" dateValue="" secondDateValue="" minDate="" maxDate="" change="handleChange"/>-->
+						<!--			<Button text="Search" type="Emphasized" width="80%" press="onSearchFormNumber"/>-->
+						<!--		</f:content>-->
+						<!--	</f:SimpleForm>-->
+						<!--</l:VerticalLayout>-->
+					</Panel>
+					<VBox>
+						<Table inset="false" id="searchTableId" items="{path: 'mainSearchModel>/eFormSearchHeaders'}">
+							<columns>
+								<Column>
+									<Text text="Form Number"/>
+								</Column>
+								<Column>
+									<Text text="Title"/>
+								</Column>
+								<Column>
+									<Text text="Status"/>
+								</Column>
+								<Column>
+									<Text text="Created By"/>
+								</Column>
+								<Column>
+									<Text text="Created On"/>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem>
+									<cells>
+										<Link text="{mainSearchModel>CHANGE_ID}" press="handleLinkPress"/>
+										<Text text="{mainSearchModel>TITLE}"/>
+										<Text text="{mainSearchModel>STATUS}"/>
+										<Text text="{mainSearchModel>REQUESTED_BY}"/>
+										<Text text="{path:'mainSearchModel>CREATION_DATE', formatter: '.getDateValue'}"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</VBox>
+				</content>
+				<footer>
+					<OverflowToolbar id="otbFooter">
+						<ToolbarSpacer/>
+						<Button type="Emphasized" id="oBtnCreate" text="Create" width="8rem" press="onCreate"/>
+					</OverflowToolbar>
+				</footer>
+				<l:VerticalLayout>
+					<l:dependents>
+						<core:Fragment fragmentName="sony.finance.maintaince.app.Fragments.busyDialog" type="XML"></core:Fragment>
+					</l:dependents>
+				</l:VerticalLayout>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

@@ -1,0 +1,38 @@
+<core:FragmentDefinition
+  xmlns="sap.m"
+  xmlns:core="sap.ui.core">
+  <TableSelectDialog
+    id="sLoBDesDialogId"
+    noDataText="No SLOB Description Found"
+    title="Select Product"
+    search="handleSearch"
+    confirm="onHandleConfirmSLOB_DES"
+    cancel="onHandleClose"
+    items="{
+      path : 'LobUserSearchModel>/esLob_Desc',
+      sorter : {
+        path : 'SLOB_DESCRIPTION',
+        descending : false
+      },
+      templateShareable:false
+
+    }">
+    <ColumnListItem>
+      <cells>
+
+        <Text text="{LobUserSearchModel>SLOB_DESCRIPTION}" />
+
+
+      </cells>
+    </ColumnListItem>
+    <columns>
+      <Column width="12em">
+        <header>
+          <Text text="SLOB Description" />
+        </header>
+      </Column>
+
+
+    </columns>
+  </TableSelectDialog>
+</core:FragmentDefinition>

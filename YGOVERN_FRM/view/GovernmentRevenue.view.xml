@@ -1,0 +1,172 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.governmentApp.controller.GovernmentRevenue" xmlns="sap.m"
+	xmlns:form="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<Page id="pageId" showHeader="true" title="Government Expenditure Request Form" showFooter="true" showNavButton="true"
+		navButtonPress="_onPageNavButtonPress">
+		<customHeader>
+			<Toolbar>
+				<Button type="Back" press="onNavBack" visible="false"/>
+				<core:Icon src="sap-icon://home" id="HOME" size="30px" height="46px" width="46px" color="blue" visible="false" press="_onNavigateHome"/>
+				<ToolbarSpacer/>
+				<Title text="{i18n>Pcard_Title_Text4}" level="H2" id="pageTitleId"/>
+				<ToolbarSpacer/>
+				<core:Icon src="sap-icon://delete" size="30px" height="46px" width="46px" color="red" press="onPressDelete" ariaLabelledBy="editButtonLabel"
+					visible="{headerUserModel>/isEnable_Edit}"/>
+				<core:Icon src="sap-icon://edit" tooltip="Edit" size="30px" height="46px" width="46px" color="orange" press="_onEditPress"
+					ariaLabelledBy="editButtonLabel" visible="{headerUserModel>/isEnable_Delete}"/>
+			</Toolbar>
+		</customHeader>
+		<content>
+			<IconTabBar id="oIconTab" class="sapUiResponsiveContentPadding myWidth" expandable="false" expanded="true" applyContentPadding="false"
+				backgroundDesign="Solid" upperCase="false" visible="true" selectedKey="Ok" stretchContentHeight="true">
+				<items>
+					<IconTabFilter icon="sap-icon://document" iconColor="Neutral" text="Requestor Information" tooltip="Requestor Information" design="Vertical"
+						showAll="false" textDirection="Inherit" enabled="true" visible="true" iconDensityAware="false">
+						<content>
+							<ScrollContainer height="100%" width="100%" horizontal="false" vertical="true">
+								<core:Fragment xmlns:core="sap.ui.core" fragmentName="com.sap.build.standard.governmentApp.fragments.RequestorInformation" type="XML"/>
+								<form:Form width="100%" editable="true" visible="true">
+									<form:title>
+										<core:Title text="Summary Totals"/>
+									</form:title>
+									<form:formContainers>
+										<form:FormContainer visible="true">
+											<form:formElements>
+												<form:FormElement visible="true">
+													<form:label>
+														<Label text="" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+													</form:label>
+													<form:fields/>
+												</form:FormElement>
+												<form:FormElement visible="true">
+													<form:label>
+														<Label text="{i18n>SummaryTotals_text1}" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+													</form:label>
+													<form:fields>
+														<Text text="{headerUserModel>/SummaryTotals_Value1}" wrapping="Soft" visible="true"/>
+													</form:fields>
+												</form:FormElement>
+												<form:FormElement visible="true">
+													<form:label>
+														<Label text="{i18n>SummaryTotals_text2}" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+													</form:label>
+													<form:fields>
+														<Text text="{headerUserModel>/SummaryTotals_Value2}" wrapping="Soft" visible="true"/>
+													</form:fields>
+												</form:FormElement>
+												<form:FormElement visible="true">
+													<form:label>
+														<Label text="{i18n>SummaryTotals_text3}" design="Bold" required="false" textAlign="Center" textDirection="LTR"/>
+													</form:label>
+													<form:fields>
+														<Text text="{headerUserModel>/SummaryTotals_Value3}" wrapping="Soft" visible="true"/>
+													</form:fields>
+												</form:FormElement>
+												<form:FormElement visible="true">
+													<form:label>
+														<Label text="{i18n>SummaryTotals_text4}" design="Bold" required="false" textAlign="Center" textDirection="LTR"/>
+													</form:label>
+													<form:fields>
+														<Text text="{headerUserModel>/SummaryTotals_Value4}" wrapping="Soft" visible="true"/>
+													</form:fields>
+												</form:FormElement>
+												<form:FormElement visible="true">
+													<form:label>
+														<Label text="{i18n>SummaryTotals_text5}" design="Bold" required="false" textAlign="Center" textDirection="LTR"/>
+													</form:label>
+													<form:fields>
+														<Text text="{headerUserModel>/SummaryTotals_Value5}" wrapping="Soft" visible="true"/>
+													</form:fields>
+												</form:FormElement>
+												<form:FormElement visible="true">
+													<form:label>
+														<Label text="{i18n>SummaryTotals_text6}" design="Bold" required="false" textAlign="Center" textDirection="LTR"/>
+													</form:label>
+													<form:fields>
+														<Text text="{headerUserModel>/SummaryTotals_Value6}" wrapping="Soft" visible="true"/>
+													</form:fields>
+												</form:FormElement>
+												<form:FormElement visible="true">
+													<form:label>
+														<Label text="{i18n>SummaryTotals_text7}" design="Bold" required="false" textAlign="Center" textDirection="LTR"/>
+													</form:label>
+													<form:fields>
+														<Text text="{headerUserModel>/SummaryTotals_Value7}" wrapping="Soft" visible="true"/>
+													</form:fields>
+												</form:FormElement>
+											</form:formElements>
+											<form:title/>
+										</form:FormContainer>
+									</form:formContainers>
+								</form:Form>
+							</ScrollContainer>
+						</content>
+					</IconTabFilter>
+					<IconTabSeparator icon="" iconDensityAware="false"/>
+					<IconTabFilter icon="sap-icon://message-information" iconColor="Critical" text="Recipient Information" tooltip="Recipient Information"
+						count="" design="Vertical" showAll="false" textDirection="Inherit" enabled="true" visible="true" iconDensityAware="false">
+						<content>
+							<ScrollContainer height="100%" width="100%" horizontal="false" vertical="true">
+								<core:Fragment xmlns:core="sap.ui.core" fragmentName="com.sap.build.standard.governmentApp.fragments.RecipientInformation" type="XML"/>
+							</ScrollContainer>
+						</content>
+					</IconTabFilter>
+					<IconTabSeparator icon="" iconDensityAware="false" visible="{headerUserModel>/Exp}"/>
+					<IconTabFilter id="expId" icon="sap-icon://status-critical" visible="{headerUserModel>/Exp}" iconColor="Negative"
+						text="Emergency Facilitating Payment quality checklist" tooltip="Emergency Facilitating Payment Qualification Checklist" count=""
+						design="Vertical" showAll="false" textDirection="Inherit" enabled="true" iconDensityAware="false">
+						<content>
+							<ScrollContainer height="100%" width="100%" horizontal="false" vertical="true">
+								<core:Fragment xmlns:core="sap.ui.core" fragmentName="com.sap.build.standard.governmentApp.fragments.EmergencyCheckList" type="XML"/>
+							</ScrollContainer>
+						</content>
+					</IconTabFilter>
+					<IconTabSeparator icon="" iconDensityAware="false"/>
+					<IconTabFilter icon="sap-icon://attachment" iconColor="Positive" text="Attachments" tooltip="Attachments" count="" design="Vertical"
+						showAll="false" textDirection="Inherit" enabled="true" visible="true" iconDensityAware="false">
+						<content>
+							<ScrollContainer height="100%" width="100%" horizontal="false" vertical="true">
+								<core:Fragment xmlns:core="sap.ui.core" fragmentName="com.sap.build.standard.governmentApp.fragments.Justify" type="XML"/>
+							</ScrollContainer>
+						</content>
+					</IconTabFilter>
+					<IconTabSeparator icon="" iconDensityAware="false"/>
+					<IconTabFilter icon="sap-icon://payment-approval" iconColor="Negative" text="Approval Flow" tooltip="Approval Flow" count=""
+						design="Vertical" showAll="false" textDirection="Inherit" enabled="true" visible="true" iconDensityAware="false">
+						<content>
+							<ScrollContainer height="100%" width="100%" horizontal="false" vertical="true">
+								<core:Fragment xmlns:core="sap.ui.core" fragmentName="com.sap.build.standard.governmentApp.fragments.ApprovalFlow" type="XML"/>
+							</ScrollContainer>
+						</content>
+					</IconTabFilter>
+					<IconTabSeparator icon="" iconDensityAware="false"/>
+					<IconTabFilter icon="sap-icon://document-text" iconColor="Default" text="Summary" tooltip="Summary" count="" design="Vertical"
+						showAll="false" textDirection="Inherit" enabled="true" visible="true" iconDensityAware="false">
+						<content>
+							<ScrollContainer height="100%" width="100%" horizontal="false" vertical="true">
+								<core:Fragment xmlns:core="sap.ui.core" fragmentName="com.sap.build.standard.governmentApp.fragments.Summary" type="XML"/>
+							</ScrollContainer>
+						</content>
+					</IconTabFilter>
+				</items>
+				<content/>
+			</IconTabBar>
+		</content>
+		<footer>
+			<Toolbar>
+				<ToolbarSpacer/>
+				<Button id="b_approve" text="{i18n>Approve}" type="Accept" icon="sap-icon://accept" iconFirst="true" width="auto" enabled="true"
+					visible="false" iconDensityAware="false" press="approve_eform"/>
+				<Button id="b_reject" text="{i18n>Reject}" type="Reject" icon="sap-icon://decline" iconFirst="true" width="auto" enabled="true"
+					visible="false" iconDensityAware="false" press="reject_eform"/>
+				<Button text="{i18n>Save}" width="7rem" type="Accept" icon="sap-icon://save" press="onPressSave" enabled="{headerUserModel>/isEnableSave}"
+					visible="{headerUserModel>/isEnableSave}"/>
+				<Button text="{i18n>Submit}" width="7rem" type="Emphasized" icon="sap-icon://enter-more" press="onPressSubmit"
+					enabled="{headerUserModel>/isEnableSubmit}" visible="{headerUserModel>/isVisibleSubmit}"/>
+				<Button text="{i18n>Withdraw}" width="7rem" type="Reject" press="onPressWithdraw" icon="sap-icon://inspect-down"
+					enabled="{headerUserModel>/isEnableWithdraw}" visible="{headerUserModel>/isVisibleWithdraw}"/>
+				<Button text="{i18n>Print}" width="7rem" type="Accept" press="onPrintPress" icon="sap-icon://print"
+					enabled="{headerUserModel>/isEnableReject}"/>
+			</Toolbar>
+		</footer>
+	</Page>
+</mvc:View>

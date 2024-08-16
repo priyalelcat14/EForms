@@ -1,0 +1,14 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="spefar.app.controller.Dialog3" xmlns:m="sap.m">
+    <m:Dialog horizontalScrolling="true" showHeader="true" state="None" stretch="false" title="Fixed Asset Request" type="Standard" verticalScrolling="true">
+        <m:content>
+            <m:Text id="farnumber" text="" width="auto" maxLines="4" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+        </m:content>
+        <m:beginButton/>
+        <m:buttons>
+            <m:Button text="OK" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="_onButtonPress3"/>
+        </m:buttons>
+        <m:customHeader/>
+        <m:endButton/>
+        <m:subHeader/>
+    </m:Dialog>
+</mvc:View>

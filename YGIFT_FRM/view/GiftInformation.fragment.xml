@@ -1,0 +1,400 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:m="sap.m" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form" xmlns:l="sap.ui.layout"
+	xmlns:u="sap.ui.unified">
+	<form:Form editable="true">
+		<form:title>
+			<core:Title text="{i18n>enterOrUpdateGift}" level="Auto"/>
+		</form:title>
+		<form:formContainers>
+			<form:FormContainer visible="true">
+				<form:formElements>
+					<form:FormElement visible="true">
+						<form:label>
+							<m:Label text="{i18n>recipientCategory}" tooltip="{i18n>recipientCategory}" design="Bold" width="100%" required="true" textAlign="Begin"
+								textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<m:ComboBox id="cmbRecipientCategory" value="{/REC_CATEGORY}" enabled="{/requestmode}" change="onChangeCombo"
+								selectionChange="handleEmpCategory" placeholder="Please Select Category" selectedIndex="0">
+								<m:items>
+									<core:Item text="{i18n>Employee}"></core:Item>
+									<core:Item text="{i18n>Talent}"></core:Item>
+									<core:Item text="{i18n>other}"></core:Item>
+								</m:items>
+							</m:ComboBox>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement id="frmRecipient" visible="true">
+						<form:label>
+							<m:Label text="{i18n>Recipient}" tooltip="{i18n>Recipient}" design="Bold" width="100%" required="true" textAlign="Begin"
+								textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<m:Input id="inpRecipient" maxlength="50" enabled="{/requestmode}" value="{/RECIPIENT}" placeholder="Enter Recipient"></m:Input>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement id="frmEmpReceipient" visible="false">
+						<form:label>
+							<m:Label text="{i18n>empRecipient}" tooltip="{i18n>empRecipient}" design="Bold" width="100%" required="true" textAlign="Begin"
+								textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<!--REQ0657166:PJAIN6:GWDK902243:04/08/2021:Dropdown to F4 Help:START-->
+							<!--<m:ComboBox id="inpEmpRecipient" value="{/EMP_RECIPIENT}" showSecondaryValues="true" items="{ path: '/USERS' }"  editable="true" enabled="{/requestmode}" visible="true"-->
+							<!--    change="onChangeCombo" selectionChange="onChangeEmpRecipeint" maxWidth="100%">-->
+							<!--   <m:items>-->
+							<!--     <core:ListItem text="{NAME}" additionalText="{USERID}" enabled="true"/>-->
+							<!--   </m:items>-->
+							<!-- </m:ComboBox>-->
+							<Input id="inpEmpRecipient" value="{/EMP_RECIPIENT}" type="Text" showValueHelp="true" enabled="{/requestmode}" visible="true" width="auto"
+								valueHelpOnly="true" maxLength="0" valueHelpRequest="_empRecepient_ValueHelp" change="onChangeCombo"/>
+							<!--REQ0657166:PJAIN6:GWDK902243:04/08/2021:Dropdown to F4 Help:END		-->
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement visible="true">
+						<form:label>
+							<m:Label text="{i18n>recipientTitle}" tooltip="{i18n>recipientTitle}" design="Bold" width="100%" required="true" textAlign="Begin"
+								textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<m:Input id="inpRecipientTitle" maxlength="100" value="{/REC_TITLE}" enabled="{/requestmode}" placeholder="Enter Recipient Title"></m:Input>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement visible="true">
+						<form:label>
+							<m:Label text="{i18n>companyName}" tooltip="{i18n>companyName}" design="Bold" width="100%" required="true" textAlign="Begin"
+								textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<m:Input id="inpCompanyName" maxlength="100" enabled="{/requestmode}" value="{/COMP_NAME}" placeholder="Enter Company Name"></m:Input>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement visible="true">
+						<form:label>
+							<m:Label text="{i18n>recipientCountry}" tooltip="{i18n>recipientCountry}" design="Bold" width="100%" required="true" textAlign="Begin"
+								textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<m:ComboBox id="inpRecipientCountry" value="{/RECI_COUNTRY}" placeholder="Please Enter Recipient Country" change="onChangeCombo"
+								showSecondaryValues="true" items="{ path: '/RECICOUNTRY' }" editable="true" enabled="{/requestmode}" visible="true" valueState="None"
+								maxWidth="100%">
+								<m:items>
+									<core:ListItem text="{NAME}" additionalText="{COUNTRY}" enabled="true"/>
+								</m:items>
+							</m:ComboBox>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement visible="true">
+						<form:label>
+							<m:Label text="{i18n>occasion}" tooltip="{i18n>occasion}" design="Bold" width="100%" required="true" textAlign="Begin"
+								textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<m:ComboBox id="cmbOccasion" change="onChangeCombo" enabled="{/requestmode}" value="{/OCCASION}" selectionChange="handleOccasionChange"
+								placeholder="Please Select Occasion">
+								<m:items>
+									<core:Item text="{i18n>award}"></core:Item>
+									<core:Item text="{i18n>birthday}"></core:Item>
+									<core:Item text="{i18n>congratulations}"></core:Item>
+									<core:Item text="{i18n>employeeRaffle}"></core:Item>
+									<core:Item text="{i18n>getWellSoon}"></core:Item>
+									<core:Item text="{i18n>newBabyBoy}"></core:Item>
+									<core:Item text="{i18n>newBabyGirl}"></core:Item>
+									<core:Item text="{i18n>nonEmployeeRaffle}"></core:Item>
+									<core:Item text="{i18n>promotion}"></core:Item>
+									<core:Item text="{i18n>recognition}"></core:Item>
+									<core:Item text="{i18n>startEnd}"></core:Item>
+									<core:Item text="{i18n>sympathy}"></core:Item>
+									<core:Item text="{i18n>thankYou}"></core:Item>
+									<core:Item text="{i18n>wedding}"></core:Item>
+									<core:Item text="{i18n>other}"></core:Item>
+								</m:items>
+							</m:ComboBox>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement id="frmOccDesc" visible="false">
+						<form:label>
+							<m:Label text="{i18n>occasionDesc}" tooltip="{i18n>occasionDesc}" design="Bold" width="100%" required="true" textAlign="Begin"
+								textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<m:Input id="inpOccasionDescription" maxlength="50" enabled="{/requestmode}" value="{/OCCASION_DESC}"
+								placeholder="Enter Occasion Description"></m:Input>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement id="frmAwardType" visible="false">
+						<form:label>
+							<m:Label text="{i18n>awardType}" tooltip="{i18n>awardType}" design="Bold" width="100%" required="true" textAlign="Begin"
+								textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<RadioButtonGroup id="rdbtnAwardType" enabled="{/requestmode}" columns="2" select="handleAwardType" selectedIndex="{/AWARD_TYPE}">
+								<buttons>
+									<RadioButton text="Win"></RadioButton>
+									<RadioButton text="Nomination"></RadioButton>
+								</buttons>
+							</RadioButtonGroup>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement visible="true">
+						<form:label>
+							<m:Label text="{i18n>Gift}" tooltip="{i18n>Gift}" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<m:ComboBox id="cmbGift" change="onChangeCombo" enabled="{/requestmode}" value="{/GIFT}" selectionChange="handleGiftChange"
+								placeholder="Please Select Gift">
+								<m:items>
+									<core:Item text="Champagne"></core:Item>
+									<core:Item text="Cookies/Muffins"></core:Item>
+									<core:Item text="Customized Gift Basket"></core:Item>
+									<core:Item text="Electronics"></core:Item>
+									<core:Item text="Flowers/Plants"></core:Item>
+									<core:Item text="Gift"></core:Item>
+									<core:Item text="Promotional Items"></core:Item>
+									<core:Item text="Seasonal Custom Gift"></core:Item>
+									<core:Item text="Wine"></core:Item>
+									<core:Item text="Other"></core:Item>
+								</m:items>
+							</m:ComboBox>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement id="frmGiftDesc" visible="false">
+						<form:label>
+							<m:Label text="{i18n>giftDesc}" tooltip="{i18n>giftDesc}" design="Bold" width="100%" required="true" textAlign="Begin"
+								textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<m:Input id="inpGiftDescription" maxlength="50" enabled="{/requestmode}" value="{/GIFT_DESC}" placeholder="Enter Gift Description"></m:Input>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement visible="true">
+						<form:label>
+							<m:Label text="" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<m:Text text="{i18n>HastheGiftBeenPurchased}" class="labelClass" tooltip="{i18n>HastheGiftBeenPurchased}" design="Bold" width="100%"
+								textAlign="Begin" textDirection="Inherit"/>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement visible="true">
+						<form:label>
+							<m:Label text="" design="Bold" width="100%" textAlign="Begin" textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<RadioButtonGroup enabled="{/requestmode}" selectedIndex="{/GIFT_PURCHASED}" id="rdbtnGiftPurchased" columns="2"
+								select="handleGiftPurchased">
+								<buttons>
+									<RadioButton text="Yes"></RadioButton>
+									<RadioButton text="No"></RadioButton>
+								</buttons>
+							</RadioButtonGroup>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement id="frmNoteShow" visible="false">
+						<form:label>
+							<Label text="" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<Text class="redColor" text="{i18n>yesShow}"/>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement id="frmHowHead" visible="false">
+						<form:label>
+							<m:Label text="" required="true" class="labelClass" tooltip="{i18n>howWasthisGiftPurchased}" design="Bold" width="100%" textAlign="Begin"
+								textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<m:Text id="how_gift_purchased" class="labelClass" design="Bold" width="100%" textAlign="Begin" textDirection="Inherit"/>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement id="frmHowItem" visible="false">
+						<form:label>
+							<m:Label text="" class="labelClass" tooltip="{i18n>howWasthisGiftPurchased}" design="Bold" width="100%" textAlign="Begin"
+								textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<m:ComboBox id="cmbHowPurchased" enabled="{/requestmode}" value="{/HOW_PURCHASED}" placeholder="Enter the Purchased Gift">
+								<m:items>
+									<core:Item text="Special Events"></core:Item>
+									<core:Item text="SPE Purchasing Card"></core:Item>
+									<core:Item text="SPE Corporate Card"></core:Item>
+									<core:Item text="Direct Bill/Invoice to Company"></core:Item>
+									<core:Item text="Personal Cash/CC"></core:Item>
+								</m:items>
+							</m:ComboBox>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement>
+						<form:label>
+							<Label text="" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<Text class="redColor" text="{i18n>infoAlerts}{i18n>info}"/>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement id="giftpurchasedate" visible="false">
+						<form:label>
+							<m:Label text="{i18n>dateOfPurchase}" tooltip="{i18n>dateOfPurchase}" required="true" design="Bold" width="100%" textAlign="Begin"
+								textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<DatePicker id="dtpGiftDelivery" enabled="{/requestmode}" value="{/DATE_OF_PURCHASE}" valueFormat="MM/dd/yyyy" displayFormat="MM/dd/yyyy"
+								placeholder="{i18n>dateOfPurchase}"></DatePicker>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement visible="true">
+						<form:label>
+							<m:Label text="{i18n>dateOfDelivery}" tooltip="{i18n>dateOfDelivery}" design="Bold" width="100%" required="false" textAlign="Begin"
+								textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<DatePicker id="dtpDelivery" value="{/DELIVERY_DATE}" valueFormat="MM/dd/yyyy" displayFormat="MM/dd/yyyy" class="sapUiSmallMarginBottom"
+								enabled="{/requestmode}"></DatePicker>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement visible="true">
+						<form:label>
+							<m:Label text="{i18n>amount}" required="true" tooltip="{i18n>amount}" design="Bold" width="100%" textAlign="Begin" textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<m:Input id="inpAmount" placeholder="Enter Amount" value="{/INP_AMOUNT}" enabled="{/requestmode}" liveChange="handleAmoutFormatterByTotal"></m:Input>
+							<m:ComboBox id="CURRENCY" change="onChangeCombo" value="{/CURRENCY}" items="{ path: '/localcurrency' }" editable="{/requestmode}"
+								enabled="{/requestmode}" visible="true" width="50%" valueState="None" maxWidth="100%" selectionChange="_onCurrencyChange">
+								<m:items>
+									<core:Item text="{name}" enabled="true"/>
+								</m:items>
+							</m:ComboBox>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement id="AMOUNT_USD" visible="false">
+						<form:label>
+							<Label text="{i18n>AmountUSD}" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<m:Text id="AMOUNT_DONATION_USD" text="{/AMOUNT_DONATION_USD}" width="auto" maxLines="1" wrapping="false" textAlign="Begin"
+								textDirection="Inherit"/>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement>
+						<form:label>
+							<Label text="" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<Text class="redColor" text="{i18n>tax}"/>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement visible="true">
+						<form:label>
+							<m:Label text="{i18n>AddressType}" tooltip="{i18n>AddressType}" design="Bold" width="100%" textAlign="Begin" textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<m:ComboBox id="inpAddress" enabled="{/requestmode}" value="{/ADDRESS_TYPE}" placeholder="Select Address Type" selectedIndex="0">
+								<m:items>
+									<core:Item text="{i18n>Home}"></core:Item>
+									<core:Item text="{i18n>Office}"></core:Item>
+								</m:items>
+							</m:ComboBox>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement visible="true">
+						<form:label>
+							<m:Label text="{i18n>Address}" tooltip="{i18n>Address}" design="Bold" width="100%" textAlign="Begin" textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<m:TextArea id="txtOrgAddress" maxlength="100" enabled="{/requestmode}" value="{/ADDRESS}" placeholder="Enter Address"></m:TextArea>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement visible="true">
+						<form:label>
+							<m:Label text="{i18n>country}" tooltip="{i18n>country}" design="Bold" width="100%" textAlign="Begin" textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<m:ComboBox id="inpCountry" value="{/COUNTRY}" placeholder="Please Select Country" change="onChangeCombo" showSecondaryValues="true"
+								items="{ path: '/RECICOUNTRY' }" selectionChange="onChangeCountry" editable="true" enabled="{/requestmode}" visible="true" valueState="None"
+								maxWidth="100%">
+								<m:items>
+									<core:ListItem text="{NAME}" additionalText="{COUNTRY}" enabled="true"/>
+								</m:items>
+							</m:ComboBox>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement visible="true">
+						<form:label>
+							<m:Label text="{i18n>City}" tooltip="{i18n>City}" design="Bold" width="100%" textAlign="Begin" textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<m:Input id="inpCity" maxlength="40" enabled="{/requestmode}" value="{/CITY}" placeholder="Enter City"></m:Input>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement visible="true">
+						<form:label>
+							<m:Label text="{i18n>state}" tooltip="{i18n>state}" design="Bold" width="100%" textAlign="Begin" textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<m:ComboBox id="inpState" value="{/STATE}" placeholder="Enter State" showSecondaryValues="true" items="{ path: '/STATES' }" editable="true"
+								enabled="{/requestmode}" visible="true" valueState="None" maxWidth="100%">
+								<m:items>
+									<core:ListItem text="{NAME}" additionalText="{STATE}" enabled="true"/>
+								</m:items>
+							</m:ComboBox>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement visible="true">
+						<form:label>
+							<m:Label text="{i18n>postalCode}" tooltip="{i18n>postalCode}" design="Bold" width="100%" textAlign="Begin" textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<m:Input id="inpZIP" maxlength="10" value="{/ZIP}" enabled="{/requestmode}" placeholder="Enter Postal Code"></m:Input>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement visible="true">
+						<form:label>
+							<m:Label text="{i18n>phoneType}" required="true" tooltip="{i18n>phoneType}" design="Bold" width="100%" textAlign="Begin"
+								textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<m:ComboBox id="inpPhoneType" change="onChangeCombo" enabled="{/requestmode}" value="{/PHONE_TYPE}" placeholder="Select Phone Type">
+								<m:items>
+									<core:Item text="Home"></core:Item>
+									<core:Item text="Office"></core:Item>
+									<core:Item text="Mobile"></core:Item>
+								</m:items>
+							</m:ComboBox>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement visible="true">
+						<form:label>
+							<m:Label text="{i18n>phoneNumber}" tooltip="{i18n>phoneNumber}" design="Bold" width="100%" required="true" textAlign="Begin"
+								textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<m:Input id="inpPhoneNumber" maxlength="25" enabled="{/requestmode}" liveChange="onBusinessPhoneLiveChange" value="{/PHONE_NUMBER}"
+								placeholder="Enter Phone Number"></m:Input>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement visible="true">
+						<form:label>
+							<m:Label text="{i18n>cardMessage}" required="true" tooltip="{i18n>cardMessage}" design="Bold" width="100%" textAlign="Begin"
+								textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<m:TextArea id="txtCardMessage" maxlength="100" enabled="{/requestmode}" value="{/CARD_MESSAGED}" placeholder="Enter Card Message"></m:TextArea>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement visible="true">
+						<form:label>
+							<m:Label text="{i18n>cardTobeSignedBy}" tooltip="{i18n>cardTobeSignedBy}" design="Bold" width="100%" required="true" textAlign="Begin"
+								textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<m:TextArea id="txtCardSigned" maxlength="100" enabled="{/requestmode}" value="{/CARD_SIGNED}" placeholder="Enter Signed By Card"></m:TextArea>
+						</form:fields>
+					</form:FormElement>
+				</form:formElements>
+				<form:title/>
+			</form:FormContainer>
+		</form:formContainers>
+		<form:layout>
+			<form:ResponsiveGridLayout adjustLabelSpan="true" columnsL="1" labelSpanL="1" columnsM="1" labelSpanM="2" labelSpanS="3"/>
+		</form:layout>
+	</form:Form>
+</core:FragmentDefinition>

@@ -1,0 +1,113 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="com.spe.gpas.YGPAS_API.controller.EditLicense"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:f="sap.ui.layout.form">
+	<App>
+		<pages>
+			<Page id="page" title="Production Page">
+				<content>
+					<ScrollContainer height="100%" width="100%" horizontal="false" vertical="true">
+						<f:SimpleForm id="SimpleFormToolbar" editable="true" layout="ColumnLayout" labelSpanXL="4" labelSpanL="4" labelSpanM="12" labelSpanS="12"
+							adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2" columnsM="2"
+							singleContainerFullSize="true" ariaLabelledBy="Title1">
+							<f:title>
+								<core:Title text="License Details" level="H3"/>
+							</f:title>
+							<core:Title text=""/>
+							<Label text="License" required="true"/>
+							<Input value="{headerUserModel>/LICENSE_NO}" showValueHelp="false" type="Text" maxLength="10" id="license"
+								enabled="{headerUserModel>/is_lic_enabled}"/>
+							<Label text="Production Name" required="true"/>
+							<Input value="{headerUserModel>/PROD_NAME}" showValueHelp="false" type="Text" maxLength="80" id="prodName"
+								enabled="{headerUserModel>/is_enabled}"></Input>
+							<!--<RadioButtonGroup id="holId" columns="8" selectedIndex="{headerUserModel>/IS_EPISODIC}" select="onExpRadio1" width="auto" editable="true"-->
+							<!--	textDirection="Inherit" enabled="{headerUserModel>/is_enabled}">-->
+							<!--	<buttons>-->
+							<!--		<RadioButton text="Yes" editable="true" visible="true" width="auto"/>-->
+							<!--		<RadioButton text="No" editable="true" visible="true" width="auto"/>-->
+							<!--	</buttons>-->
+							<!--</RadioButtonGroup>-->
+							<Label text="Production Type"/>
+							<RadioButtonGroup id="Production_Type" columns="8" selectedIndex="{headerUserModel>/PROD_TYPE}" select="onProdTypeRadio" width="auto"
+								editable="true" textDirection="Inherit" enabled="{headerUserModel>/is_enabled}">
+								<buttons>
+									<RadioButton text="Feature" editable="true" visible="true" width="auto"/>
+									<RadioButton text="Television" editable="true" visible="true" width="auto"/>
+								</buttons>
+							</RadioButtonGroup>
+							<Label text="Check Prefix" required="true"/>
+							<Input value="{headerUserModel>/CHECK_PREFIX}" showValueHelp="false" type="Text" maxLength="4" id="checkPrefix"
+								enabled="{headerUserModel>/is_cp_enabled}" width="4em"></Input>
+							<Label text="Chart of Account"/>
+							<RadioButtonGroup id="Chart_of_Account" columns="8" selectedIndex="{headerUserModel>/CHART_OF_ACC}" select="onChartOfAccRadio" width="auto"
+								editable="true" textDirection="Inherit" enabled="{headerUserModel>/is_coa_enabled}">
+								<buttons>
+									<RadioButton text="VSTN" editable="true" visible="true" width="auto"/>
+									<RadioButton text="VSTO" editable="true" visible="true" width="auto"/>
+								</buttons>
+							</RadioButtonGroup>
+							<Label text="Accounting Package"/>
+							<Select id="Accounting_Package" selectedKey="{headerUserModel>/ACC_PKG}" class="sapUiLargeMarginBottom"
+								enabled="{headerUserModel>/is_enabled}">
+								<items>
+									<core:Item text="EP/API" key="A"/>
+									<core:Item text="Other" key="I"/>
+								</items>
+							</Select>
+							<!--<Label text="Status"/>-->
+							<!--<RadioButtonGroup id="statusID" columns="8" selectedIndex="{headerUserModel>/STATUS}" select="onSelectStatus" width="auto" editable="true"-->
+							<!--	textDirection="Inherit">-->
+							<!--	<buttons>-->
+							<!--		<RadioButton text="Active" editable="true" visible="true" width="auto"/>-->
+							<!--		<RadioButton text="Inactive" editable="true" visible="true" width="auto"/>-->
+							<!--	</buttons>-->
+							<!--</RadioButtonGroup>-->
+							<Label text="Direction"/>
+							<RadioButtonGroup id="directionID" columns="8" selectedIndex="{headerUserModel>/DIRECTION}" select="onSelectDirection" width="auto"
+								editable="true" textDirection="Inherit" enabled="true">
+								<buttons>
+									<RadioButton text="SAP to LAS" editable="true" visible="true" width="auto"/>
+									<!--O-->
+									<RadioButton text="LAS to SAP" editable="true" visible="true" width="auto"/><!--I--></buttons>
+							</RadioButtonGroup>
+							<Label text="GL Prod" visible="false" id="range"/>
+							<Input value="" placeholder="From" id="from" visible="false" maxLength="6" enabled="{headerUserModel>/is_enabled}">
+								<layoutData>
+									<f:ColumnElementData cellsSmall="1" cellsLarge="2"/>
+								</layoutData>
+							</Input>
+							<Input value="" id="To" placeholder="To" visible="false" maxLength="6" enabled="{headerUserModel>/is_enabled}">
+								<layoutData>
+									<f:ColumnElementData cellsSmall="1" cellsLarge="2"/>
+								</layoutData>
+							</Input>
+							<Button text="Add GL Prod" id="addrange" press="addRange" visible="false" enabled="{headerUserModel>/is_enabled}"></Button>
+							<Label text="GL Prod" visible="false" id="single"/>
+							<Input value="" placeholder="Add" id="Add" visible="false" maxLength="6" enabled="{headerUserModel>/is_enabled}"/>
+							<Button text="Add GL Prod" id="add" press="onAdd" visible="false" enabled="{headerUserModel>/is_enabled}"></Button>
+							<core:Title text=""/>
+							<Button text="Save" id="save" visible="true" enabled="true" press="onPressSaveBtn">
+								<layoutData>
+									<f:ColumnElementData cellsSmall="1" cellsLarge="4"/>
+								</layoutData>
+							</Button>
+							<Button text="Cancel" id="cancel" visible="true" enabled="true" press="onCancel">
+								<layoutData>
+									<f:ColumnElementData cellsSmall="1" cellsLarge="4"/>
+								</layoutData>
+							</Button>
+							<!--</f:content>-->
+						</f:SimpleForm>
+						<core:Fragment xmlns:core="sap.ui.core" fragmentName="com.spe.gpas.YGPAS_API.view.sap_las" type="XML"/>
+						<core:Fragment xmlns:core="sap.ui.core" fragmentName="com.spe.gpas.YGPAS_API.view.las_sap" type="XML"/>
+					</ScrollContainer>
+				</content>
+				<!--</IconTabBar>-->
+				<!--<footer>-->
+				<!--	<Toolbar>-->
+				<!--		<ToolbarSpacer/>-->
+				<!--		<Button text="Save" width="7rem" type="Accept" icon="sap-icon://save" press="onPressSave"/>-->
+				<!--	</Toolbar>-->
+				<!--</footer>-->
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

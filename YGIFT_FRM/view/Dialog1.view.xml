@@ -1,0 +1,25 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="YGIFT_FRM.controller.Dialog1" xmlns:m="sap.m" xmlns:form="sap.ui.layout.form">
+ <m:Dialog horizontalScrolling="true" showHeader="true" state="None" stretch="false" title="Confirm Naviigation" type="Standard" verticalScrolling="true">
+        <m:content>
+           <m:HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="10px" justifyContent="Start" renderType="Div" visible="true" displayInline="false">
+             </m:HBox>
+          <m:HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div" visible="true" displayInline="false">
+                <m:items>
+                    <m:ToolbarSpacer width="20px"/>
+
+            <m:Text text="Text" id="MESSAGE" width="346.359375px" maxLines="2" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                </m:items>
+                <m:layoutData/>
+            </m:HBox>
+
+
+        </m:content>
+        <m:beginButton/>
+        <m:buttons>
+            <m:Button text="OK" type="Default" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="_onButtonPress"/>
+        </m:buttons>
+        <m:customHeader/>
+        <m:endButton/>
+        <m:subHeader/>
+    </m:Dialog>
+</mvc:View>

@@ -1,0 +1,86 @@
+{
+    "resources": [
+        {
+            "name": "Component.js"
+        },
+        {
+            "name": "Fragments/Approver_Flow.fragment.xml"
+        },
+        {
+            "name": "Fragments/Approver_Table.fragment.xml"
+        },
+        {
+            "name": "Fragments/Comment_Table.fragment.xml"
+        },
+        {
+            "name": "Fragments/Doc_Typ_Dialog.fragment.xml"
+        },
+        {
+            "name": "Fragments/LOB_Dialog.fragment.xml"
+        },
+        {
+            "name": "Fragments/SLOB_Description_Dialog.fragment.xml"
+        },
+        {
+            "name": "Fragments/SLOB_Dialog.fragment.xml"
+        },
+        {
+            "name": "Fragments/UserReplace_Dialog.fragment.xml"
+        },
+        {
+            "name": "Fragments/User_Dialog.fragment.xml"
+        },
+        {
+            "name": "Fragments/User_Table.fragment.xml"
+        },
+        {
+            "name": "Fragments/busyDialog.fragment.xml"
+        },
+        {
+            "name": "Fragments/employee.fragment.xml"
+        },
+        {
+            "name": "controller/App.controller.js"
+        },
+        {
+            "name": "controller/BaseController.js"
+        },
+        {
+            "name": "controller/FinanceMaintagePage.controller.js"
+        },
+        {
+            "name": "controller/SearchPage.controller.js"
+        },
+        {
+            "name": "css/style.css"
+        },
+        {
+            "name": "i18n/i18n.properties",
+            "raw": "i18n/i18n.properties"
+        },
+        {
+            "name": "index.html"
+        },
+        {
+            "name": "manifest.json"
+        },
+        {
+            "name": "model/FinanceApproverModel.js"
+        },
+        {
+            "name": "model/models.js"
+        },
+        {
+            "name": "view/App.view.xml"
+        },
+        {
+            "name": "view/Dialog1.view.xml"
+        },
+        {
+            "name": "view/FinanceMaintagePage.view.xml"
+        },
+        {
+            "name": "view/SearchPage.view.xml"
+        }
+    ]
+}

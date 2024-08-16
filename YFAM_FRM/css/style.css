@@ -1,0 +1,39 @@
+/* Enter your custom styles here */
+
+.marginLeftSearchButton {
+    margin-left: 0%;
+}
+
+.searchForm {
+    width: 95%;
+    box-sizing: border-box;
+    margin-left: 2rem;
+}
+
+.uiHeaderAlign > div > div > div > div:first-child > div > div > div > div:nth-child(odd) {
+    width: 13.333333% !important;
+}
+
+.uiHeaderAlign > div > div > div > div:first-child > div > h5 {
+    margin-left: 3% !important;
+}
+
+.uiHeaderAlign > div > div > div > div:last-child > div > h5 {
+    margin-left: 4% !important;
+}
+
+.uiHeaderAlign > div > div > div > div:last-child > div > div > div > div:nth-child(odd) {
+    width: 22.333333% !important;
+}
+
+.tabAlign > div:first-child > div > div {
+    height: 6rem;
+}
+
+.tabAlign > div:nth-child(1) > div > div > div:nth-child(n) > div:nth-child(2) {
+    white-space: pre-line ! important;
+}
+
+.tabAlign > div:nth-child(1) > div > div > div:nth-child(n+3) > div:nth-child(2) {
+    line-height: 1.9375rem;
+}

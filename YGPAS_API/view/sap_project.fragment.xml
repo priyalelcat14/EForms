@@ -1,0 +1,24 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<TableSelectDialog id="UserDialogId2" noDataText="No User Found" title="Select Project" search="handleSearch"
+		confirm="onHandleConfirmProject" cancel="onHandleClose"
+		items="{ path :'osap_projectModel>/project', sorter : { path : 'PSPNR', descending : false }, templateShareable:false }">
+		<ColumnListItem>
+			<cells>
+				<Text text="{osap_projectModel>PSPNR}"/>
+				<Text text="{osap_projectModel>POST1}"/>
+			</cells>
+		</ColumnListItem>
+		<columns>
+			<Column width="12em">
+				<header>
+					<Text text="Project Definition"/>
+				</header>
+			</Column>
+			<Column width="12em">
+				<header>
+					<Text text="Project Description"/>
+				</header>
+			</Column>
+		</columns>
+	</TableSelectDialog>
+</core:FragmentDefinition>

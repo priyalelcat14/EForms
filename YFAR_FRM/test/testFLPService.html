@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="UTF-8">
+        <title>FAR</title>
+    <script type="text/javascript" src="/ruxitagentjs_ICA2Vfqru_10229211201102017.js" data-dtconfig="app=ea7c4b59f27d43eb|rcdec=1209600000|featureHash=ICA2Vfqru|vcv=2|rdnt=1|uxrgce=1|bp=3|srmcrv=10|cuc=4v067plq|mel=100000|dpvc=1|ssv=4|lastModification=1645700495784|dtVersion=10229211201102017|srmcrl=1|tp=500,50,0,1|uxdcw=1500|agentUri=/ruxitagentjs_ICA2Vfqru_10229211201102017.js|reportUrl=/rb_28503542-2e35-4818-a204-ce12785655be|rid=RID_898094201|rpid=1756721635|domain=ondemand.com"></script><script id="sap-ui-bootstrap"
+    src="/sap/public/bc/ui5_ui5/1/resources/sap-ui-core.js"
+            data-sap-ui-libs="sap.m,sap.ui.layout,sap.ui.core"
+      data-sap-ui-theme="sap_bluecrystal"
+            data-sap-ui-xx-supportedLanguages="en"
+            data-sap-ui-xx-bindingSyntax="complex"
+      data-sap-ui-compatVersion="edge" 
+      data-sap-ui-resourceroots='{"spefar.app": "../"}'>
+    </script>
+    <script src="/sap/public/bc/ui2/services/sap/ui2/srvc/error.js"></script>
+<script src="/sap/public/bc/ui2/services/sap/ui2/srvc/utils.js"></script>
+<script src="/sap/public/bc/ui2/shell-api/sap/ui2/shell/startup.js"></script>
+<script src="/sap/public/bc/ui2/shell-api/sap/ui2/shell/shell.js"></script>
+     
+    <script>
+    //Begin of changes by NASNANI on 6 sept 2017
+    //  sap.ui.getCore().attachInit(function() {
+    //    jQuery.sap.require("sap.ui.fl.FakeLrepConnector");
+    //    sap.ui.fl.FakeLrepConnector.enableFakeConnector("fakeLRep.json");
+    //End of changes by NASNANI on 6 sept 2017
+        new sap.m.Shell({
+                    app: new sap.ui.core.ComponentContainer({
+                        height : "100%",
+                        name : "spefar.app"
+                    })
+                }).placeAt("content");
+    //Begin of changes by NASNANI on 6 sept 2017
+    //  });
+    //End of changes by NASNANI on 6 sept 2017
+    </script>
+  </head>
+  <body class="sapUiBody" id="content" rootUiArea >
+  </body>
+</html>

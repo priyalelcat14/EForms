@@ -1,0 +1,140 @@
+{
+	"_version": "1.1.0",
+	"sap.app": {
+		"_version": "1.2.0",
+		"id": "com.sap.build.standard.charitableDonationForm",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"dataSources": {
+			"Y_CHAR": {
+				"uri": "/sap/opu/odata/sap/YFPSFIPFRDD0024_CHARITABLE_FRM_SRV/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/metadata.xml"
+				}
+			}
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"ach": "ach",
+		"resources": "resources.json",
+		"sourceTemplate": {
+			"id": "ui5template.basicSAPUI5ApplicationProject",
+			"version": "1.32.0"
+		}
+	},
+	"sap.ui": {
+		"_version": "1.2.0",
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"_version": "1.1.0",
+		"rootView": {
+			"viewName": "generated.app.view.SearchPage",
+			"type": "XML"
+		},
+		"dependencies": {
+			"minUI5Version": "1.32.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.ui.layout": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"uri": "i18n/i18n.properties"
+			},
+			"oData": {
+				"dataSource": "Y_CHAR"
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "Css/style.css"
+				}
+			]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "com.sap.build.standard.charitableDonationForm.view",
+				"controlId": "App",
+				"clearTarget": false,
+				"controlAggregation": "pages",
+				"bypassed": {
+					"target": [
+						"CreatePage"
+					]
+				}
+			},
+			"targets": {
+				"CreatePage": {
+					"controlAggregation": "pages",
+					"viewName": "CreatePage",
+					"viewId": "CreatePage",
+					"viewLevel": 1,
+					"transition": "slide"
+				},
+				"SearchPage": {
+					"controlAggregation": "pages",
+					"viewName": "SearchPage",
+					"viewId": "SearchPage",
+					"viewLevel": 1,
+					"transition": "slide"
+				}
+			},
+			"routes": [
+				{
+					"pattern": "CreatePage/:context:",
+					"name": "CreatePage1",
+					"target": [
+						"CreatePage"
+					]
+				},
+				{
+					"pattern": "CreatePage/{value}",
+					"name": "CreatePage",
+					"target": [
+						"CreatePage"
+					]
+				},
+				{
+					"pattern": "",
+					"name": "default",
+					"target": [
+						"SearchPage"
+					]
+				}
+			]
+		}
+	},
+	"sap.platform.abap": {
+		"uri": "/sap/bc/ui5_ui5/sap/ychar_frm",
+		"_version": "1.1.0"
+	}
+}

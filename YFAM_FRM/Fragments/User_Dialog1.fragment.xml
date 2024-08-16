@@ -1,0 +1,27 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog id="UserDialogId1" noDataText="No User Found" title="Select User" search="handleSearch" confirm="onHandleConfirm1"
+		cancel="onHandleClose" showClearButton="true" items="{ path : 'userSearchModel>/eUserSet', sorter : { path : 'Name', descending : false } }">
+		<StandardListItem title="{userSearchModel>USERID}" description="{userSearchModel>NAME}" type="Active"/>
+	</SelectDialog>
+	<!--<TableSelectDialog id="UserDialogId" noDataText="No User Found" title="Select User" search="handleSearch" confirm="onHandleConfirm"-->
+	<!--	cancel="onHandleClose" items="{ path : 'userSearchModel>/eUserSet', sorter : { path : 'Name', descending : false } }">-->
+	<!--	<ColumnListItem>-->
+	<!--		<cells>-->
+	<!--			<Text text="{userSearchModel>USERID}"/>-->
+	<!--			<Text text="{userSearchModel>NAME}"/>-->
+	<!--		</cells>-->
+	<!--	</ColumnListItem>-->
+	<!--	<columns>-->
+	<!--		<Column width="12em">-->
+	<!--			<header>-->
+	<!--				<Text text="User Id"/>-->
+	<!--			</header>-->
+	<!--		</Column>-->
+	<!--		<Column >-->
+	<!--			<header>-->
+	<!--				<Text text="User Name"/>-->
+	<!--			</header>-->
+	<!--		</Column>-->
+	<!--	</columns>-->
+	<!--</TableSelectDialog>-->
+</core:FragmentDefinition>

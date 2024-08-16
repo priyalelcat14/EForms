@@ -1,0 +1,564 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:form="sap.ui.layout.form">
+	<form:Form width="100%" editable="true" visible="true">
+		<form:title>
+			<core:Title text="Provide the requested information" level="Auto"/>
+		</form:title>
+		<form:formContainers>
+			<form:FormContainer visible="true">
+				<form:formElements>
+					<form:FormElement id="WarnId2" visible="false">
+						<form:label>
+							<Label text="" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<Text class="redColor" text="{i18n>South_Korea_text}{i18n>South_Korea_text1}{i18n>South_Korea_text2}{i18n>South_Korea_text3}"/>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement visible="true">
+						<form:label>
+							<Label text="" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<Text class="redColor" text="{i18n>SummaryFinal} {i18n>ContactSPEEmail}"/>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement visible="true">
+						<form:label>
+							<Label text="Title" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<Text text="{headerUserModel>/TITLE}"/>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement visible="true">
+						<form:label>
+							<Label text="{i18n>Decs}" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<Text text="{headerUserModel>/Des}" visible="true"/>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement visible="false" id="idPreparerBox1">
+						<form:label>
+							<Label text="{i18n>Preparer}" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<Text text="{headerUserModel>/PREPARER}"/>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement visible="true">
+						<form:label>
+							<Label text="On Behalf Of" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<Text text="{headerUserModel>/ONBEHALFOF}"/>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement visible="true">
+						<form:label>
+							<Label text="Requestor Title" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<Text text="{headerUserModel>/REQ_TITLE}"/>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement visible="true">
+						<form:label>
+							<Label text="Requester Email" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<Text text="{headerUserModel>/REQ_EMAIL}"/>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement visible="true">
+						<form:label>
+							<Label text="Requester Office Phone Number" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<Text text="{headerUserModel>/PHONE_NUM}"/>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement visible="true">
+						<form:label>
+							<Label text="Requestor Office Location" design="Bold" required="false" textAlign="Begin" textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<Text text="{headerUserModel>/LOCATION}"/>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement visible="true">
+						<form:label>
+							<Label text="Country" design="Bold" required="false" textAlign="Begin" textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<Text text="{headerUserModel>/RES_COUNTRY}"/>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement visible="true">
+						<form:label>
+							<Label text="COFA-LOB" design="Bold" required="false" textAlign="Begin" textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<Text text="{headerUserModel>/LOB}"/>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement visible="true">
+						<form:label>
+							<Label text="COFA-Sub LOB" design="Bold" required="false" textAlign="Begin" textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<Text text="{headerUserModel>/SLOB}"/>
+						</form:fields>
+					</form:FormElement>
+				</form:formElements>
+				<form:title/>
+			</form:FormContainer>
+		</form:formContainers>
+		<form:layout>
+			<form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="2" labelSpanL="3" columnsM="1" labelSpanM="2" labelSpanS="12"/>
+		</form:layout>
+	</form:Form>
+	<form:Form width="100%" editable="true" visible="true">
+		<form:title/>
+		<form:formContainers>
+			<form:FormContainer visible="true">
+				<form:formElements>
+					<form:FormElement visible="true">
+						<form:label>
+							<Label text="" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+						</form:label>
+						<form:fields/>
+					</form:FormElement>
+					<form:FormElement visible="true">
+						<form:label>
+							<Label text="Activity, Event or Production" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<TextArea value="{headerUserModel>/Activity}" enabled="false" rows="3" cols="10" maxLength="0" wrapping="Soft" visible="true"/>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement visible="true">
+						<form:label>
+							<Label text="Location of Activity, Event or Production" design="Bold" width="100%" required="false" textAlign="Begin"
+								textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<TextArea value="{headerUserModel>/Loc_act}" enabled="false" rows="3" cols="20" maxLength="0" wrapping="None" visible="true"/>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement visible="true">
+						<form:label>
+							<Label
+								tooltip="Describe the business rationale for this request. Provide sufficient detail, especially if the request is for multiple receipt-ant"
+								text="Describe the business rationale for this request. Provide sufficient detail, especially if the request is for multiple receipt-ant"
+								design="Bold" required="false" textAlign="Center" textDirection="LTR"/>
+						</form:label>
+						<form:fields>
+							<TextArea value="{headerUserModel>/buss_des}" enabled="false" rows="3" cols="20" maxLength="0" wrapping="None" visible="true"/>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement visible="true">
+						<form:label>
+							<Label text="Are any SPE employees accompanying any recipient" tooltip="Are any SPE employees accompanying any recipient" design="Bold"
+								width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<RadioButtonGroup columns="8" selectedIndex="{headerUserModel>/selectedIndex_SPE}" valueState="{headerUserModel>/ValueState9}" width="auto"
+								editable="true" enabled="false" textDirection="Inherit" select="_onRadioButtonGroupSelect">
+								<buttons>
+									<RadioButton text="Yes" editable="true" enabled="false" visible="true" width="auto"/>
+									<RadioButton text="No" editable="true" enabled="false" visible="true" width="auto"/>
+								</buttons>
+							</RadioButtonGroup>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement visible="true">
+						<form:label>
+							<Label text="Please list these SPE Employees" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<TextArea value="{headerUserModel>/SPE_List}" enabled="false" rows="3" cols="20" maxLength="0" wrapping="None" visible="true"/>
+						</form:fields>
+					</form:FormElement>
+					<form:FormElement visible="true">
+						<form:label>
+							<Label text="Is this an emergency Facilitating Payment" design="Bold" width="100%" required="false" textAlign="Begin"
+								textDirection="Inherit"/>
+						</form:label>
+						<form:fields>
+							<RadioButtonGroup columns="8" selectedIndex="{headerUserModel>/selectedIndex_Exp}" valueState="None" width="auto" editable="true"
+								enabled="true" textDirection="Inherit" select="_onRadioButtonGroupSelect1">
+								<buttons>
+									<RadioButton text="Yes" editable="true" enabled="false" visible="true" width="auto" valueState="None" selected="false"/>
+									<RadioButton text="No" editable="true" enabled="false" visible="true" width="auto" valueState="None" selected="false"/>
+								</buttons>
+							</RadioButtonGroup>
+						</form:fields>
+					</form:FormElement>
+				</form:formElements>
+				<form:title/>
+			</form:FormContainer>
+		</form:formContainers>
+		<form:layout>
+			<form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="2" labelSpanL="3" columnsM="1" labelSpanM="2" labelSpanS="12"/>
+		</form:layout>
+	</form:Form>
+	<VBox alignItems="Stretch" direction="Column" fitContainer="false" height="161.5625px" justifyContent="Start" renderType="Div"
+		visible="true" displayInline="false">
+		<items>
+			<Table width="100%" id="tblRecipient1" noDataText="No data" mode="MultiSelect" showSeparators="All" growing="true" growingThreshold="20"
+				growingScrollToLoad="true" items="{repTableModel>/}">
+				<infoToolbar>
+					<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+						<content>
+							<Label text="{i18n>Label}" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+						</content>
+					</Toolbar>
+				</infoToolbar>
+				<headerToolbar>
+					<Toolbar width="auto" height="46px" design="Transparent" visible="true" enabled="true">
+						<ToolbarSpacer/>
+						<content>
+							<Button text="" type="Emphasized" icon="sap-icon://add" iconFirst="true" width="auto" enabled="{headerUserModel>/isEnable}" visible="true"
+								iconDensityAware="false" press="onHandlePress"/>
+							<Button text="" type="Accept" icon="sap-icon://copy" iconFirst="true" width="auto" enabled="{headerUserModel>/isEnable}" visible="true"
+								iconDensityAware="false" press="onHandleCopyPress"/>
+							<Button text="" type="Reject" icon="sap-icon://delete" iconFirst="true" width="auto" enabled="{headerUserModel>/isEnable}" visible="true"
+								iconDensityAware="false" press="onHandleDeletePress"/>
+						</content>
+						<tooltip/>
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+						<header>
+							<Text text="Recipient Information" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+						</header>
+						<footer/>
+					</Column>
+					<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+						<header>
+							<Text text="Organization Information" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+						</header>
+						<footer/>
+					</Column>
+					<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+						<header>
+							<Text text="Expense Information" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+						</header>
+						<footer/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<Link text="{repTableModel>Recipient/title}" press="handleAddRecipient"/>
+							<Link text="{repTableModel>Organisation/title}" press="handleAddOrganization"/>
+							<Link text="{repTableModel>Expense/title}" press="handleAddExpense"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</items>
+		<layoutData/>
+		<form:SimpleForm editable="true" layout="ResponsiveGridLayout" title="Summary Totals" labelSpanXL="3" labelSpanL="3" labelSpanM="3"
+			labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1"
+			singleContainerFullSize="false">
+			<form:content>
+				<Label text="{i18n>SummaryTotals_text1}" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+				<Text text="{headerUserModel>/SummaryTotals_Value1}" wrapping="Soft" visible="true"/>
+				<Label text="{i18n>SummaryTotals_text2}" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+				<Text text="{headerUserModel>/SummaryTotals_Value2}" wrapping="Soft" visible="true"/>
+				<Label text="{i18n>SummaryTotals_text3}" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+				<Text text="{headerUserModel>/SummaryTotals_Value3}" wrapping="Soft" visible="true"/>
+				<Label text="{i18n>SummaryTotals_text4}" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+				<Text text="{headerUserModel>/SummaryTotals_Value4}" wrapping="Soft" visible="true"/>
+				<Label text="{i18n>SummaryTotals_text5}" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+				<Text text="{headerUserModel>/SummaryTotals_Value5}" wrapping="Soft" visible="true"/>
+				<Label text="{i18n>SummaryTotals_text6}" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+				<Text text="{headerUserModel>/SummaryTotals_Value6}" wrapping="Soft" visible="true"/>
+				<Label text="{i18n>SummaryTotals_text7}" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+				<Text text="{headerUserModel>/SummaryTotals_Value7}" wrapping="Soft" visible="true"/>
+			</form:content>
+		</form:SimpleForm>
+		<Bar design="Header" visible="{headerUserModel>/Exp}">
+			<contentLeft>
+				<Label
+					text="Is the amount of the payment nominal or modest based on Income Levels and customary levels of expense incurred in the country ?"
+					design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+			</contentLeft>
+			<contentMiddle/>
+			<contentRight/>
+		</Bar>
+		<Bar design="Header" visible="{headerUserModel>/Exp}">
+			<contentLeft>
+				<RadioButtonGroup columns="8" selectedIndex="{headerUserModel>/selectedIndex2}" valueState="None" width="auto" editable="true"
+					enabled="false" textDirection="Inherit">
+					<buttons>
+						<RadioButton text="Yes" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+						<RadioButton text="No" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+					</buttons>
+				</RadioButtonGroup>
+			</contentLeft>
+			<contentMiddle/>
+			<contentRight/>
+		</Bar>
+		<Bar design="Header" visible="{headerUserModel>/Exp}">
+			<contentLeft>
+				<Label text="Is the payment to the low level government official ?" design="Bold" width="100%" required="false" textAlign="Begin"
+					textDirection="Inherit"/>
+			</contentLeft>
+			<contentMiddle/>
+			<contentRight/>
+		</Bar>
+		<Bar design="Header" visible="{headerUserModel>/Exp}">
+			<contentLeft>
+				<RadioButtonGroup columns="8" selectedIndex="{headerUserModel>/selectedIndex3}" valueState="None" width="auto" editable="true"
+					enabled="false" textDirection="Inherit" select="_onRadioButtonGroupSelect3">
+					<buttons>
+						<RadioButton text="Yes" editable="true" enabled="false" visible="true" width="auto" valueState="None" selected="false"/>
+						<RadioButton text="No" editable="true" enabled="false" visible="true" width="auto" valueState="None" selected="false"/>
+					</buttons>
+				</RadioButtonGroup>
+			</contentLeft>
+			<contentMiddle/>
+			<contentRight/>
+		</Bar>
+		<Bar design="Header" visible="{headerUserModel>/Exp}">
+			<contentLeft>
+				<Label text="Have you confirmed that the action facilitated by the payment is an action that the company is legally entitled to receive ?"
+					design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+			</contentLeft>
+			<contentMiddle/>
+			<contentRight/>
+		</Bar>
+		<Bar design="Header" visible="{headerUserModel>/Exp}">
+			<contentLeft>
+				<RadioButtonGroup columns="8" selectedIndex="{headerUserModel>/selectedIndex4}" valueState="None" width="auto" editable="true"
+					enabled="false" textDirection="Inherit" select="_onRadioButtonGroupSelect4">
+					<buttons>
+						<RadioButton text="Yes" editable="true" enabled="false" visible="true" width="auto" valueState="None" selected="false"/>
+						<RadioButton text="No" editable="true" enabled="false" visible="true" width="auto" valueState="None" selected="false"/>
+					</buttons>
+				</RadioButtonGroup>
+			</contentLeft>
+			<contentMiddle/>
+			<contentRight/>
+		</Bar>
+		<Bar design="Header" visible="{headerUserModel>/Exp}">
+			<contentLeft>
+				<Label text="Is the Payment solely to facilitate a routine government action under emergency circumstances ?" design="Bold" width="100%"
+					required="false" textAlign="Begin" textDirection="Inherit"/>
+			</contentLeft>
+			<contentMiddle/>
+			<contentRight/>
+		</Bar>
+		<Bar design="Header" visible="{headerUserModel>/Exp}">
+			<contentLeft>
+				<RadioButtonGroup columns="8" selectedIndex="{headerUserModel>/selectedIndex5}" valueState="None" width="auto" editable="true"
+					enabled="false" textDirection="Inherit" select="_onRadioButtonGroupSelect4">
+					<buttons>
+						<RadioButton text="Yes" editable="true" enabled="false" visible="true" width="auto" valueState="None" selected="false"/>
+						<RadioButton text="No" editable="true" enabled="false" visible="true" width="auto" valueState="None" selected="false"/>
+					</buttons>
+				</RadioButtonGroup>
+			</contentLeft>
+			<contentMiddle/>
+			<contentRight/>
+		</Bar>
+		<Bar design="Header" visible="{headerUserModel>/Exp}">
+			<contentLeft>
+				<Label
+					text="Routine government action does not include any discretionary decision by the government offical, such as to award new business or continue business with a particular party.(Anti-bribery policy, Appendix H and Page 4 AB Policy)"
+					design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+			</contentLeft>
+			<contentMiddle/>
+			<contentRight/>
+		</Bar>
+		<Bar design="Header" visible="{headerUserModel>/Exp}">
+			<contentLeft>
+				<Label
+					text="Routine Government action means only an action which is ordinarly and commonly performed by a forign office such as (FCPA, US Code Title 15. Commerce and Trade,Chapter 2B-Securities Exchange)"
+					design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+			</contentLeft>
+			<contentMiddle/>
+			<contentRight/>
+		</Bar>
+		<Bar design="Header" visible="{headerUserModel>/Exp}">
+			<contentLeft>
+				<Label text="a. Obtaining permits, licenses, or other official documents to qualify a person to do business in a forign country,"
+					design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+			</contentLeft>
+			<contentMiddle/>
+			<contentRight/>
+		</Bar>
+		<Bar design="Header" visible="{headerUserModel>/Exp}">
+			<contentLeft>
+				<Label text="b. Processing non- discretionary government papers,such as routine visas and work orders," design="Bold" width="100%"
+					required="false" textAlign="Begin" textDirection="Inherit"/>
+			</contentLeft>
+			<contentMiddle/>
+			<contentRight/>
+		</Bar>
+		<Bar design="Header" visible="{headerUserModel>/Exp}">
+			<contentLeft>
+				<Label
+					text="c. Providing Police protection, mail pick up and delivery, or scheduling inspection associated with contract performance or inspection related to transit of goods across country"
+					design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+			</contentLeft>
+			<contentMiddle/>
+			<contentRight/>
+		</Bar>
+		<Bar design="Header" visible="{headerUserModel>/Exp}">
+			<contentLeft>
+				<Label
+					text="d. providing phone service , power and water supply,loading and unloading cargo, garbage collection, protecting perishable products or commodities from deterioration, or"
+					design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+			</contentLeft>
+			<contentMiddle/>
+			<contentRight/>
+		</Bar>
+		<Bar design="Header" visible="{headerUserModel>/Exp}">
+			<contentLeft>
+				<Label text="e. Actions of a similar nature" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+			</contentLeft>
+			<contentMiddle/>
+			<contentRight/>
+		</Bar>
+		<Bar design="Header" visible="{headerUserModel>/Exp}">
+			<contentLeft>
+				<Label
+					text="Have you confirmed that the action taken by making the payment does not improperly influence the government official to obtain or retain business or to secure an improper business advantage ?"
+					design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+			</contentLeft>
+			<contentMiddle/>
+			<contentRight/>
+		</Bar>
+		<Bar design="Header" visible="{headerUserModel>/Exp}">
+			<contentLeft>
+				<RadioButtonGroup columns="8" selectedIndex="{headerUserModel>/selectedIndex6}" valueState="None" width="auto" editable="true"
+					enabled="false" textDirection="Inherit" select="_onRadioButtonGroupSelect6">
+					<buttons>
+						<RadioButton text="Yes" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+						<RadioButton text="No" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+					</buttons>
+				</RadioButtonGroup>
+			</contentLeft>
+			<contentMiddle/>
+			<contentRight/>
+		</Bar>
+		<Bar design="Header" visible="{headerUserModel>/Exp}">
+			<contentLeft>
+				<Label
+					text="Have you verified whether the same recipient (individual or agency department) has previously received the emergency facilitating payment and, if so, considered whether the cumulative annual amount to such individual,agency or department is excessive given all the facts and circumstances?"
+					design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+			</contentLeft>
+			<contentMiddle/>
+			<contentRight/>
+		</Bar>
+		<Bar design="Header" visible="{headerUserModel>/Exp}">
+			<contentLeft>
+				<RadioButtonGroup columns="8" selectedIndex="{headerUserModel>/selectedIndex7}" valueState="None" width="auto" editable="true"
+					enabled="false" textDirection="Inherit" select="_onRadioButtonGroupSelect7">
+					<buttons>
+						<RadioButton text="Yes" editable="true" enabled="false" visible="true" width="auto" valueState="None" selected="false"/>
+						<RadioButton text="No" editable="true" enabled="false" visible="true" width="auto" valueState="None" selected="false"/>
+					</buttons>
+				</RadioButtonGroup>
+			</contentLeft>
+			<contentMiddle/>
+			<contentRight/>
+		</Bar>
+		<Table width="95%" noDataText="{i18n>Nodata}" mode="SingleSelectLeft" showSeparators="All" growing="true" growingThreshold="20"
+			growingScrollToLoad="true" items="{oApproverModel>/}">
+			<infoToolbar>
+				<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+					<content>
+						<Label text="{i18n>Label}" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+					</content>
+				</Toolbar>
+			</infoToolbar>
+			<headerToolbar>
+				<Toolbar width="auto" height="46px" design="Transparent" visible="true" enabled="true">
+					<content>
+						<Title text="{i18n>Approvers}" titleStyle="Auto" width="auto" textAlign="Begin" visible="true"/>
+						<ToolbarSpacer width=""/>
+						<Text text="Type" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+						<ComboBox value="{i18n>Approver}" editable="true" enabled="true" visible="true" width="auto" valueState="None" maxWidth="100%">
+							<items>
+								<core:Item text="{i18n>Watcher}" enabled="true"/>
+								<core:Item text="{i18n>Approver}" enabled="true"/>
+							</items>
+						</ComboBox>
+						<Text text="{i18n>Position}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+						<ComboBox editable="true" value="Before" enabled="true" visible="true" width="auto" valueState="None" maxWidth="100%">
+							<items>
+								<core:Item text="{i18n>Before}" enabled="true"/>
+								<core:Item text="{i18n>After}" enabled="true"/>
+							</items>
+						</ComboBox>
+						<Button text="" type="Emphasized" icon="sap-icon://add" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"
+							press="onAddApprovers"/>
+						<Button text="" type="Reject" icon="sap-icon://delete" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"
+							press="deleteAapprover"/>
+					</content>
+					<tooltip/>
+				</Toolbar>
+			</headerToolbar>
+			<columns>
+				<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+					<Text text="{i18n>Approved}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+				</Column>
+				<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+					<Text text="{i18n>Approver}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+				</Column>
+				<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+					<Text text="{i18n>Reviewer_Type}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+				</Column>
+				<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+					<Text text="{i18n>Approved_By}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+				</Column>
+				<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+					<Text text="{i18n>Approval_Date}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+				</Column>
+				<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+					<Text text="{i18n>Approval_Time(PST)}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+				</Column>
+				<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+					<Text text="{i18n>Manual_Addition}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+				</Column>
+				<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+					<Text text="{i18n>AddedBy}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+				</Column>
+				<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+					<Text text="{i18n>Added_On}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem type="Active">
+					<cells>
+						<Text text="{oApproverModel>APPROVED}" width="auto" maxLines="1" wrapping="false"/>
+						<Input value="{oApproverModel>APPR}" showValueHelp="true" enabled="{oApproverModel>isAppEnabled}" visible="true" width="auto"
+							valueHelpOnly="false" maxLength="0" valueHelpRequest="onHandleApproverValueHelp"/>
+						<Text text="{oApproverModel>REVIEWER_TYPE}" width="auto" maxLines="1" wrapping="false"/>
+						<Text text="{oApproverModel>APPROVED_BY}" width="auto" maxLines="1" wrapping="false"/>
+						<Text text="{oApproverModel>APPROVAL_DT}" width="auto" maxLines="1" wrapping="false"/>
+						<Text text="{oApproverModel>APPROVAL_TM}" width="auto" maxLines="1" wrapping="false"/>
+						<CheckBox text="" selected="{oApproverModel>MANUAL}" editable="true" enabled="{oApproverModel>isAppEnabled}" visible="true" width="auto"/>
+						<Text text="{oApproverModel>ADDED_BY}" width="auto" maxLines="1" wrapping="false"/>
+						<Text text="{path:'oApproverModel>CREATION_DT',formatter:'.attachmentDate'}" width="auto" maxLines="1" wrapping="false"/>
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table>
+		<core:Fragment xmlns:core="sap.ui.core" fragmentName="com.sap.build.standard.governmentApp.fragments.Justify" type="XML"/>
+		<Bar design="Auto">
+			<contentLeft/>
+			<contentMiddle/>
+			<contentRight>
+				<Button text="{i18n>Refresh}" type="Accept" icon="sap-icon://refresh" iconFirst="true" width="auto" enabled="true" visible="true"
+					iconDensityAware="false" press="onRefresh"/>
+			</contentRight>
+		</Bar>
+	</VBox>
+</core:FragmentDefinition>

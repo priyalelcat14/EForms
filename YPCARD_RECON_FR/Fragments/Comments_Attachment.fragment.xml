@@ -1,0 +1,161 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core"
+  xmlns:u="sap.ui.unified">
+  <l:VerticalLayout width="100%">
+    <l:content>
+      <Panel>
+
+          <Title level="H6" text="{i18n>PCard_Title3}" />
+
+        <headerToolbar>
+          <Toolbar height="3rem">
+            <Title level="H6"  text="{i18n>Pcard_Title_Text3}"/>
+          </Toolbar>
+        </headerToolbar>
+        <HBox>
+          <items>
+            <ToolbarSpacer width="20px"/>
+            <u:FileUploader  value="{headerUserModel>/FILE}" name="{headerUserModel>/FILE_NAME}" uploadUrl="/sap/opu/odata/sap/YFPSFIPFRDD0020_PCARDREC_EFROM_SRV/eFormAttachments/" width="400px" sendXHR="true"
+              useMultipart="false" uploadOnChange="false" change="handleValueChange" tooltip="Upload your file to the local server"
+              uploadComplete="onhandleUploadComplete"/>
+            <ToolbarSpacer width="20px"/>
+            <Button text="Upload File" enabled="true" type="Accept" icon="sap-icon://upload" iconFirst="true" width="auto" visible="true"
+              iconDensityAware="false" press="handleUploadPress"/>
+          </items>
+          <layoutData/>
+        </HBox>
+        <VBox alignItems="Stretch" direction="Column" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+          visible="true" displayInline="false">
+          <items>
+            <HBox alignItems="Center" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div"
+              visible="true" displayInline="false">
+              <items>
+                <ToolbarSpacer width="20px"/>
+                <ToolbarSpacer width="10px"/>
+                <ToolbarSpacer width="10px"/>
+              </items>
+              <layoutData/>
+            </HBox>
+            <!--REQ0600875:NSONI3:GWDK902198:11/11/2020:Remove the attchment size by changing threshold value restriction:START-->
+            <Table width="100%" noDataText="No data" mode="SingleSelectLeft" showSeparators="All" growing="true" growingThreshold="0"
+              growingScrollToLoad="true" items="{oCollectionModel>/}">
+            <!--REQ0600875:NSONI3:GWDK902198:11/11/2020:Remove the attchment size by changing threshold value restriction:END-->
+              <infoToolbar>
+                <Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+                  <content>
+                    <Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+                  </content>
+                </Toolbar>
+              </infoToolbar>
+              <headerToolbar>
+                <Toolbar width="auto" height="46px" design="Transparent" visible="true" enabled="true">
+                  <content>
+                    <ToolbarSpacer width=""/>
+                    <Button text="" type="Reject" icon="sap-icon://delete" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="onDeleteAttachment"/>
+                  </content>
+                  <tooltip/>
+                </Toolbar>
+              </headerToolbar>
+              <columns>
+                <Column hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                  <Text text="File Name" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                </Column>
+                <Column hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                  <Text text="Creation Date" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                </Column>
+                <Column hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                  <Text text="Creation Time (PST)" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                </Column>
+                <Column hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                <Text text="Size" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                </Column>
+                <Column hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                  <Text text="Creator" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                </Column>
+              </columns>
+              <items>
+                <ColumnListItem type="Active">
+                  <cells>
+                  	<!--REQ0481487:NSONI3:GWDK901951:03/02/2020:FILNAME OVERLAP WITH CREATION DATE:START-->
+                    <Link text="{oCollectionModel>FILE_NAME}" width="10em" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit" press="openAttachment"/>
+                    <!--REQ0481487:NSONI3:GWDK901951:03/02/2020:FILNAME OVERLAP WITH CREATION DATE:END-->
+                    <Text text="{path:'oCollectionModel>CREATION_DT',formatter:'.attachmentDate'}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                    <Text text="{oCollectionModel>CREATION_TIME}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                    <Text text="{oCollectionModel>FILE_SIZE}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                    <Text text="{oCollectionModel>CREATED_BY}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                  </cells>
+                </ColumnListItem>
+              </items>
+            </Table>
+          </items>
+        </VBox>
+      </Panel>
+    </l:content>
+  </l:VerticalLayout>
+  <Panel>
+    <Title level="H6" text="{i18n>PCard_Title2}" class="sapUiMediumMarginTop"/>
+    <VBox class="sapUiSmallMargin">
+      <HBox>
+        <Label text="{i18n>form_Comments}" class="sapUiMediumMargin"/>
+        <TextArea value="{headerUserModel>/COMMENTS}" rows="2" placeholder="Enter Comments" cols="120" maxLength="0" wrapping="None" visible="true"/>
+        <Button text="Clear"  type="Reject" class="sapUiSmallMargin" press="onClearComment"/>
+        <Button text="Save" type="Emphasized" class="sapUiSmallMargin" press="saveComments"/>
+      </HBox>
+    </VBox>
+  </Panel>
+  <Table width="100%" noDataText="No data" items="{oCommentsModel>/}" mode="SingleSelectLeft" showSeparators="All" growing="true"
+    growingThreshold="20" growingScrollToLoad="true">
+    <infoToolbar>
+      <Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+        <content>
+          <Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+        </content>
+      </Toolbar>
+    </infoToolbar>
+    <headerToolbar>
+      <Toolbar width="auto" height="46px" design="Transparent" visible="true" enabled="true">
+        <content>
+          <Title text="" titleStyle="Auto" width="auto" textAlign="Begin" visible="true"/>
+          <ToolbarSpacer width=""/>
+          <Button text="" type="Emphasized" icon="sap-icon://save" iconFirst="true" width="auto" enabled="true" visible="true"
+            iconDensityAware="false" press="updateComment"/>
+          <Button text="" type="Reject" icon="sap-icon://delete" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="deleteComment"/>
+        </content>
+        <tooltip/>
+      </Toolbar>
+    </headerToolbar>
+    <columns>
+      <Column width="10%" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+        <header>
+          <Text text="{i18n>Id}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+        </header>
+      </Column>
+      <Column width="50%" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+        <header>
+          <Text text="{i18n>Comments}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+        </header>
+      </Column>
+      <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+        <header>
+          <Text text="{i18n>AddedBy}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+        </header>
+      </Column>
+      <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+        <header>
+          <Text text="{i18n>AddedOn}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+        </header>
+      </Column>
+    </columns>
+    <items>
+      <ColumnListItem type="Active">
+        <cells>
+          <Text text="{oCommentsModel>SEQUENCE}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+          <TextArea value="{oCommentsModel>COMMENTS}" rows="2" cols="70" maxLength="0" wrapping="None" visible="true"/>
+          <Text text="{oCommentsModel>CREATOR}" width="auto" maxLines="1" wrapping="false" textAlign="Begin"
+            textDirection="Inherit"/>
+          <Text text="{path:'oCommentsModel>CR_DATE'}" width="auto" maxLines="1" wrapping="false" textAlign="Begin"
+            textDirection="Inherit"/>
+        </cells>
+      </ColumnListItem>
+    </items>
+  </Table>
+</core:FragmentDefinition>

@@ -1,0 +1,98 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<VBox>
+		<Label design="Bold" wrapping="true"
+			text="Note: Compliance is the first approver. All other required approvers approve in parallel. The updated workflows will go into production when all of the approvals have been obtained in any order."/>
+		<Label/>
+		<Table width="100%" id="approvers" noDataText="No data" mode="SingleSelectLeft" showSeparators="All" growing="true" growingThreshold="20"
+			growingScrollToLoad="true">
+			<infoToolbar>
+				<Toolbar width="100%" height="auto" design="Auto" visible="true" enabled="true">
+					<content></content>
+				</Toolbar>
+			</infoToolbar>
+			<headerToolbar>
+				<Toolbar width="100%" height="auto" design="Auto" visible="true" enabled="true">
+					<content>
+						<ToolbarSpacer/>
+						<Text text="Add Watcher:" width="auto" maxLines="1" wrapping="false" textDirection="Inherit"/>
+						<ComboBox editable="true" id="ENTRY_SEQUENCE" enabled="true" visible="true" width="120px" valueState="None" maxWidth="100%" selectedKey="A">
+							<items>
+								<core:Item text="Before" key="B" enabled="true"/>
+								<core:Item text="After" key="A" enabled="true"/>
+							</items>
+						</ComboBox>
+						<Button text="" type="Emphasized" icon="sap-icon://add" id="add_approver" iconFirst="true" width="auto" enabled="true" visible="true"
+							iconDensityAware="false" press="addWatcher"/>
+						<Button text="" type="Reject" icon="sap-icon://delete" id="del_approver" iconFirst="true" width="auto" enabled="true" visible="true"
+							iconDensityAware="false" press="deleteWatcher"/>
+					</content>
+				</Toolbar>
+			</headerToolbar>
+			<columns>
+				<Column width="auto" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+					<header>
+						<Text text="Approved/Rejected" width="auto" maxLines="1" wrapping="false" textDirection="Inherit"/>
+					</header>
+					<footer/>
+				</Column>
+				<Column width="auto" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+					<header>
+						<Text text="Approver" width="auto" maxLines="1" wrapping="false" textDirection="Inherit"/>
+					</header>
+					<footer/>
+				</Column>
+				<Column width="auto" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+					<header>
+						<Text text="Reviewer Type" width="auto" maxLines="1" wrapping="false" textDirection="Inherit"/>
+					</header>
+					<footer/>
+				</Column>
+				<Column width="auto" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+					<header>
+						<Text text="Approved By" width="auto" maxLines="1" wrapping="false" textDirection="Inherit"/>
+					</header>
+					<footer/>
+				</Column>
+				<Column width="auto" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+					<header>
+						<Text text="Date" width="auto" maxLines="1" wrapping="false" textDirection="Inherit"/>
+					</header>
+					<footer/>
+				</Column>
+				<Column width="auto" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+					<header>
+						<Text text="Time (PST)" width="auto" maxLines="1" wrapping="false" textDirection="Inherit"/>
+					</header>
+					<footer/>
+				</Column>
+				<Column width="auto" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+					<header>
+						<Text text="Manually added" width="auto" maxLines="1" wrapping="false" textDirection="Inherit"/>
+					</header>
+					<footer/>
+				</Column>
+				<Column width="auto" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+					<header>
+						<Text text="Added By" width="auto" maxLines="1" wrapping="false" textDirection="Inherit"/>
+					</header>
+					<footer/>
+				</Column>
+				<Column width="auto" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+					<header>
+						<Text text="Added On" width="auto" maxLines="1" wrapping="false" textDirection="Inherit"/>
+					</header>
+					<footer/>
+				</Column>
+			</columns>
+			<items></items>
+		</Table>
+	</VBox>
+	<HBox xmlns:mvc="sap.ui.core.mvc" xmlns:form="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns:m="sap.m" alignItems="Stretch"
+		direction="RowReverse" fitContainer="false" width="auto" height="40px" justifyContent="Start" renderType="Div" visible="true"
+		displayInline="false" id="__hbox43">
+		<items>
+			<Button text="Refresh" type="Accept" icon="sap-icon://refresh" width="auto" id="__button23" enabled="true" press="refreshApprovers"/>
+		</items>
+		<layoutData/>
+	</HBox>
+</core:FragmentDefinition>

@@ -1,0 +1,116 @@
+<mvc:View controllerName="sony.finance.maintaince.app.controller.FinanceMaintagePage" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns:f="sap.ui.layout.form" xmlns="sap.m" xmlns:fb="sap.ui.comp.filterbar"
+	xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core">
+	<App>
+		<pages>
+			<Page title="Finance Approval Request Form" id="pageId">
+				<customHeader>
+					<Bar design="Auto">
+						<contentLeft>
+							<core:Icon src="sap-icon://home" id="b_home" size="30px" height="46px" width="46px" color="blue" visible="false" press="_onNavigateHome"/>
+						</contentLeft>
+						<contentMiddle>
+							<Title text="Title" level="H2" id="pageTitleId"/>
+						</contentMiddle>
+						<contentRight>
+							<Button icon="sap-icon://edit" press="onPressFormEdit" ariaLabelledBy="editButtonLabel" id="btnEdit" visible="false"/>
+							<Button icon="sap-icon://delete" press="onPressFormDelete" id="btnDelete" visible="false"/>
+						</contentRight>
+					</Bar>
+				</customHeader>
+				<content>
+					<Panel expandable="true" expanded="true" headerText="Search Criteria">
+						<f:SimpleForm id="simpleForm" editable="true" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4" labelSpanM="12" labelSpanS="12"
+							adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2" columnsM="1"
+							singleContainerFullSize="false" class="uiHeaderAlign">
+							<f:content>
+								<core:Title text="Search" class="uiHeaderSearch"/>
+								<Label text="{i18n>User}"/>
+								<!-- FPDK900068 :DPATEL11: PRS:DEV:DPATEL11:REQ0737264:FIA_USERID_FIELD_CHANGES : START -->
+								<!--<MultiComboBox value="{headerUserModel>/user}" enabled="{DisplayModel>/Readonly}" selectionChange="handleSearch"-->
+								<!--	selectionFinish="handleSelectionFinish" id="userLabelId"-->
+								<!--	items="{ path: 'userSearchModel>/eUserSet', sorter : { path : 'Name', descending : false } }" width="23rem">-->
+								<!--	<core:Item key="{userSearchModel>USERID}" text="{userSearchModel>NAME}"/>-->
+								<!--</MultiComboBox>-->
+								<MultiInput id="userLabelId" enabled="{DisplayModel>/Readonly}" type="Text" placeholder="Enter user Id" showValueHelp="true"
+									valueHelpRequest="handleUserValueHelp2"/>
+								<!-- FPDK900068 :DPATEL11: PRS:DEV:DPATEL11:REQ0737264:FIA_USERID_FIELD_CHANGES : END -->
+								<Label text="{i18n>LOB}"/>
+								<MultiInput id="multiLobId" enabled="{DisplayModel>/Readonly}" placeholder="Enter LOB" showValueHelp="true"
+									valueHelpRequest="handleLOBValueHelpHeader"/>
+								<Label text="{i18n>Sub_LOB}"/>
+								<MultiInput id="multiSlobId" enabled="{DisplayModel>/Readonly}" placeholder="Enter SLOB" showValueHelp="true"
+									valueHelpRequest="handleSLOBValueHelpHeader"/>
+								<Label text=""/>
+								<Button enabled="{DisplayModel>/Readonly1}" text="{i18n>Search}" type="Emphasized" width="34%" press="onSearch"/>
+								<core:Title text="Mass Replace" class="uiHeaderMassReplace"/>
+								<Label text="Title"/>
+								<Input id="sFormTitleId" enabled="{DisplayModel>/Readonly}" value="{headerUserModel>/title}" required="true" maxLength="128"/>
+								<Label text="Description"/>
+								<TextArea id="sFormDescId" value="{headerUserModel>/Description}" enabled="{DisplayModel>/Readonly}" maxLength="250"/>
+								<Label text="Replace User"/>
+								<!-- FPDK900068 :DPATEL11: PRS:DEV:DPATEL11:REQ0737264:FIA_USERID_FIELD_CHANGES : START -->
+								<!--<ComboBox value="{headerUserModel>/userReplace}" enabled="{DisplayModel>/Readonly}" selectionChange="handleSearch" id="userLabelId1"-->
+								<!--	items="{ path: 'userSearchModel>/eUserSet' }" width="23rem">-->
+								<!--	<core:Item key="{userSearchModel>USERID}" text="{userSearchModel>NAME}"/>-->
+								<!--</ComboBox>-->
+								<Input value="{headerUserModel>/userReplace}" id="userLabelId1" valueHelpOnly="true" enabled="{DisplayModel>/Readonly}" type="Text"
+									showValueHelp="true" valueHelpRequest="handleUserValueHelp1"/>
+								<Label text="{i18n>Replace_With_User}"/>
+								<!--<ComboBox enabled="{DisplayModel>/Readonly}" value="{headerUserModel>/replaceWithUser}" selectionChange="handleSearch"-->
+								<!--	id="userLabeReplacelId" items="{ path: 'userSearchModel>/eUserSet' }" width="23rem">-->
+								<!--	<core:Item key="{userSearchModel>USERID}" text="{userSearchModel>NAME}"/>-->
+								<!--</ComboBox>-->
+								<Input value="{headerUserModel>/replaceWithUser}" id="userLabeReplacelId" valueHelpOnly="true" enabled="{DisplayModel>/Readonly}"
+									type="Text" showValueHelp="true" valueHelpRequest="handleUserValueHelp1"/>
+								<!-- FPDK900068 :DPATEL11: PRS:DEV:DPATEL11:REQ0737264:FIA_USERID_FIELD_CHANGES : END -->
+								<Label/>
+								<Button enabled="{DisplayModel>/Readonly}" text="{i18n>Repalce_User}" type="Emphasized" width="80%" press="onReplaceSearch"/>
+							</f:content>
+						</f:SimpleForm>
+					</Panel>
+					<IconTabBar id="idIconTabBar" selectedKey="AfterKey" select="handleIconTabBarSelect" class="sapUiResponsiveContentPadding tabAlign">
+						<items>
+							<IconTabFilter id="idIconTabFilter1" icon="sap-icon://media-rewind" text="Before Change Table Entries" key="BeforeKey">
+								<content>
+									<core:Fragment fragmentName="sony.finance.maintaince.app.Fragments.Approver_Table" type="XML"/>
+								</content>
+							</IconTabFilter>
+							<IconTabFilter id="idIconTabFilter2" icon="sap-icon://media-forward" text="After Change Table Entries" key="AfterKey">
+								<content>
+									<core:Fragment fragmentName="sony.finance.maintaince.app.Fragments.User_Table" type="XML"/>
+								</content>
+							</IconTabFilter>
+							<IconTabFilter id="idIconTabFilter3" icon="sap-icon://approvals" text="Approval Flow" key="Approver" visible="false">
+								<content>
+									<core:Fragment fragmentName="sony.finance.maintaince.app.Fragments.Approver_Flow" type="XML"/>
+								</content>
+							</IconTabFilter>
+							<IconTabFilter id="idIconTabFilter4" icon="sap-icon://comment" text="Comment" key="Comment" visible="false">
+								<content>
+									<core:Fragment fragmentName="sony.finance.maintaince.app.Fragments.Comment_Table" type="XML"/>
+								</content>
+							</IconTabFilter>
+						</items>
+					</IconTabBar>
+				</content>
+				<footer>
+					<OverflowToolbar id="otbFooter">
+						<ToolbarSpacer/>
+						<Button type="Emphasized" id="oBtnApprove" text="Approve" width="8rem" press="_onButtonPressApprove" visible="false"/>
+						<Button type="Reject" id="oBtnReject" text="Reject" width="8rem" press="_onButtonPressReject" visible="false"/>
+						<Button type="Emphasized" id="oBtnSave" text="Save" width="8rem" press="onPressSave" visible="false"/>
+						<Button type="Emphasized" id="oBtnSubmit" text="{i18n>Submit}" width="8rem" press="onPressSubmit" visible="false"/>
+						<Button type="Reject" id="oBtnCancel" text="Withdraw" width="8rem" press="onPressWithdraw" visible="false"/>
+						<Button type="Emphasized" id="oBtnPrint" text="Print" width="8rem" press="onPressPrint" visible="true"/>
+					</OverflowToolbar>
+				</footer>
+				<l:VerticalLayout>
+					<l:dependents>
+						<core:Fragment fragmentName="sony.finance.maintaince.app.Fragments.busyDialog" type="XML"></core:Fragment>
+					</l:dependents>
+				</l:VerticalLayout>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
